@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iHoogi - מצגת למשרדי פרסום דיגיטל</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;700;800&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Assistant', 'Heebo', sans-serif;
+            direction: rtl;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow: hidden;
+        }
+        
+        .container {
+            min-height: 100vh;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .logo-container {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo-img {
+            height: 3.5rem;
+            width: auto;
+            object-fit: contain;
+        }
+        
+        .logo-subtitle {
+            font-size: 0.75rem;
+            color: #4b5563;
+            font-weight: 500;
+            text-align: center;
+            white-space: nowrap;
+        }
+        
+        .slide {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            transition: all 0.5s ease;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .slide.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .slide-content {
+            max-width: 42rem;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .headline {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #111827;
+            line-height: 1.25;
+            white-space: pre-line;
+        }
+        
+        .highlight {
+            color: #00B4A6;
+        }
+        
+        .subline {
+            font-size: 1.25rem;
+            color: #374151;
+            font-weight: 500;
+            line-height: 1.625;
+            white-space: pre-line;
+        }
+        
+        .footer-line {
+            font-size: 0.875rem;
+            color: #6b7280;
+            font-weight: 400;
+            margin-top: 1rem;
+            font-style: italic;
+        }
+        
+        .image-placeholder {
+            margin-top: 2rem;
+            border-radius: 1rem;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(4px);
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+        
+        .image-box {
+            background: linear-gradient(135deg, rgba(47, 58, 143, 0.08), rgba(0, 180, 166, 0.08));
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        /* Placeholder keeps a consistent ratio */
+        .image-box--placeholder {
+            aspect-ratio: 16 / 9;
+        }
+
+        /* When an image exists — adapt height naturally */
+        .image-box--img {
+            background: transparent;
+        }
+
+        .image-box--img img {
+            width: 100%;
+            height: auto;
+            max-height: 46vh;
+            object-fit: contain;
+            border-radius: 0.75rem;
+        }
+        
+        .image-text {
+            text-align: center;
+            color: #6b7280;
+        }
+        
+        .image-icon {
+            font-size: 2.25rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .image-desc {
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .image-hint {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            margin-top: 0.25rem;
+        }
+        
+        .cta-container {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .cta-button {
+            padding: 1rem 2rem;
+            background: linear-gradient(to right, #2F3A8F, #00B4A6);
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 700;
+            border-radius: 1rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .cta-subline {
+            font-size: 0.875rem;
+            color: #4b5563;
+            font-weight: 500;
+        }
+        
+        .nav-dots {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .nav-dot {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 9999px;
+            background: #d1d5db;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .nav-dot.active {
+            background: #2F3A8F;
+            width: 2rem;
+        }
+        
+        .nav-dot:hover {
+            background: #9ca3af;
+        }
+        
+        .slide-counter {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 1000;
+            font-size: 0.875rem;
+            color: #4b5563;
+            font-weight: 500;
+        }
+        
+        @media (min-width: 768px) {
+            .headline {
+                font-size: 3rem;
+            }
+            .subline {
+                font-size: 1.5rem;
+            }
+            .cta-button {
+                font-size: 1.5rem;
+            }
+            .logo-subtitle {
+                font-size: 0.875rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .headline {
+                font-size: 3.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Logo -->
+        <div class="logo-container">
+            <img id="logo-img" class="logo-img" alt="iHoogi Logo" onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='flex';">
+            <div id="logo-fallback" style="display:none; width:3.5rem; height:3.5rem; background:linear-gradient(135deg, #2F3A8F, #00B4A6); border-radius:0.5rem; align-items:center; justify-content:center;">
+                <span style="color:white; font-weight:700; font-size:1.25rem;">iH</span>
+            </div>
+            <p class="logo-subtitle">העוזר שמדרג פניות לעסק</p>
+        </div>
+        
+        <!-- Slides -->
+        <div id="slides-container"></div>
+        
+        <!-- Navigation Dots -->
+        <div class="nav-dots" id="nav-dots"></div>
+        
+        <!-- Slide Counter -->
+        <div class="slide-counter" id="slide-counter">1 / 9</div>
+    </div>
+    
+    <script>
+        const SLIDES = [
+            {
+                id: 1,
+                headline: 'לא כל ליד שווה שיחת מכירה.',
+                subline: 'משרד פרסום שמנהל איכות — נראה אחרת מול הלקוחות.',
+                gradient: 'linear-gradient(135deg, #EEF1FA, #E8F7F5)',
+                hasImage: false,
+            },
+            {
+                id: 2,
+                headline: 'יש CRM? מצוין.',
+                subline: `iHoogi לא מחליפה CRM.
+היא מוסיפה שכבת החלטה *לפני* ה-CRM —
+מי חם, מי פושר, ומי לא בשל עדיין.
+ככה הצוות חוזר רק כשיש סיכוי אמיתי לסגירה.`,
+                highlight: 'לפני',
+                gradient: 'linear-gradient(135deg, #EEF1FA, #E0E8F0)',
+                hasImage: true,
+                imagePlaceholder: 'ויזואל קצר: לפני ה-CRM / אחרי ה-CRM',
+            },
+            {
+                id: 3,
+                headline: 'להבין את הליד — במבט אחד.',
+                subline: `ניתוח תשובות + דירוג ברור
+🔥 חם · 🌡️ פושר · ❄️ קר`,
+                gradient: 'linear-gradient(135deg, #F3EFFF, #EEF1FA)',
+                hasImage: true,
+                imagePlaceholder: 'טבלת לידים עם דירוג',
+                imageSrc: './images/leads-table.png',
+            },
+            {
+                id: 4,
+                headline: 'חמים מגיעים מיידית לנייד.',
+                subline: `בדקות הראשונות חלון ההחלטה הכי פתוח.
+ליד חם קופץ מיידית — עם ההקשר המלא —
+כדי לחזור מהר ובדיוק, בלי שיחות על עיוור.`,
+                highlight: 'מיידית לנייד',
+                gradient: 'linear-gradient(135deg, #E8F0F5, #E0E8F0)',
+                hasImage: true,
+                imagePlaceholder: 'התראה שמתקבלת לנייד (עם תשובות)',
+                imageSrc: './images/get-leads.png',
+            },
+            {
+                id: 5,
+                headline: 'שיחת מכירה טובה מתחילה לפני השיחה.',
+                subline: `לפני שמרימים טלפון — רואים מה הלקוח מחפש, מה חשוב לו,
+ועד כמה הוא בשל להתקדם.
+זה ההבדל בין “לבדוק” לבין להוביל.`,
+                highlight: 'לפני השיחה',
+                gradient: 'linear-gradient(135deg, #FFF5E8, #FFE8D6)',
+                hasImage: true,
+                imagePlaceholder: 'תקריב: שאלות ותשובות מודגשות לפני המכירה',
+                imageSrc: './images/answer-leads.png',
+            },
+            {
+                id: 6,
+                headline: 'שאלון חכם לכל קמפיין — בלי כאב ראש.',
+                subline: `בנייה מהירה לפי תחום, מטרה וקהל.
+אפשר כמה שאלונים — לכל מוצר, הצעה או משפך.`,
+                gradient: 'linear-gradient(135deg, #F0F9FF, #E0F2FE)',
+                hasImage: true,
+                imagePlaceholder: 'מסך שאלון / בניית שאלון',
+                imageSrc: './images/ask.png',
+            },
+            {
+                id: 7,
+                headline: 'חוויה חכמה גם ללקוח הקצה — מייד.',
+                subline: `מענה מותאם לתשובות ולרמת העניין.
+לא “דוחפים מכירה” — כן מעלים בשלות וסיכוי לסגירה.`,
+                highlight: 'מענה מותאם',
+                gradient: 'linear-gradient(135deg, #F3EFFF, #E8F0F5)',
+                hasImage: true,
+                imagePlaceholder: 'דוגמה למענה אוטומטי ללקוח הקצה',
+                imageSrc: './images/answer.png',
+            },
+            {
+                id: 8,
+                headline: 'לדעת איזה קמפיין מביא לקוחות — לא רק לידים.',
+                subline: `ניתוח תשובות לפי קמפיין · מסר · קהל.
+דאטה שמחזיק מול הלקוח — ומחדד החלטות תקציב.`,
+                highlight: 'מביא לקוחות',
+                gradient: 'linear-gradient(135deg, #E8F7F5, #D4F1ED)',
+                hasImage: true,
+                imagePlaceholder: 'ניתוח לפי קמפיין / מקור',
+                imageSrc: './images/analysis.png',
+            },
+            {
+                id: 9,
+                headline: 'משרד שנותן שליטה במכירה — לא מחליפים בקלות.',
+                subline: `רוצים לראות איך זה נראה על קמפיין אמיתי?
+קישור: ihoogi.com`,
+                cta: 'לקבל דוגמה קצרה',
+                ctaSubline: 'בלי התחייבות · פשוט לראות איך זה עובד',
+                gradient: 'linear-gradient(135deg, #EEF1FA, #E8F7F5)',
+                hasImage: true,
+                imagePlaceholder: 'ויזואל מותג / לוגו',
+            },
+        ];
+        
+        let currentSlide = 0;
+        
+        function renderHeadline(slide) {
+            if (slide.highlight) {
+                const parts = slide.headline.split(slide.highlight);
+                let html = '';
+                for (let i = 0; i < parts.length; i++) {
+                    html += parts[i];
+                    if (i < parts.length - 1) {
+                        html += `<span class="highlight">${slide.highlight}</span>`;
+                    }
+                }
+                return html;
+            }
+            return slide.headline;
+        }
+        
+        function renderSlides() {
+            const container = document.getElementById('slides-container');
+            container.innerHTML = '';
+            
+            SLIDES.forEach((slide, index) => {
+                const slideDiv = document.createElement('div');
+                slideDiv.className = `slide ${index === currentSlide ? 'active' : ''}`;
+                slideDiv.style.background = slide.gradient;
+                
+                let content = `
+                    <div class="slide-content">
+                        <h1 class="headline">${renderHeadline(slide)}</h1>
+                `;
+                
+                if (slide.subline && !slide.cta) {
+                    content += `<p class="subline">${slide.subline}</p>`;
+                }
+                
+                if (slide.footerLine) {
+                    content += `<p class="footer-line">${slide.footerLine}</p>`;
+                }
+                
+                if (slide.hasImage && !slide.cta) {
+                    if (slide.imageSrc) {
+                        content += `
+                            <div class="image-placeholder">
+                                <div class="image-box image-box--img">
+                                    <img src="${slide.imageSrc}" alt="${slide.imagePlaceholder}" onerror="this.parentElement.innerHTML='<div class=\\'image-text\\'><div class=\\'image-icon\\'>⬜</div><p class=\\'image-desc\\'>${slide.imagePlaceholder}</p></div>';">
+                                </div>
+                            </div>
+                        `;
+                    } else {
+                        content += `
+                            <div class="image-placeholder">
+                                <div class="image-box image-box--placeholder">
+                                    <div class="image-text">
+                                        <div class="image-icon">📷</div>
+                                        <p class="image-desc">${slide.imagePlaceholder}</p>
+                                        <p class="image-hint">אזור תמונה לדוגמה</p>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }
+                }
+                
+                if (slide.cta) {
+                    content += `
+                        <div class="cta-container">
+                            <button class="cta-button">${slide.cta}</button>
+                            ${slide.ctaSubline ? `<p class="cta-subline">${slide.ctaSubline}</p>` : ''}
+                            ${slide.subline ? `<p class="subline" style="margin-top:0.5rem;">${slide.subline}</p>` : ''}
+                        </div>
+                    `;
+                    if (slide.hasImage) {
+                        content += `
+                            <div class="image-placeholder" style="margin-top: 1rem;">
+                                <div class="image-box image-box--placeholder">
+                                    <div class="image-text">
+                                        <div class="image-icon">📷</div>
+                                        <p class="image-desc">${slide.imagePlaceholder}</p>
+                                        <p class="image-hint">אזור תמונה לדוגמה</p>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }
+                }
+                
+                content += '</div>';
+                slideDiv.innerHTML = content;
+                container.appendChild(slideDiv);
+            });
+        }
+        
+        function renderNavDots() {
+            const container = document.getElementById('nav-dots');
+            container.innerHTML = '';
+            
+            SLIDES.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.className = `nav-dot ${index === currentSlide ? 'active' : ''}`;
+                dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+                dot.onclick = () => goToSlide(index);
+                container.appendChild(dot);
+            });
+        }
+        
+        function updateCounter() {
+            document.getElementById('slide-counter').textContent = `${currentSlide + 1} / ${SLIDES.length}`;
+        }
+        
+        function goToSlide(index) {
+            if (index >= 0 && index < SLIDES.length) {
+                currentSlide = index;
+                renderSlides();
+                renderNavDots();
+                updateCounter();
+            }
+        }
+        
+        function nextSlide() {
+            if (currentSlide < SLIDES.length - 1) {
+                goToSlide(currentSlide + 1);
+            }
+        }
+        
+        function prevSlide() {
+            if (currentSlide > 0) {
+                goToSlide(currentSlide - 1);
+            }
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                prevSlide();
+            }
+        });
+        
+        // Load logo
+        function loadLogo() {
+            const logoImg = document.getElementById('logo-img');
+            logoImg.src = './logo.png';
+            logoImg.onerror = function() {
+                this.src = './logo.jpg';
+                this.onerror = function() {
+                    this.style.display = 'none';
+                    document.getElementById('logo-fallback').style.display = 'flex';
+                };
+            };
+        }
+        
+        // Initialize
+        loadLogo();
+        renderSlides();
+        renderNavDots();
+        updateCounter();
+    </script>
+</body>
+</html>
