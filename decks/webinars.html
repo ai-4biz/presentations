@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iHoogi - וובינרים וכנסים</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;700;800&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Assistant', 'Heebo', sans-serif;
+            direction: rtl;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-y: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .header-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-logo {
+            height: 2.5rem;
+            width: auto;
+            object-fit: contain;
+        }
+        
+        .header-cta {
+            padding: 0.625rem 1.25rem;
+            background: linear-gradient(to right, #2F3A8F, #00B4A6);
+            color: white;
+            font-size: 0.875rem;
+            font-weight: 700;
+            border-radius: 0.75rem;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 12px rgba(47, 58, 143, 0.25);
+            transition: all 0.3s;
+        }
+        
+        .header-cta:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(47, 58, 143, 0.35);
+        }
+        
+        .container {
+            height: auto;
+            min-height: 100vh;
+            width: 100%;
+            position: relative;
+            overflow: visible;
+            padding-top: 80px;
+        }
+        
+        .slide {
+            height: auto;
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            transition: all 0.5s ease;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .slide.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .slide-content {
+            max-width: 42rem;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .headline {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #111827;
+            line-height: 1.25;
+            white-space: pre-line;
+        }
+        
+        .highlight {
+            color: #00B4A6;
+        }
+        
+        .subline {
+            font-size: 1.25rem;
+            color: #374151;
+            font-weight: 500;
+            line-height: 1.625;
+            white-space: pre-line;
+        }
+        
+        .image-wrapper {
+            background: linear-gradient(135deg, #E8F7F5 0%, #EEF1FA 50%, #F3EFFF 100%);
+            border: 2px solid rgba(0, 180, 166, 0.3);
+            border-radius: 16px;
+            padding: 14px;
+            overflow: hidden;
+            margin-top: 1.5rem;
+            box-shadow: 0 10px 25px -5px rgba(47, 58, 143, 0.15);
+        }
+        
+        .image-wrapper img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            display: block;
+            border-radius: 10px;
+            max-height: min(46vh, 520px);
+        }
+        
+        .placeholder-card {
+            margin-top: 1.5rem;
+            border-radius: 1rem;
+            background: linear-gradient(135deg, rgba(47, 58, 143, 0.05), rgba(0, 180, 166, 0.05));
+            padding: 3rem 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border: 2px dashed rgba(0, 180, 166, 0.3);
+        }
+        
+        .placeholder-card .image-text {
+            text-align: center;
+            color: #6b7280;
+        }
+        
+        .placeholder-card .image-icon {
+            font-size: 3rem;
+            margin-bottom: 0.75rem;
+            opacity: 0.6;
+        }
+        
+        .placeholder-card .image-desc {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
+        .nav-dots {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .nav-dot {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 9999px;
+            background: #d1d5db;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .nav-dot.active {
+            background: #2F3A8F;
+            width: 2rem;
+        }
+        
+        .nav-dot:hover {
+            background: #9ca3af;
+        }
+        
+        .slide-counter {
+            position: fixed;
+            top: 5.5rem;
+            left: 1rem;
+            z-index: 1000;
+            font-size: 0.875rem;
+            color: #4b5563;
+            font-weight: 500;
+        }
+        
+        @media (min-width: 768px) {
+            .headline {
+                font-size: 3rem;
+            }
+            .subline {
+                font-size: 1.5rem;
+            }
+            .header-cta {
+                font-size: 1rem;
+                padding: 0.75rem 1.5rem;
+            }
+            .header-logo {
+                height: 3rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .headline {
+                font-size: 3.75rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-bar {
+                padding: 0.75rem 1rem;
+            }
+            .header-logo {
+                height: 2rem;
+            }
+            .header-cta {
+                font-size: 0.75rem;
+                padding: 0.5rem 1rem;
+            }
+            .slide-counter {
+                top: 4.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Fixed Header -->
+    <div class="header-bar">
+        <img src="../images/logo.png" alt="iHoogi Logo" class="header-logo" onerror="this.style.display='none';">
+        <a href="https://ihoogi.com" target="_blank" rel="noopener" class="header-cta">התנסות חינם</a>
+    </div>
+    
+    <div class="container">
+        <!-- Slides -->
+        <div id="slides-container"></div>
+        
+        <!-- Navigation Dots -->
+        <div class="nav-dots" id="nav-dots"></div>
+        
+        <!-- Slide Counter -->
+        <div class="slide-counter" id="slide-counter">1 / 7</div>
+    </div>
+    
+    <script>
+        const SLIDES = [
+            {
+                id: 1,
+                headline: 'אחרי הוובינר\nההחלטות מתקבלות "עיוורות"',
+                subline: 'מי ליצור איתו קשר?\nמה להגיד?\n\nכל תשובה מבוססת על ניחוש.',
+                gradient: 'linear-gradient(135deg, #EEF1FA, #E8F7F5)',
+                hasImage: false,
+            },
+            {
+                id: 2,
+                headline: 'iHoogi הופך רישומים\nלאורחים לפי עדיפות',
+                subline: 'כל משתתף מקבל ציון:\n🔥 חם · 🌡️ פושר · ❄️ קר\n\nעל בסיס התשובות וההתנהגות.',
+                highlight: 'לפי עדיפות',
+                gradient: 'linear-gradient(135deg, #F3EFFF, #EEF1FA)',
+                hasImage: true,
+                imagePlaceholder: 'דירוג משתתפי וובינר',
+            },
+            {
+                id: 3,
+                headline: 'לידים חמים\nנשלחים מייד לנייד',
+                subline: 'עם כל התשובות\nוכל ההקשר.\n\nיתרון מהירות: מגיבים ראשונים.',
+                highlight: 'נשלחים מייד',
+                gradient: 'linear-gradient(135deg, #E8F0F5, #E0E8F0)',
+                hasImage: true,
+                imagePlaceholder: 'הודעת התראה עם פרטי משתתף חם',
+            },
+            {
+                id: 4,
+                headline: 'יודעים את התשובות\nלפני השיחה',
+                subline: 'השיחה מתחילה חכמה,\nלא מאפס.\n\nהקשר שמשנה את השיחה.',
+                highlight: 'לפני השיחה',
+                gradient: 'linear-gradient(135deg, #FFF5E8, #FFE8D6)',
+                hasImage: true,
+                imagePlaceholder: 'תשובות משתתף לפני יצירת קשר',
+            },
+            {
+                id: 5,
+                headline: 'דירוג ברמת שאלה\nלא רק ברמת ליד',
+                subline: 'כל תשובה מקבלת ציון.\nכל שאלה מספרת סיפור.\n\nדיוק שלא ניתן להשיג אחרת.',
+                highlight: 'ברמת שאלה',
+                gradient: 'linear-gradient(135deg, #F0F9FF, #E0F2FE)',
+                hasImage: true,
+                imagePlaceholder: 'ניתוח שאלות ותשובות',
+            },
+            {
+                id: 6,
+                headline: 'וובינר שלם\nנהפך לעדיפויות ברורות',
+                subline: 'לא עוד רשימה ארוכה\nשל שמות.\n\nכן לסדר: מי קודם, מה להגיד.',
+                highlight: 'עדיפויות ברורות',
+                gradient: 'linear-gradient(135deg, #F3EFFF, #E8F0F5)',
+                hasImage: true,
+                imagePlaceholder: 'רשימת משתתפים מדורגת',
+            },
+            {
+                id: 7,
+                headline: 'המעקב אחרי וובינר\nלא יכול להיות יותר פשוט',
+                subline: 'iHoogi עושה את העבודה.\nהצוות ממשיך למכור.',
+                gradient: 'linear-gradient(135deg, #E8F7F5, #D4F1ED)',
+                hasImage: true,
+                imagePlaceholder: 'דשבורד מעקב וובינרים',
+            },
+        ];
+        
+        let currentSlide = 0;
+        
+        function renderHeadline(slide) {
+            if (slide.highlight) {
+                const parts = slide.headline.split(slide.highlight);
+                let html = '';
+                for (let i = 0; i < parts.length; i++) {
+                    html += parts[i];
+                    if (i < parts.length - 1) {
+                        html += `<span class="highlight">${slide.highlight}</span>`;
+                    }
+                }
+                return html;
+            }
+            return slide.headline;
+        }
+        
+        function renderSlides() {
+            const container = document.getElementById('slides-container');
+            container.innerHTML = '';
+            
+            SLIDES.forEach((slide, index) => {
+                const slideDiv = document.createElement('div');
+                slideDiv.className = `slide ${index === currentSlide ? 'active' : ''}`;
+                slideDiv.style.background = slide.gradient;
+                
+                let content = `<div class="slide-content">`;
+                content += `<h1 class="headline">${renderHeadline(slide)}</h1>`;
+                
+                if (slide.subline) {
+                    content += `<p class="subline">${slide.subline}</p>`;
+                }
+                
+                if (slide.hasImage) {
+                    content += `
+                        <div class="placeholder-card">
+                            <div class="image-text">
+                                <div class="image-icon">📊</div>
+                                <p class="image-desc">${slide.imagePlaceholder}</p>
+                            </div>
+                        </div>
+                    `;
+                }
+                
+                content += '</div>';
+                slideDiv.innerHTML = content;
+                container.appendChild(slideDiv);
+            });
+        }
+        
+        function renderNavDots() {
+            const navContainer = document.getElementById('nav-dots');
+            navContainer.innerHTML = '';
+            
+            SLIDES.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.className = `nav-dot ${index === currentSlide ? 'active' : ''}`;
+                dot.addEventListener('click', () => {
+                    currentSlide = index;
+                    renderSlides();
+                    renderNavDots();
+                    updateCounter();
+                });
+                navContainer.appendChild(dot);
+            });
+        }
+        
+        function updateCounter() {
+            document.getElementById('slide-counter').textContent = `${currentSlide + 1} / ${SLIDES.length}`;
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                if (currentSlide < SLIDES.length - 1) {
+                    currentSlide++;
+                    renderSlides();
+                    renderNavDots();
+                    updateCounter();
+                }
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    renderSlides();
+                    renderNavDots();
+                    updateCounter();
+                }
+            }
+        });
+        
+        // Initialize
+        renderSlides();
+        renderNavDots();
+        updateCounter();
+    </script>
+</body>
+</html>

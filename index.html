@@ -1,16 +1,278 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="he" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מצגות iHoogi</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;700;800&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <title>iHoogi - מצגת למשרדי פרסום</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Assistant', 'Heebo', sans-serif;
+            direction: rtl;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background: linear-gradient(135deg, #EEF1FA 0%, #E8F7F5 100%);
+            min-height: 100vh;
+            padding: 1rem;
+        }
+        
+        .header-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-logo {
+            height: 2.5rem;
+            width: auto;
+            object-fit: contain;
+        }
+        
+        .header-cta {
+            padding: 0.625rem 1.25rem;
+            background: linear-gradient(to right, #2F3A8F, #00B4A6);
+            color: white;
+            font-size: 0.875rem;
+            font-weight: 700;
+            border-radius: 0.75rem;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 12px rgba(47, 58, 143, 0.25);
+            transition: all 0.3s;
+        }
+        
+        .header-cta:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(47, 58, 143, 0.35);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 100px;
+            padding-bottom: 2rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #111827;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .decks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .deck-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            border: 2px solid rgba(0, 180, 166, 0.1);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .deck-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+            border-color: rgba(0, 180, 166, 0.3);
+        }
+        
+        .deck-card h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #111827;
+            margin: 0;
+        }
+        
+        .deck-card p {
+            font-size: 1rem;
+            color: #6b7280;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        .deck-actions {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: auto;
+        }
+        
+        .deck-link {
+            flex: 1;
+            padding: 0.75rem 1.25rem;
+            background: linear-gradient(to right, #2F3A8F, #00B4A6);
+            color: white;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 0.75rem;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+            box-shadow: 0 4px 12px rgba(47, 58, 143, 0.25);
+            transition: all 0.3s;
+        }
+        
+        .deck-link:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 16px rgba(47, 58, 143, 0.35);
+        }
+        
+        .copy-link-btn {
+            padding: 0.75rem 1.25rem;
+            background: #f3f4f6;
+            color: #374151;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border-radius: 0.75rem;
+            border: 2px solid #e5e7eb;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        
+        .copy-link-btn:hover {
+            background: #e5e7eb;
+            border-color: #d1d5db;
+        }
+        
+        .copy-link-btn.copied {
+            background: #10b981;
+            color: white;
+            border-color: #10b981;
+        }
+        
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+            .header-cta {
+                font-size: 1rem;
+                padding: 0.75rem 1.5rem;
+            }
+            .header-logo {
+                height: 3rem;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .container {
+                padding-top: 90px;
+            }
+            h1 {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+            .decks-grid {
+                grid-template-columns: 1fr;
+            }
+            .deck-actions {
+                flex-direction: column;
+            }
+            .copy-link-btn {
+                font-size: 0.75rem;
+                padding: 0.625rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Fixed Header -->
+    <div class="header-bar">
+        <img src="images/logo.png" alt="iHoogi Logo" class="header-logo" onerror="this.style.display='none';">
+        <a href="https://ihoogi.com" target="_blank" rel="noopener" class="header-cta">התנסות חינם</a>
+    </div>
+    
+    <div class="container">
+        <h1>מצגות iHoogi</h1>
+        
+        <div class="decks-grid">
+            <div class="deck-card">
+                <h2>וובינרים וכנסים</h2>
+                <p>הפיכת משתתפי וובינר לעדיפויות ברורות עם ציון חם/פושר/קר</p>
+                <div class="deck-actions">
+                    <a href="decks/webinars.html" class="deck-link">פתח מצגת</a>
+                    <button class="copy-link-btn" data-url="https://ai-4biz.github.io/presentations/decks/webinars.html">העתקת לינק</button>
+                </div>
+            </div>
+            
+            <div class="deck-card">
+                <h2>משרדי פרסום ודיגיטל</h2>
+                <p>ניהול חכם של לידים ושליטה מלאה בתהליך המכירה</p>
+                <div class="deck-actions">
+                    <a href="decks/digital-agencies.html" class="deck-link">פתח מצגת</a>
+                    <button class="copy-link-btn" data-url="https://ai-4biz.github.io/presentations/decks/digital-agencies.html">העתקת לינק</button>
+                </div>
+            </div>
+            
+            <div class="deck-card">
+                <h2>עורכי דין</h2>
+                <p>סינון ומיון חכם של פניות ללקוחות המתאימים</p>
+                <div class="deck-actions">
+                    <a href="decks/lawyers.html" class="deck-link">פתח מצגת</a>
+                    <button class="copy-link-btn" data-url="https://ai-4biz.github.io/presentations/decks/lawyers.html">העתקת לינק</button>
+                </div>
+            </div>
+            
+            <div class="deck-card">
+                <h2>נדל״ן</h2>
+                <p>מיון וסינון חכם של לקוחות פוטנציאליים לפרויקטים</p>
+                <div class="deck-actions">
+                    <a href="decks/real-estate.html" class="deck-link">פתח מצגת</a>
+                    <button class="copy-link-btn" data-url="https://ai-4biz.github.io/presentations/decks/real-estate.html">העתקת לינק</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Copy link functionality
+        document.querySelectorAll('.copy-link-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const url = this.getAttribute('data-url');
+                navigator.clipboard.writeText(url).then(() => {
+                    const originalText = this.textContent;
+                    this.textContent = 'הועתק!';
+                    this.classList.add('copied');
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                        this.classList.remove('copied');
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Failed to copy:', err);
+                    alert('העתקה נכשלה. נסה שוב.');
+                });
+            });
+        });
+    </script>
+</body>
 </html>
