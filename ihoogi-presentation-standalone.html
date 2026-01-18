@@ -587,6 +587,20 @@
             }
         });
         
+        // Check if image is portrait (taller than wide) and adjust layout
+        function checkImageOrientation(img) {
+            if (!img || !img.complete) return;
+            
+            const slideContent = img.closest('.slide-content');
+            if (!slideContent) return;
+            
+            const aspectRatio = img.naturalHeight / img.naturalWidth;
+            // If image is portrait (height > width), use side-by-side layout
+            if (aspectRatio > 1.2) {
+                slideContent.classList.add('portrait-layout');
+            }
+        }
+        
         // Load logo
         function loadLogo() {
             const logoImg = document.getElementById('logo-img');
