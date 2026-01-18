@@ -309,7 +309,7 @@
         
         .slide-counter {
             position: fixed;
-            top: 1rem;
+            top: 5.5rem;
             left: 1rem;
             z-index: 1000;
             font-size: 0.875rem;
@@ -327,6 +327,13 @@
             .cta-button {
                 font-size: 1.5rem;
             }
+            .header-cta {
+                font-size: 1rem;
+                padding: 0.75rem 1.5rem;
+            }
+            .header-logo {
+                height: 3rem;
+            }
         }
         
         @media (min-width: 1024px) {
@@ -336,6 +343,19 @@
         }
         
         @media (max-width: 768px) {
+            .header-bar {
+                padding: 0.75rem 1rem;
+            }
+            .header-logo {
+                height: 2rem;
+            }
+            .header-cta {
+                font-size: 0.75rem;
+                padding: 0.5rem 1rem;
+            }
+            .container {
+                padding-top: 70px;
+            }
             .slide-counter {
                 top: 4.5rem;
             }
