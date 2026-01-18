@@ -282,6 +282,7 @@
                 gradient: 'linear-gradient(135deg, #F3EFFF, #EEF1FA)',
                 hasImage: true,
                 imagePlaceholder: 'דירוג משתתפי וובינר',
+                imageSrc: '../images/leads-table.png',
             },
             {
                 id: 3,
@@ -291,6 +292,7 @@
                 gradient: 'linear-gradient(135deg, #E8F0F5, #E0E8F0)',
                 hasImage: true,
                 imagePlaceholder: 'הודעת התראה עם פרטי משתתף חם',
+                imageSrc: '../images/get-leads.png',
             },
             {
                 id: 4,
@@ -300,6 +302,7 @@
                 gradient: 'linear-gradient(135deg, #FFF5E8, #FFE8D6)',
                 hasImage: true,
                 imagePlaceholder: 'תשובות משתתף לפני יצירת קשר',
+                imageSrc: '../images/answer-leads.png',
             },
             {
                 id: 5,
@@ -309,6 +312,7 @@
                 gradient: 'linear-gradient(135deg, #F0F9FF, #E0F2FE)',
                 hasImage: true,
                 imagePlaceholder: 'ניתוח שאלות ותשובות',
+                imageSrc: '../images/analysis.png',
             },
             {
                 id: 6,
@@ -318,6 +322,7 @@
                 gradient: 'linear-gradient(135deg, #F3EFFF, #E8F0F5)',
                 hasImage: true,
                 imagePlaceholder: 'רשימת משתתפים מדורגת',
+                imageSrc: '../images/leads-table.png',
             },
             {
                 id: 7,
@@ -363,14 +368,22 @@
                 }
                 
                 if (slide.hasImage) {
-                    content += `
-                        <div class="placeholder-card">
-                            <div class="image-text">
-                                <div class="image-icon">📊</div>
-                                <p class="image-desc">${slide.imagePlaceholder}</p>
+                    if (slide.imageSrc) {
+                        content += `
+                            <div class="image-wrapper">
+                                <img src="${slide.imageSrc}" alt="${slide.imagePlaceholder}" onerror="this.parentElement.className='placeholder-card'; this.parentElement.innerHTML='<div class=\\'image-text\\'><div class=\\'image-icon\\'>📊</div><p class=\\'image-desc\\'>${slide.imagePlaceholder}</p></div>';">
                             </div>
-                        </div>
-                    `;
+                        `;
+                    } else {
+                        content += `
+                            <div class="placeholder-card">
+                                <div class="image-text">
+                                    <div class="image-icon">📊</div>
+                                    <p class="image-desc">${slide.imagePlaceholder}</p>
+                                </div>
+                            </div>
+                        `;
+                    }
                 }
                 
                 content += '</div>';
