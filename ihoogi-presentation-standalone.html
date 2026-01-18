@@ -45,6 +45,13 @@
             object-fit: contain;
         }
         
+        .header-cta-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.25rem;
+        }
+        
         .header-cta {
             padding: 0.625rem 1.25rem;
             background: linear-gradient(to right, #2F3A8F, #00B4A6);
@@ -63,6 +70,19 @@
         .header-cta:hover {
             transform: scale(1.05);
             box-shadow: 0 6px 16px rgba(47, 58, 143, 0.35);
+        }
+        
+        .header-cta-link {
+            font-size: 0.65rem;
+            color: #6b7280;
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.2s;
+        }
+        
+        .header-cta-link:hover {
+            color: #2F3A8F;
+            text-decoration: underline;
         }
         
         .container {
@@ -331,6 +351,9 @@
                 font-size: 1rem;
                 padding: 0.75rem 1.5rem;
             }
+            .header-cta-link {
+                font-size: 0.75rem;
+            }
             .header-logo {
                 height: 3rem;
             }
@@ -352,6 +375,9 @@
             .header-cta {
                 font-size: 0.75rem;
                 padding: 0.5rem 1rem;
+            }
+            .header-cta-link {
+                font-size: 0.6rem;
             }
             .container {
                 padding-top: 70px;
@@ -383,7 +409,10 @@
     <!-- Fixed Header -->
     <div class="header-bar">
         <img src="images/logo.png" alt="iHoogi Logo" class="header-logo" onerror="this.style.display='none';">
-        <a href="https://ihoogi.com" target="_blank" rel="noopener" class="header-cta">התנסות חינם</a>
+        <div class="header-cta-wrapper">
+            <a href="https://ihoogi.com" target="_blank" rel="noopener" class="header-cta">התנסות חינם</a>
+            <a href="https://ihoogi.com" target="_blank" rel="noopener" class="header-cta-link">ihoogi.com</a>
+        </div>
     </div>
     
     <div class="container">
