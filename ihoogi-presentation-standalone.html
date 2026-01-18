@@ -274,7 +274,7 @@
                 gradient: 'linear-gradient(135deg, #F3EFFF, #EEF1FA)',
                 hasImage: true,
                 imagePlaceholder: 'טבלת לידים עם דירוג',
-                imageSrc: './images/leads-table.png',
+                imageSrc: 'images/leads-table.png',
             },
             {
                 id: 3,
@@ -284,7 +284,7 @@
                 gradient: 'linear-gradient(135deg, #E8F0F5, #E0E8F0)',
                 hasImage: true,
                 imagePlaceholder: 'הודעה שמתקבלת בנייד',
-                imageSrc: './images/get-leads.png',
+                imageSrc: 'images/get-leads.png',
             },
             {
                 id: 4,
@@ -294,7 +294,7 @@
                 gradient: 'linear-gradient(135deg, #FFF5E8, #FFE8D6)',
                 hasImage: true,
                 imagePlaceholder: 'דוגמה לתשובת לקוח פתוחה',
-                imageSrc: './images/answer-leads.png',
+                imageSrc: 'images/answer-leads.png',
             },
             {
                 id: 5,
@@ -304,7 +304,7 @@
                 gradient: 'linear-gradient(135deg, #F0F9FF, #E0F2FE)',
                 hasImage: true,
                 imagePlaceholder: 'מסך בניית שאלון',
-                imageSrc: './images/ask.png',
+                imageSrc: 'images/ask.png',
             },
             {
                 id: 6,
@@ -314,7 +314,7 @@
                 gradient: 'linear-gradient(135deg, #F3EFFF, #E8F0F5)',
                 hasImage: true,
                 imagePlaceholder: 'דוגמה למענה אוטומטי',
-                imageSrc: './images/answer.png',
+                imageSrc: 'images/answer.png',
             },
             {
                 id: 7,
@@ -324,7 +324,7 @@
                 gradient: 'linear-gradient(135deg, #E8F7F5, #D4F1ED)',
                 hasImage: true,
                 imagePlaceholder: 'טבלת לידים מסוננת לפי קמפיין',
-                imageSrc: './images/analysis.png',
+                imageSrc: 'images/analysis.png',
             },
             {
                 id: 8,
@@ -333,7 +333,7 @@
                 gradient: 'linear-gradient(135deg, #EEF1FA, #E0E8F0)',
                 hasImage: true,
                 imagePlaceholder: 'דשבורד / רשימת לידים מסודרת',
-                imageSrc: './images/leads-table.png',
+                imageSrc: 'images/leads-table.png',
             },
             {
                 id: 9,
@@ -473,10 +473,10 @@
         function loadLogo() {
             const logoImg = document.getElementById('logo-img');
             // Try to load logo from same directory
-            logoImg.src = './logo.png';
+            logoImg.src = 'images/logo.png';
             logoImg.onerror = function() {
                 // If logo.png doesn't exist, try logo.jpg
-                this.src = './logo.jpg';
+                this.src = 'images/logo.jpg';
                 this.onerror = function() {
                     // Show fallback
                     this.style.display = 'none';
