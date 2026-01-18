@@ -453,11 +453,6 @@
                         <h1 class="headline">${renderHeadline(slide)}</h1>
                     `;
                     
-                    // Only show subline if no imageSrc (text-only slides)
-                    if (slide.subline && !slide.cta && !slide.imageSrc) {
-                        content += `<p class="subline">${slide.subline}</p>`;
-                    }
-                    
                     if (slide.hasImage && !slide.cta) {
                         if (slide.imageSrc) {
                             content += `
