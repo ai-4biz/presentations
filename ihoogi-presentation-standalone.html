@@ -544,6 +544,19 @@
                 slideDiv.innerHTML = content;
                 container.appendChild(slideDiv);
             });
+            
+            // Check all images after rendering
+            setTimeout(() => {
+                document.querySelectorAll('.image-wrapper img').forEach(img => {
+                    if (img.complete) {
+                        checkImageOrientation(img);
+                    } else {
+                        img.onload = function() {
+                            checkImageOrientation(this);
+                        };
+                    }
+                });
+            }, 100);
         }
         
         function renderNavDots() {
@@ -595,7 +608,15 @@
         
         // Check if image is portrait (taller than wide) and adjust layout
         function checkImageOrientation(img) {
-            if (!img || !img.complete) return;
+            if (!img) return;
+            
+            // Wait for image to fully load
+            if (!img.complete || img.naturalWidth === 0) {
+                img.onload = function() {
+                    checkImageOrientation(this);
+                };
+                return;
+            }
             
             const slideContent = img.closest('.slide-content');
             if (!slideContent) return;
