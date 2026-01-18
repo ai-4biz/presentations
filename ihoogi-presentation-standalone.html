@@ -24,37 +24,54 @@
             -webkit-overflow-scrolling: touch;
         }
         
+        .header-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-logo {
+            height: 2.5rem;
+            width: auto;
+            object-fit: contain;
+        }
+        
+        .header-cta {
+            padding: 0.625rem 1.25rem;
+            background: linear-gradient(to right, #2F3A8F, #00B4A6);
+            color: white;
+            font-size: 0.875rem;
+            font-weight: 700;
+            border-radius: 0.75rem;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 12px rgba(47, 58, 143, 0.25);
+            transition: all 0.3s;
+        }
+        
+        .header-cta:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(47, 58, 143, 0.35);
+        }
+        
         .container {
             height: auto;
             min-height: 100vh;
             width: 100%;
             position: relative;
             overflow: visible;
-        }
-        
-        .logo-container {
-            position: fixed;
-            top: 1rem;
-            right: 1rem;
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .logo-img {
-            height: 3.5rem;
-            width: auto;
-            object-fit: contain;
-        }
-        
-        .logo-subtitle {
-            font-size: 0.75rem;
-            color: #4b5563;
-            font-weight: 500;
-            text-align: center;
-            white-space: nowrap;
+            padding-top: 80px;
         }
         
         .slide {
@@ -310,14 +327,17 @@
             .cta-button {
                 font-size: 1.5rem;
             }
-            .logo-subtitle {
-                font-size: 0.875rem;
-            }
         }
         
         @media (min-width: 1024px) {
             .headline {
                 font-size: 3.75rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .slide-counter {
+                top: 4.5rem;
             }
         }
         
@@ -337,19 +357,41 @@
                 max-height: 40vh;
             }
         }
+        @media (min-width: 768px) {
+            .header-cta {
+                font-size: 1rem;
+                padding: 0.75rem 1.5rem;
+            }
+            .header-logo {
+                height: 3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-bar {
+                padding: 0.75rem 1rem;
+            }
+            .header-logo {
+                height: 2rem;
+            }
+            .header-cta {
+                font-size: 0.75rem;
+                padding: 0.5rem 1rem;
+            }
+            .container {
+                padding-top: 70px;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Fixed Header -->
+    <div class="header-bar">
+        <img src="images/logo.png" alt="iHoogi Logo" class="header-logo" onerror="this.style.display='none';">
+        <a href="https://ihoogi.com" target="_blank" rel="noopener" class="header-cta">התנסות חינם</a>
+    </div>
+    
     <div class="container">
-        <!-- Logo -->
-        <div class="logo-container">
-            <img id="logo-img" class="logo-img" alt="iHoogi Logo" onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='flex';">
-            <div id="logo-fallback" style="display:none; width:3.5rem; height:3.5rem; background:linear-gradient(135deg, #2F3A8F, #00B4A6); border-radius:0.5rem; align-items:center; justify-content:center;">
-                <span style="color:white; font-weight:700; font-size:1.25rem;">iH</span>
-            </div>
-            <p class="logo-subtitle">ihoogi — העוזר שמסנן פניות בשבילך</p>
-        </div>
-        
         <!-- Slides -->
         <div id="slides-container"></div>
         
