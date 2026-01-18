@@ -88,6 +88,33 @@
             gap: 1rem;
         }
         
+        /* Portrait layout: side-by-side (image left, text right) */
+        .slide.has-portrait .slide-content {
+            display: grid;
+            grid-template-columns: minmax(320px, 44%) 1fr;
+            gap: 18px;
+            align-items: start;
+            direction: ltr;
+            max-width: 56rem;
+        }
+        
+        .slide.has-portrait .text-block {
+            direction: rtl;
+            text-align: right;
+            display: flex;
+            align-items: center;
+        }
+        
+        .slide.has-portrait .headline {
+            font-size: 1.75rem;
+            margin: 0;
+            text-align: right;
+        }
+        
+        .slide.has-portrait .image-wrapper {
+            margin-top: 0;
+        }
+        
         /* Hero section height limit */
         .slide-content:not(:has(.image-wrapper)) {
             max-height: 45vh;
@@ -103,7 +130,7 @@
         }
         
         /* Image-first slides: tighter hero, no subline */
-        .slide-content:has(.image-wrapper) .headline {
+        .slide-content:has(.image-wrapper):not(:has(.portrait)) .headline {
             margin-bottom: 0.5rem;
         }
         
@@ -134,7 +161,7 @@
             border: 1px solid rgba(255, 255, 255, 0.8);
         }
         
-        /* No-crop screenshots */
+        /* Image wrapper - shared styles */
         .image-wrapper {
             background: linear-gradient(135deg, #E8F7F5 0%, #EEF1FA 50%, #F3EFFF 100%);
             border: 2px solid rgba(0, 180, 166, 0.3);
@@ -143,16 +170,24 @@
             overflow: hidden;
             margin-top: 0.75rem;
             box-shadow: 0 10px 25px -5px rgba(47, 58, 143, 0.15);
-            /* Container grows naturally with image, no height constraint */
         }
         
         .image-wrapper img {
             width: 100%;
             height: auto;
-            max-height: none;
             object-fit: contain;
             display: block;
-            border-radius: 8px;
+            border-radius: 10px;
+        }
+        
+        /* Landscape images (default) */
+        .image-wrapper img {
+            max-height: min(46vh, 520px);
+        }
+        
+        /* Portrait images */
+        .image-wrapper.portrait img {
+            max-height: min(64vh, 720px);
         }
         
         .image-box {
@@ -286,24 +321,29 @@
             }
         }
         
-        /* Mobile image adjustments */
-        @media (max-width: 640px) {
-            .image-wrapper {
-                padding: 10px;
-                border-radius: 12px;
+        /* Mobile: collapse portrait to stacked */
+        @media (max-width: 860px) {
+            .slide.has-portrait .slide-content {
+                grid-template-columns: 1fr;
+                direction: rtl;
             }
-            /* Allow images to grow naturally on mobile */
-        }
-        
-        /* Short screen adjustments - only limit if absolutely necessary */
-        @media (max-height: 600px) {
+            .slide.has-portrait .text-block {
+                direction: rtl;
+            }
+            .image-wrapper.portrait img {
+                max-height: 44vh;
+            }
             .image-wrapper img {
-                max-height: 60vh;
+                max-height: 40vh;
             }
         }
     </style>
 </head>
 <body>
+    <!-- DEBUG Banner -->
+    <div style="position: fixed; top: 0; left: 0; right: 0; z-index: 10000; background: #FF0000; color: #FFFFFF; padding: 1rem; text-align: center; font-size: 2rem; font-weight: 700; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+        DEBUG VERSION 999
+    </div>
     <div class="container">
         <!-- Logo -->
         <div class="logo-container">
@@ -435,40 +475,60 @@
             const container = document.getElementById('slides-container');
             container.innerHTML = '';
             
+            // Portrait images list
+            const portraitImages = ['images/answer.png', 'images/answer-leads.png', 'images/ask.png', 'images/get-leads.png'];
+            
             SLIDES.forEach((slide, index) => {
+                const isPortrait = slide.imageSrc && portraitImages.includes(slide.imageSrc);
                 const slideDiv = document.createElement('div');
-                slideDiv.className = `slide ${index === currentSlide ? 'active' : ''}`;
+                slideDiv.className = `slide ${isPortrait ? 'has-portrait' : ''} ${index === currentSlide ? 'active' : ''}`;
                 slideDiv.style.background = slide.gradient;
+                const imageWrapperClass = isPortrait ? 'image-wrapper portrait' : 'image-wrapper';
+                const slideClass = isPortrait ? 'slide has-portrait' : 'slide';
                 
-                let content = `
-                    <div class="slide-content">
+                let content = `<div class="slide-content">`;
+                
+                if (slide.hasImage && !slide.cta && isPortrait) {
+                    // Portrait: image first (left), text second (right)
+                    content += `
+                        <div class="${imageWrapperClass}">
+                            <img src="${slide.imageSrc}" alt="${slide.imagePlaceholder}" onerror="this.parentElement.className='placeholder-card'; this.parentElement.innerHTML='<div class=\\'image-text\\'><div class=\\'image-icon\\'>⬜</div><p class=\\'image-desc\\'>${slide.imagePlaceholder}</p><p class=\\'image-hint\\'>INSERT IMAGE HERE</p></div>';">
+                        </div>
+                        <div class="text-block">
+                            <h1 class="headline">${renderHeadline(slide)}</h1>
+                        </div>
+                    `;
+                } else {
+                    // Landscape or no image: text first (top), image second (bottom)
+                    content += `
                         <h1 class="headline">${renderHeadline(slide)}</h1>
-                `;
-                
-                // Only show subline if no imageSrc (text-only slides)
-                if (slide.subline && !slide.cta && !slide.imageSrc) {
-                    content += `<p class="subline">${slide.subline}</p>`;
-                }
-                
-                if (slide.hasImage && !slide.cta) {
-                    if (slide.imageSrc) {
-                        content += `
-                            <div class="image-wrapper">
-                                <img src="${slide.imageSrc}" alt="${slide.imagePlaceholder}" onerror="this.parentElement.className='placeholder-card'; this.parentElement.innerHTML='<div class=\\'image-text\\'><div class=\\'image-icon\\'>⬜</div><p class=\\'image-desc\\'>${slide.imagePlaceholder}</p><p class=\\'image-hint\\'>INSERT IMAGE HERE</p></div>';">
-                            </div>
-                        `;
-                    } else {
-                        content += `
-                            <div class="placeholder-card">
-                                <div class="image-box">
-                                    <div class="image-text">
-                                        <div class="image-icon">⬜</div>
-                                        <p class="image-desc">${slide.imagePlaceholder}</p>
-                                        <p class="image-hint">INSERT IMAGE HERE</p>
+                    `;
+                    
+                    // Only show subline if no imageSrc (text-only slides)
+                    if (slide.subline && !slide.cta && !slide.imageSrc) {
+                        content += `<p class="subline">${slide.subline}</p>`;
+                    }
+                    
+                    if (slide.hasImage && !slide.cta) {
+                        if (slide.imageSrc) {
+                            content += `
+                                <div class="${imageWrapperClass}">
+                                    <img src="${slide.imageSrc}" alt="${slide.imagePlaceholder}" onerror="this.parentElement.className='placeholder-card'; this.parentElement.innerHTML='<div class=\\'image-text\\'><div class=\\'image-icon\\'>⬜</div><p class=\\'image-desc\\'>${slide.imagePlaceholder}</p><p class=\\'image-hint\\'>INSERT IMAGE HERE</p></div>';">
+                                </div>
+                            `;
+                        } else {
+                            content += `
+                                <div class="placeholder-card">
+                                    <div class="image-box">
+                                        <div class="image-text">
+                                            <div class="image-icon">⬜</div>
+                                            <p class="image-desc">${slide.imagePlaceholder}</p>
+                                            <p class="image-hint">INSERT IMAGE HERE</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        `;
+                            `;
+                        }
                     }
                 }
                 
