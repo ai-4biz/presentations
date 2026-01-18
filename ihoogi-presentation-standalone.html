@@ -139,17 +139,18 @@
             background: linear-gradient(135deg, #E8F7F5 0%, #EEF1FA 50%, #F3EFFF 100%);
             border: 2px solid rgba(0, 180, 166, 0.3);
             border-radius: 16px;
-            padding: 14px;
+            padding: 10px;
             overflow: hidden;
             margin-top: 0.75rem;
             box-shadow: 0 10px 25px -5px rgba(47, 58, 143, 0.15);
-            /* Container grows naturally with image, no height constraint */
+            max-width: 100%;
         }
         
         .image-wrapper img {
             width: 100%;
             height: auto;
-            max-height: none;
+            max-height: 60vh;
+            max-width: 100%;
             object-fit: contain;
             display: block;
             border-radius: 8px;
@@ -289,16 +290,27 @@
         /* Mobile image adjustments */
         @media (max-width: 640px) {
             .image-wrapper {
-                padding: 10px;
+                padding: 8px;
                 border-radius: 12px;
             }
-            /* Allow images to grow naturally on mobile */
+            .image-wrapper img {
+                max-height: 50vh;
+            }
         }
         
-        /* Short screen adjustments - only limit if absolutely necessary */
-        @media (max-height: 600px) {
+        /* Short screen adjustments */
+        @media (max-height: 700px) {
             .image-wrapper img {
-                max-height: 60vh;
+                max-height: 45vh;
+            }
+        }
+        
+        @media (max-height: 600px) {
+            .image-wrapper {
+                padding: 6px;
+            }
+            .image-wrapper img {
+                max-height: 40vh;
             }
         }
     </style>
