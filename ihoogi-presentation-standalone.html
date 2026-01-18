@@ -88,50 +88,39 @@
             gap: 1rem;
         }
         
-        /* Portrait images: layout with text on side */
+        /* Landscape layout: stacked (text top, image bottom) */
+        .slide-content.landscape-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+        }
+        
+        /* Portrait layout: side-by-side (image left, text right) */
         .slide-content.portrait-layout {
-            flex-direction: row;
-            align-items: stretch;
+            display: grid;
+            grid-template-columns: minmax(320px, 44%) 1fr;
             gap: 1.5rem;
-            text-align: right;
+            align-items: start;
+            direction: ltr;
             max-width: 56rem;
         }
         
-        .slide-content.portrait-layout .headline {
-            flex: 0 0 auto;
-            max-width: 14rem;
-            font-size: 1.75rem;
-            margin: 0;
+        .slide-content.portrait-layout .text-block {
+            direction: rtl;
             text-align: right;
             display: flex;
             align-items: center;
         }
         
+        .slide-content.portrait-layout .headline {
+            font-size: 1.75rem;
+            margin: 0;
+            text-align: right;
+        }
+        
         .slide-content.portrait-layout .image-wrapper {
-            flex: 1 1 auto;
             margin-top: 0;
-            max-width: 65%;
-            display: flex;
-            align-items: center;
-        }
-        
-        .slide-content.portrait-layout .image-wrapper img {
-            max-height: 90vh;
-            width: 100%;
-            height: auto;
-        }
-        
-        @media (max-width: 768px) {
-            .slide-content.portrait-layout {
-                flex-direction: column;
-            }
-            .slide-content.portrait-layout .headline {
-                max-width: 100%;
-                font-size: 2rem;
-            }
-            .slide-content.portrait-layout .image-wrapper {
-                max-width: 100%;
-            }
         }
         
         /* Hero section height limit */
@@ -180,26 +169,33 @@
             border: 1px solid rgba(255, 255, 255, 0.8);
         }
         
-        /* No-crop screenshots */
+        /* Image wrapper - shared styles */
         .image-wrapper {
             background: linear-gradient(135deg, #E8F7F5 0%, #EEF1FA 50%, #F3EFFF 100%);
             border: 2px solid rgba(0, 180, 166, 0.3);
             border-radius: 16px;
-            padding: 10px;
-            overflow: visible;
+            padding: 14px;
+            overflow: hidden;
             margin-top: 0.75rem;
             box-shadow: 0 10px 25px -5px rgba(47, 58, 143, 0.15);
-            max-width: 100%;
         }
         
         .image-wrapper img {
             width: 100%;
             height: auto;
-            max-height: 60vh;
-            max-width: 100%;
             object-fit: contain;
             display: block;
-            border-radius: 12px;
+            border-radius: 10px;
+        }
+        
+        /* Landscape images */
+        .image-wrapper.landscape img {
+            max-height: min(46vh, 520px);
+        }
+        
+        /* Portrait images */
+        .image-wrapper.portrait img {
+            max-height: min(64vh, 720px);
         }
         
         .image-box {
@@ -333,29 +329,19 @@
             }
         }
         
-        /* Mobile image adjustments */
-        @media (max-width: 640px) {
-            .image-wrapper {
-                padding: 8px;
-                border-radius: 12px;
+        /* Mobile: collapse portrait to stacked */
+        @media (max-width: 860px) {
+            .slide-content.portrait-layout {
+                grid-template-columns: 1fr;
+                direction: rtl;
             }
-            .image-wrapper img {
-                max-height: 50vh;
+            .slide-content.portrait-layout .text-block {
+                direction: rtl;
             }
-        }
-        
-        /* Short screen adjustments */
-        @media (max-height: 700px) {
-            .image-wrapper img {
-                max-height: 45vh;
+            .image-wrapper.portrait img {
+                max-height: 44vh;
             }
-        }
-        
-        @media (max-height: 600px) {
-            .image-wrapper {
-                padding: 6px;
-            }
-            .image-wrapper img {
+            .image-wrapper.landscape img {
                 max-height: 40vh;
             }
         }
@@ -400,6 +386,7 @@
                 hasImage: true,
                 imagePlaceholder: 'טבלת לידים עם דירוג',
                 imageSrc: 'images/leads-table.png',
+                imageOrientation: 'landscape',
             },
             {
                 id: 3,
@@ -410,6 +397,7 @@
                 hasImage: true,
                 imagePlaceholder: 'הודעה שמתקבלת בנייד',
                 imageSrc: 'images/get-leads.png',
+                imageOrientation: 'portrait',
             },
             {
                 id: 4,
@@ -420,6 +408,7 @@
                 hasImage: true,
                 imagePlaceholder: 'דוגמה לתשובת לקוח פתוחה',
                 imageSrc: 'images/answer-leads.png',
+                imageOrientation: 'portrait',
             },
             {
                 id: 5,
@@ -430,6 +419,7 @@
                 hasImage: true,
                 imagePlaceholder: 'מסך בניית שאלון',
                 imageSrc: 'images/ask.png',
+                imageOrientation: 'portrait',
             },
             {
                 id: 6,
@@ -440,6 +430,7 @@
                 hasImage: true,
                 imagePlaceholder: 'דוגמה למענה אוטומטי',
                 imageSrc: 'images/answer.png',
+                imageOrientation: 'portrait',
             },
             {
                 id: 7,
@@ -450,6 +441,7 @@
                 hasImage: true,
                 imagePlaceholder: 'טבלת לידים מסוננת לפי קמפיין',
                 imageSrc: 'images/analysis.png',
+                imageOrientation: 'landscape',
             },
             {
                 id: 8,
@@ -459,6 +451,7 @@
                 hasImage: true,
                 imagePlaceholder: 'דשבורד / רשימת לידים מסודרת',
                 imageSrc: 'images/leads-table.png',
+                imageOrientation: 'landscape',
             },
             {
                 id: 9,
@@ -498,35 +491,54 @@
                 slideDiv.className = `slide ${index === currentSlide ? 'active' : ''}`;
                 slideDiv.style.background = slide.gradient;
                 
-                let content = `
-                    <div class="slide-content">
-                        <h1 class="headline">${renderHeadline(slide)}</h1>
-                `;
+                const isPortrait = slide.imageOrientation === 'portrait';
+                const layoutClass = isPortrait ? 'slide-content portrait-layout' : 'slide-content landscape-layout';
                 
-                // Only show subline if no imageSrc (text-only slides)
-                if (slide.subline && !slide.cta && !slide.imageSrc) {
-                    content += `<p class="subline">${slide.subline}</p>`;
-                }
+                let content = `<div class="${layoutClass}">`;
                 
-                if (slide.hasImage && !slide.cta) {
+                if (slide.hasImage && !slide.cta && isPortrait) {
+                    // Portrait: image first (left), text second (right)
                     if (slide.imageSrc) {
                         content += `
-                            <div class="image-wrapper">
-                                <img src="${slide.imageSrc}" alt="${slide.imagePlaceholder}" onload="checkImageOrientation(this)" onerror="this.parentElement.className='placeholder-card'; this.parentElement.innerHTML='<div class=\\'image-text\\'><div class=\\'image-icon\\'>⬜</div><p class=\\'image-desc\\'>${slide.imagePlaceholder}</p><p class=\\'image-hint\\'>INSERT IMAGE HERE</p></div>';">
+                            <div class="image-wrapper portrait">
+                                <img src="${slide.imageSrc}" alt="${slide.imagePlaceholder}" onerror="this.parentElement.className='placeholder-card'; this.parentElement.innerHTML='<div class=\\'image-text\\'><div class=\\'image-icon\\'>⬜</div><p class=\\'image-desc\\'>${slide.imagePlaceholder}</p><p class=\\'image-hint\\'>INSERT IMAGE HERE</p></div>';">
+                            </div>
+                            <div class="text-block">
+                                <h1 class="headline">${renderHeadline(slide)}</h1>
                             </div>
                         `;
-                    } else {
-                        content += `
-                            <div class="placeholder-card">
-                                <div class="image-box">
-                                    <div class="image-text">
-                                        <div class="image-icon">⬜</div>
-                                        <p class="image-desc">${slide.imagePlaceholder}</p>
-                                        <p class="image-hint">INSERT IMAGE HERE</p>
+                    }
+                } else {
+                    // Landscape or no image: text first (top), image second (bottom)
+                    content += `
+                        <h1 class="headline">${renderHeadline(slide)}</h1>
+                    `;
+                    
+                    // Only show subline if no imageSrc (text-only slides)
+                    if (slide.subline && !slide.cta && !slide.imageSrc) {
+                        content += `<p class="subline">${slide.subline}</p>`;
+                    }
+                    
+                    if (slide.hasImage && !slide.cta) {
+                        if (slide.imageSrc) {
+                            content += `
+                                <div class="image-wrapper landscape">
+                                    <img src="${slide.imageSrc}" alt="${slide.imagePlaceholder}" onerror="this.parentElement.className='placeholder-card'; this.parentElement.innerHTML='<div class=\\'image-text\\'><div class=\\'image-icon\\'>⬜</div><p class=\\'image-desc\\'>${slide.imagePlaceholder}</p><p class=\\'image-hint\\'>INSERT IMAGE HERE</p></div>';">
+                                </div>
+                            `;
+                        } else {
+                            content += `
+                                <div class="placeholder-card">
+                                    <div class="image-box">
+                                        <div class="image-text">
+                                            <div class="image-icon">⬜</div>
+                                            <p class="image-desc">${slide.imagePlaceholder}</p>
+                                            <p class="image-hint">INSERT IMAGE HERE</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        `;
+                            `;
+                        }
                     }
                 }
                 
