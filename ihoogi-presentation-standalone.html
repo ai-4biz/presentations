@@ -412,14 +412,23 @@
             }
         }
         
-        /* Mobile: collapse portrait to stacked */
+        /* Mobile: collapse portrait to stacked - text ALWAYS above image */
         @media (max-width: 860px) {
             .slide.has-portrait .slide-content {
-                grid-template-columns: 1fr;
+                display: flex;
+                flex-direction: column;
                 direction: rtl;
             }
             .slide.has-portrait .text-block {
+                order: -1;
                 direction: rtl;
+                margin-bottom: 1.5rem;
+            }
+            .slide.has-portrait .image-wrapper {
+                order: 1;
+            }
+            .slide.has-portrait .image-wrapper.portrait {
+                margin-top: 0;
             }
             .image-wrapper.portrait img {
                 max-height: 48vh;
