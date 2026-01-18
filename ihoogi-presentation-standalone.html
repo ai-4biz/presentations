@@ -556,19 +556,6 @@
                 slideDiv.innerHTML = content;
                 container.appendChild(slideDiv);
             });
-            
-            // Check all images after rendering
-            setTimeout(() => {
-                document.querySelectorAll('.image-wrapper img').forEach(img => {
-                    if (img.complete) {
-                        checkImageOrientation(img);
-                    } else {
-                        img.onload = function() {
-                            checkImageOrientation(this);
-                        };
-                    }
-                });
-            }, 100);
         }
         
         function renderNavDots() {
