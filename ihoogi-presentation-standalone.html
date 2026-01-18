@@ -88,6 +88,46 @@
             gap: 1rem;
         }
         
+        /* Portrait images: layout with text on side */
+        .slide-content.portrait-layout {
+            flex-direction: row;
+            align-items: center;
+            gap: 1.5rem;
+            text-align: right;
+            max-width: 56rem;
+        }
+        
+        .slide-content.portrait-layout .headline {
+            flex: 0 0 auto;
+            max-width: 14rem;
+            font-size: 1.75rem;
+            margin: 0;
+            text-align: right;
+        }
+        
+        .slide-content.portrait-layout .image-wrapper {
+            flex: 1 1 auto;
+            margin-top: 0;
+            max-width: 65%;
+        }
+        
+        .slide-content.portrait-layout .image-wrapper img {
+            max-height: 70vh;
+        }
+        
+        @media (max-width: 768px) {
+            .slide-content.portrait-layout {
+                flex-direction: column;
+            }
+            .slide-content.portrait-layout .headline {
+                max-width: 100%;
+                font-size: 2rem;
+            }
+            .slide-content.portrait-layout .image-wrapper {
+                max-width: 100%;
+            }
+        }
+        
         /* Hero section height limit */
         .slide-content:not(:has(.image-wrapper)) {
             max-height: 45vh;
@@ -103,7 +143,7 @@
         }
         
         /* Image-first slides: tighter hero, no subline */
-        .slide-content:has(.image-wrapper) .headline {
+        .slide-content:has(.image-wrapper):not(.portrait-layout) .headline {
             margin-bottom: 0.5rem;
         }
         
@@ -466,7 +506,7 @@
                     if (slide.imageSrc) {
                         content += `
                             <div class="image-wrapper">
-                                <img src="${slide.imageSrc}" alt="${slide.imagePlaceholder}" onerror="this.parentElement.className='placeholder-card'; this.parentElement.innerHTML='<div class=\\'image-text\\'><div class=\\'image-icon\\'>⬜</div><p class=\\'image-desc\\'>${slide.imagePlaceholder}</p><p class=\\'image-hint\\'>INSERT IMAGE HERE</p></div>';">
+                                <img src="${slide.imageSrc}" alt="${slide.imagePlaceholder}" onload="checkImageOrientation(this)" onerror="this.parentElement.className='placeholder-card'; this.parentElement.innerHTML='<div class=\\'image-text\\'><div class=\\'image-icon\\'>⬜</div><p class=\\'image-desc\\'>${slide.imagePlaceholder}</p><p class=\\'image-hint\\'>INSERT IMAGE HERE</p></div>';">
                             </div>
                         `;
                     } else {
