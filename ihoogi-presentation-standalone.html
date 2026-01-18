@@ -141,6 +141,11 @@
             white-space: pre-line;
         }
         
+        /* Portrait headline - same size as landscape */
+        .slide.has-portrait .headline {
+            font-size: 2.25rem;
+        }
+        
         /* Image-first slides: tighter hero, no subline */
         .slide-content:has(.image-wrapper):not(:has(.portrait)) .headline {
             margin-bottom: 0.5rem;
@@ -326,6 +331,9 @@
             .headline {
                 font-size: 3rem;
             }
+            .slide.has-portrait .headline {
+                font-size: 3rem;
+            }
             .subline {
                 font-size: 1.5rem;
             }
@@ -341,26 +349,42 @@
             .headline {
                 font-size: 3.75rem;
             }
+            .slide.has-portrait .headline {
+                font-size: 3.75rem;
+            }
         }
         
-        /* Mobile: collapse portrait to stacked */
+        /* Mobile: collapse portrait to stacked - text always above image */
         @media (max-width: 860px) {
             .slide.has-portrait {
-                grid-template-columns: 1fr;
+                display: flex;
+                flex-direction: column;
                 height: auto;
                 direction: rtl;
                 padding-top: 16px;
+                gap: 1rem;
             }
-            .image-wrapper.portrait {
+            .slide.has-portrait .slide-content {
+                display: flex;
+                flex-direction: column;
+            }
+            .slide.has-portrait .text-block {
+                order: -1;
                 height: auto;
+                overflow: visible;
+                padding-right: 0;
+            }
+            .slide.has-portrait .image-wrapper.portrait {
+                order: 1;
+                height: auto;
+                margin-top: 0;
             }
             .image-wrapper.portrait img {
                 height: auto;
                 max-height: 48vh;
             }
-            .slide.has-portrait .text-block {
-                height: auto;
-                overflow: visible;
+            .image-wrapper img {
+                max-height: 40vh;
             }
         }
     </style>
