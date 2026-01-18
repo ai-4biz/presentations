@@ -142,12 +142,13 @@
             overflow: hidden;
             margin-top: 0.75rem;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            /* Container grows naturally with image, no height constraint */
         }
         
         .image-wrapper img {
             width: 100%;
             height: auto;
-            max-height: min(50vh, 480px);
+            max-height: none;
             object-fit: contain;
             display: block;
             border-radius: 8px;
@@ -290,15 +291,13 @@
                 padding: 10px;
                 border-radius: 12px;
             }
-            .image-wrapper img {
-                max-height: 40vh;
-            }
+            /* Allow images to grow naturally on mobile */
         }
         
-        /* Short screen adjustments */
-        @media (max-height: 750px) {
+        /* Short screen adjustments - only limit if absolutely necessary */
+        @media (max-height: 600px) {
             .image-wrapper img {
-                max-height: 34vh;
+                max-height: 60vh;
             }
         }
     </style>
