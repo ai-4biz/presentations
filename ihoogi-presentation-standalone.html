@@ -114,6 +114,25 @@
             border: 1px solid rgba(255, 255, 255, 0.8);
         }
         
+        /* No-crop screenshots */
+        .image-wrapper {
+            background: #0b1220;
+            border-radius: 16px;
+            padding: 14px;
+            overflow: hidden;
+            margin-top: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .image-wrapper img {
+            width: 100%;
+            height: auto;
+            max-height: 52vh;
+            object-fit: contain;
+            display: block;
+            border-radius: 8px;
+        }
+        
         .image-box {
             aspect-ratio: 16 / 9;
             background: linear-gradient(135deg, rgba(47, 58, 143, 0.1), rgba(0, 180, 166, 0.1));
@@ -121,6 +140,16 @@
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+        
+        .placeholder-card {
+            margin-top: 2rem;
+            border-radius: 1rem;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(4px);
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.8);
         }
         
         .image-text {
@@ -232,6 +261,17 @@
         @media (min-width: 1024px) {
             .headline {
                 font-size: 3.75rem;
+            }
+        }
+        
+        /* Mobile image adjustments */
+        @media (max-width: 640px) {
+            .image-wrapper {
+                padding: 10px;
+                border-radius: 12px;
+            }
+            .image-wrapper img {
+                max-height: 40vh;
             }
         }
     </style>
@@ -385,15 +425,13 @@
                 if (slide.hasImage && !slide.cta) {
                     if (slide.imageSrc) {
                         content += `
-                            <div class="image-placeholder">
-                                <div class="image-box" style="background: transparent; border: none;">
-                                    <img src="${slide.imageSrc}" alt="${slide.imagePlaceholder}" style="width: 100%; height: 100%; object-fit: contain; border-radius: 0.75rem;" onerror="this.parentElement.innerHTML='<div class=\\'image-text\\'><div class=\\'image-icon\\'>⬜</div><p class=\\'image-desc\\'>${slide.imagePlaceholder}</p><p class=\\'image-hint\\'>INSERT IMAGE HERE</p></div>';">
-                                </div>
+                            <div class="image-wrapper">
+                                <img src="${slide.imageSrc}" alt="${slide.imagePlaceholder}" onerror="this.parentElement.className='placeholder-card'; this.parentElement.innerHTML='<div class=\\'image-text\\'><div class=\\'image-icon\\'>⬜</div><p class=\\'image-desc\\'>${slide.imagePlaceholder}</p><p class=\\'image-hint\\'>INSERT IMAGE HERE</p></div>';">
                             </div>
                         `;
                     } else {
                         content += `
-                            <div class="image-placeholder">
+                            <div class="placeholder-card">
                                 <div class="image-box">
                                     <div class="image-text">
                                         <div class="image-icon">⬜</div>
