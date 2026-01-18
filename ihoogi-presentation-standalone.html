@@ -79,6 +79,21 @@
             pointer-events: all;
         }
         
+        /* Portrait layout: grid on slide root */
+        .slide.has-portrait {
+            height: 100vh;
+            display: grid;
+            grid-template-columns: minmax(340px, 48%) 1fr;
+            gap: 18px;
+            align-items: stretch;
+            direction: ltr;
+            padding-top: 64px;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            padding-bottom: 1.5rem;
+            box-sizing: border-box;
+        }
+        
         .slide-content {
             max-width: 42rem;
             width: 100%;
@@ -88,31 +103,28 @@
             gap: 1rem;
         }
         
-        /* Portrait layout: side-by-side (image left, text right) */
+        /* Portrait: slide-content becomes transparent container */
         .slide.has-portrait .slide-content {
-            display: grid;
-            grid-template-columns: minmax(320px, 44%) 1fr;
-            gap: 18px;
-            align-items: start;
-            direction: ltr;
-            max-width: 56rem;
+            display: contents;
+            max-width: none;
         }
         
         .slide.has-portrait .text-block {
             direction: rtl;
             text-align: right;
+            height: calc(100vh - 96px);
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            padding-right: 6px;
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            justify-content: center;
         }
         
         .slide.has-portrait .headline {
             font-size: 1.75rem;
             margin: 0;
             text-align: right;
-        }
-        
-        .slide.has-portrait .image-wrapper {
-            margin-top: 0;
         }
         
         /* Hero section height limit */
@@ -185,9 +197,19 @@
             max-height: min(46vh, 520px);
         }
         
-        /* Portrait images */
+        /* Portrait images - fit height, no crop */
+        .image-wrapper.portrait {
+            height: calc(100vh - 96px);
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
         .image-wrapper.portrait img {
-            max-height: min(64vh, 720px);
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            max-height: none;
         }
         
         .image-box {
@@ -323,27 +345,27 @@
         
         /* Mobile: collapse portrait to stacked */
         @media (max-width: 860px) {
-            .slide.has-portrait .slide-content {
+            .slide.has-portrait {
                 grid-template-columns: 1fr;
+                height: auto;
                 direction: rtl;
+                padding-top: 16px;
             }
-            .slide.has-portrait .text-block {
-                direction: rtl;
+            .image-wrapper.portrait {
+                height: auto;
             }
             .image-wrapper.portrait img {
-                max-height: 44vh;
+                height: auto;
+                max-height: 48vh;
             }
-            .image-wrapper img {
-                max-height: 40vh;
+            .slide.has-portrait .text-block {
+                height: auto;
+                overflow: visible;
             }
         }
     </style>
 </head>
 <body>
-    <!-- DEBUG Banner -->
-    <div style="position: fixed; top: 0; left: 0; right: 0; z-index: 10000; background: #FF0000; color: #FFFFFF; padding: 1rem; text-align: center; font-size: 2rem; font-weight: 700; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
-        DEBUG VERSION 999
-    </div>
     <div class="container">
         <!-- Logo -->
         <div class="logo-container">
