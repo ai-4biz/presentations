@@ -274,6 +274,7 @@
                 gradient: 'linear-gradient(135deg, #F3EFFF, #EEF1FA)',
                 hasImage: true,
                 imagePlaceholder: 'טבלת לידים עם דירוג',
+                imageSrc: './images/leads-table.png',
             },
             {
                 id: 3,
@@ -283,6 +284,7 @@
                 gradient: 'linear-gradient(135deg, #E8F0F5, #E0E8F0)',
                 hasImage: true,
                 imagePlaceholder: 'הודעה שמתקבלת בנייד',
+                imageSrc: './images/get-leads.png',
             },
             {
                 id: 4,
@@ -292,6 +294,7 @@
                 gradient: 'linear-gradient(135deg, #FFF5E8, #FFE8D6)',
                 hasImage: true,
                 imagePlaceholder: 'דוגמה לתשובת לקוח פתוחה',
+                imageSrc: './images/answer-leads.png',
             },
             {
                 id: 5,
@@ -301,6 +304,7 @@
                 gradient: 'linear-gradient(135deg, #F0F9FF, #E0F2FE)',
                 hasImage: true,
                 imagePlaceholder: 'מסך בניית שאלון',
+                imageSrc: './images/ask.png',
             },
             {
                 id: 6,
@@ -310,6 +314,7 @@
                 gradient: 'linear-gradient(135deg, #F3EFFF, #E8F0F5)',
                 hasImage: true,
                 imagePlaceholder: 'דוגמה למענה אוטומטי',
+                imageSrc: './images/answer.png',
             },
             {
                 id: 7,
@@ -319,6 +324,7 @@
                 gradient: 'linear-gradient(135deg, #E8F7F5, #D4F1ED)',
                 hasImage: true,
                 imagePlaceholder: 'טבלת לידים מסוננת לפי קמפיין',
+                imageSrc: './images/analysis.png',
             },
             {
                 id: 8,
@@ -327,6 +333,7 @@
                 gradient: 'linear-gradient(135deg, #EEF1FA, #E0E8F0)',
                 hasImage: true,
                 imagePlaceholder: 'דשבורד / רשימת לידים מסודרת',
+                imageSrc: './images/leads-table.png',
             },
             {
                 id: 9,
@@ -375,18 +382,28 @@
                     content += `<p class="subline">${slide.subline}</p>`;
                 }
                 
-                if (slide.hasImage) {
-                    content += `
-                        <div class="image-placeholder">
-                            <div class="image-box">
-                                <div class="image-text">
-                                    <div class="image-icon">⬜</div>
-                                    <p class="image-desc">${slide.imagePlaceholder}</p>
-                                    <p class="image-hint">INSERT IMAGE HERE</p>
+                if (slide.hasImage && !slide.cta) {
+                    if (slide.imageSrc) {
+                        content += `
+                            <div class="image-placeholder">
+                                <div class="image-box" style="background: transparent; border: none;">
+                                    <img src="${slide.imageSrc}" alt="${slide.imagePlaceholder}" style="width: 100%; height: 100%; object-fit: contain; border-radius: 0.75rem;" onerror="this.parentElement.innerHTML='<div class=\\'image-text\\'><div class=\\'image-icon\\'>⬜</div><p class=\\'image-desc\\'>${slide.imagePlaceholder}</p><p class=\\'image-hint\\'>INSERT IMAGE HERE</p></div>';">
                                 </div>
                             </div>
-                        </div>
-                    `;
+                        `;
+                    } else {
+                        content += `
+                            <div class="image-placeholder">
+                                <div class="image-box">
+                                    <div class="image-text">
+                                        <div class="image-icon">⬜</div>
+                                        <p class="image-desc">${slide.imagePlaceholder}</p>
+                                        <p class="image-hint">INSERT IMAGE HERE</p>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }
                 }
                 
                 if (slide.cta) {
