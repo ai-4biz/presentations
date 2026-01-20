@@ -280,12 +280,14 @@
             border: 2px solid rgba(0, 180, 166, 0.25);
             border-radius: 20px;
             padding: 18px;
-            overflow: hidden;
+            overflow: visible;
             margin-top: 1.5rem;
             box-shadow: 0 12px 32px -8px rgba(47, 58, 143, 0.2);
+            display: block;
             width: 100%;
             max-width: 100%;
             height: auto;
+            min-height: 220px;
         }
         
         .slide.has-portrait .image-wrapper {
@@ -306,11 +308,18 @@
         /* Landscape images (default) */
         .image-wrapper:not(.portrait) {
             margin-top: 1.5rem;
+            min-height: 220px;
+            max-height: none;
+            overflow: visible;
         }
         
         .image-wrapper:not(.portrait) img {
-            height: auto;
-            max-height: min(50vh, 560px);
+            display: block !important;
+            width: 100%;
+            height: auto !important;
+            max-height: 420px;
+            object-fit: contain;
+            object-position: center;
         }
         
         /* Portrait images */
@@ -677,9 +686,9 @@
             },
             {
                 id: 5,
-                headline: 'תוך כדי האירוע — הלידים נאספים בזמן אמת',
-                subline: 'לא מחכים לסוף. רואים חמים מול העיניים\n\nכל תשובה נכנסת למערכת ברגע שהיא נשלחת\nאת רואה חם / פושר / קר בזמן אמת\n\nיתרון: לידים חמים אפשר לתפוס עוד כשהאירוע עדיין "חם"\nלפני שהמתחרים מגיעים',
-                highlight: 'בזמן אמת',
+                headline: 'לא מחכים לסוף. רואים חמים מול העיניים',
+                subline: 'כל תשובה נכנסת למערכת ברגע שהיא נשלחת\nהדירוג מתעדכן בזמן אמת: חם / פושר / קר\nהלידים החמים בולטים מיד – אפשר לפנות עוד במהלך האירוע\nבלי חיפוש, בלי ניחושים',
+                highlight: 'רואים חמים',
                 gradient: 'linear-gradient(135deg, #E8F0F5, #E0E8F0)',
                 hasImage: true,
                 imagePlaceholder: 'טבלת לידים עם דירוג',
