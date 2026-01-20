@@ -332,7 +332,7 @@
             max-height: min(70vh, 800px);
         }
         
-        /* Slide 5 = WOW image slide */
+        /* WOW slide – image must be fully visible */
         .slide[data-slide="5"] .slide-content {
             padding-top: clamp(64px, 7vh, 96px);
             padding-bottom: clamp(16px, 3vh, 36px);
@@ -345,29 +345,32 @@
         
         .slide[data-slide="5"] .subline,
         .slide[data-slide="5"] .subline-inline {
-            margin-bottom: 18px;
+            margin-bottom: 0;
+            margin-top: 0;
             max-width: 52ch;
         }
         
         .slide[data-slide="5"] .image-wrapper {
+            margin-top: 12px !important;
+            margin-bottom: 0 !important;
+            padding-top: 0 !important;
             width: 100%;
             display: block;
             overflow: visible;
         }
         
         .slide[data-slide="5"] .image-wrapper img {
+            display: block;
             width: 100%;
             height: auto;
-            max-height: min(62dvh, 560px);
+            max-height: 68vh;
             object-fit: contain;
-            object-position: center;
-            display: block;
-            border-radius: inherit;
+            object-position: top center;
         }
         
         @media (max-width: 640px) {
             .slide[data-slide="5"] .image-wrapper img {
-                max-height: 54dvh;
+                max-height: 60vh;
             }
             .slide[data-slide="5"] .headline,
             .slide[data-slide="5"] h1 {
