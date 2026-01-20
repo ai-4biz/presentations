@@ -98,12 +98,13 @@
             text-align: center;
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: 1.5rem;
             padding: 0;
         }
         
         .slide-content:has(.image-wrapper):not(:has(.portrait)) {
             max-width: 52rem;
+            gap: 1.25rem;
         }
         
         /* Portrait layout: side-by-side (image left, text right) */
@@ -158,11 +159,12 @@
         
         /* Image-first slides: balanced spacing */
         .slide-content:has(.image-wrapper):not(:has(.portrait)) .headline {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
         
         .slide-content:has(.image-wrapper):not(:has(.portrait)) .subline-inline {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
+            margin-top: 0.75rem;
         }
         
         .highlight {
@@ -190,10 +192,10 @@
             font-size: 1.2rem;
             color: #475569 !important;
             font-weight: 500;
-            line-height: 1.7;
+            line-height: 1.6;
             white-space: pre-line;
             margin: 0;
-            margin-top: 1rem;
+            margin-top: 0.75rem;
             font-family: 'Assistant', 'Heebo', sans-serif;
             display: block !important;
             opacity: 1 !important;
@@ -207,6 +209,7 @@
             max-width: 48ch;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.6;
         }
         
         .slide.has-portrait .subline-inline {
@@ -456,12 +459,15 @@
             .floating-cta {
                 font-size: 0.75rem;
                 padding: 0.625rem 1.25rem;
-                top: 1rem;
-                left: 1rem;
+                top: 0.75rem;
+                left: 0.75rem;
                 font-weight: 700;
             }
             .slide {
-                padding: 3rem 1.5rem;
+                padding: 4.5rem 1.5rem 3rem 1.5rem;
+            }
+            .slide-content {
+                padding-top: 0.5rem;
             }
             .headline {
                 font-size: 2rem;
@@ -474,10 +480,22 @@
             }
             .subline-inline {
                 font-size: 1.1rem;
+                line-height: 1.55;
+                margin-top: 0.5rem;
             }
             .slide.has-portrait .headline {
                 font-size: 2rem;
                 line-height: 1.3;
+            }
+            .slide-content:has(.image-wrapper):not(:has(.portrait)) .headline {
+                margin-bottom: 0.75rem;
+            }
+            .slide-content:has(.image-wrapper):not(:has(.portrait)) .subline-inline {
+                margin-bottom: 1rem;
+                margin-top: 0.5rem;
+            }
+            .slide-content:has(.image-wrapper):not(:has(.portrait)) {
+                gap: 1rem;
             }
             .slide-counter {
                 bottom: 4rem;
