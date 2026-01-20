@@ -98,7 +98,7 @@
             text-align: center;
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 1.75rem;
             padding: 0;
         }
         
@@ -106,7 +106,7 @@
         .slide.has-portrait .slide-content {
             display: grid;
             grid-template-columns: minmax(320px, 44%) 1fr;
-            gap: 18px;
+            gap: 24px;
             align-items: start;
             direction: ltr;
             max-width: 56rem;
@@ -116,11 +116,13 @@
             direction: rtl;
             text-align: right;
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.75rem;
         }
         
         .slide.has-portrait .headline {
-            font-size: 2rem;
+            font-size: 2.25rem;
             margin: 0;
             text-align: right;
             line-height: 1.3;
@@ -152,7 +154,7 @@
         
         /* Image-first slides: balanced spacing */
         .slide-content:has(.image-wrapper):not(:has(.portrait)) .headline {
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
         }
         
         .highlight {
@@ -180,10 +182,10 @@
             font-size: 1.2rem;
             color: #475569 !important;
             font-weight: 500;
-            line-height: 1.65;
+            line-height: 1.7;
             white-space: pre-line;
             margin: 0;
-            margin-top: 0.75rem;
+            margin-top: 1rem;
             font-family: 'Assistant', 'Heebo', sans-serif;
             display: block !important;
             opacity: 1 !important;
@@ -195,8 +197,9 @@
         
         .slide.has-portrait .subline-inline {
             text-align: right;
-            margin-top: 0.5rem;
+            margin-top: 0.75rem;
             max-width: 100%;
+            line-height: 1.7;
         }
         
         /* Ensure subline-inline is always visible even with image-wrapper */
@@ -223,10 +226,14 @@
             background: linear-gradient(135deg, #E8F7F5 0%, #EEF1FA 50%, #F3EFFF 100%);
             border: 2px solid rgba(0, 180, 166, 0.25);
             border-radius: 20px;
-            padding: 16px;
+            padding: 18px;
             overflow: hidden;
             margin-top: 1.5rem;
             box-shadow: 0 12px 32px -8px rgba(47, 58, 143, 0.2);
+        }
+        
+        .slide.has-portrait .image-wrapper {
+            margin-top: 0;
         }
         
         .image-wrapper img {
@@ -379,7 +386,7 @@
                 font-size: 1.3rem;
             }
             .slide.has-portrait .headline {
-                font-size: 2.25rem;
+                font-size: 2.5rem;
                 line-height: 1.3;
             }
             .cta-button {
@@ -411,7 +418,7 @@
                 font-size: 1.4rem;
             }
             .slide.has-portrait .headline {
-                font-size: 2.5rem;
+                font-size: 2.75rem;
             }
             .slide-content {
                 max-width: 56rem;
@@ -442,7 +449,7 @@
                 font-size: 1.1rem;
             }
             .slide.has-portrait .headline {
-                font-size: 1.75rem;
+                font-size: 2rem;
                 line-height: 1.3;
             }
             .slide-counter {
@@ -460,14 +467,17 @@
                 display: flex;
                 flex-direction: column;
                 direction: rtl;
+                gap: 1.5rem;
             }
             .slide.has-portrait .text-block {
                 order: -1;
                 direction: rtl;
-                margin-bottom: 1.5rem;
+                margin-bottom: 0;
+                gap: 0.5rem;
             }
             .slide.has-portrait .image-wrapper {
                 order: 1;
+                margin-top: 0;
             }
             .slide.has-portrait .image-wrapper.portrait {
                 margin-top: 0;
@@ -477,6 +487,9 @@
             }
             .image-wrapper img {
                 max-height: 45vh;
+            }
+            .subline-inline {
+                margin-top: 0.75rem;
             }
         }
     </style>
