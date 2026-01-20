@@ -185,11 +185,17 @@
             margin: 0;
             margin-top: 0.75rem;
             font-family: 'Assistant', 'Heebo', sans-serif;
+            display: block !important;
         }
         
         .slide.has-portrait .subline-inline {
             text-align: right;
             margin-top: 0.5rem;
+        }
+        
+        /* Ensure subline-inline is always visible even with image-wrapper */
+        .slide-content:has(.image-wrapper) .subline-inline {
+            display: block !important;
         }
         
         .image-placeholder {
