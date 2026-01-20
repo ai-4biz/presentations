@@ -93,13 +93,17 @@
         }
         
         .slide-content {
-            max-width: 48rem;
+            max-width: 50rem;
             width: 100%;
             text-align: center;
             display: flex;
             flex-direction: column;
-            gap: 1.75rem;
+            gap: 2rem;
             padding: 0;
+        }
+        
+        .slide-content:has(.image-wrapper):not(:has(.portrait)) {
+            max-width: 52rem;
         }
         
         /* Portrait layout: side-by-side (image left, text right) */
@@ -154,7 +158,11 @@
         
         /* Image-first slides: balanced spacing */
         .slide-content:has(.image-wrapper):not(:has(.portrait)) .headline {
-            margin-bottom: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .slide-content:has(.image-wrapper):not(:has(.portrait)) .subline-inline {
+            margin-bottom: 1.5rem;
         }
         
         .highlight {
@@ -190,9 +198,15 @@
             display: block !important;
             opacity: 1 !important;
             visibility: visible !important;
-            max-width: 42ch;
+            max-width: 50ch;
             position: relative !important;
             z-index: 10;
+        }
+        
+        .slide-content:has(.image-wrapper):not(:has(.portrait)) .subline-inline {
+            max-width: 48ch;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .slide.has-portrait .subline-inline {
@@ -245,8 +259,13 @@
         }
         
         /* Landscape images (default) */
-        .image-wrapper img {
-            max-height: min(50vh, 560px);
+        .image-wrapper:not(.portrait) {
+            margin-top: 0;
+        }
+        
+        .image-wrapper:not(.portrait) img {
+            max-height: min(55vh, 600px);
+            width: 100%;
         }
         
         /* Portrait images */
@@ -423,6 +442,14 @@
             .slide-content {
                 max-width: 56rem;
             }
+            
+            .slide-content:has(.image-wrapper):not(:has(.portrait)) {
+                max-width: 60rem;
+            }
+            
+            .image-wrapper:not(.portrait) img {
+                max-height: min(60vh, 650px);
+            }
         }
         
         @media (max-width: 768px) {
@@ -484,6 +511,9 @@
             }
             .image-wrapper.portrait img {
                 max-height: 48vh;
+            }
+            .image-wrapper:not(.portrait) img {
+                max-height: 50vh;
             }
             .image-wrapper img {
                 max-height: 45vh;
