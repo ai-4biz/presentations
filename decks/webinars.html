@@ -340,47 +340,41 @@
         
         .slide[data-slide="5"] .headline,
         .slide[data-slide="5"] h1 {
-            margin-bottom: 10px;
+            margin-bottom: 0;
         }
         
         .slide[data-slide="5"] .subline,
         .slide[data-slide="5"] .subline-inline {
-            margin-bottom: 0;
-            margin-top: 0;
-            max-width: 52ch;
+            display: none !important;
         }
         
         .slide[data-slide="5"] .image-wrapper {
-            margin-top: 12px !important;
-            margin-bottom: 0 !important;
+            margin-top: 8px !important;
             padding-top: 0 !important;
             width: 100%;
             display: block;
             overflow: visible;
         }
         
-        .slide[data-slide="5"] .image-wrapper img {
-            display: block;
+        .slide[data-slide="5"] .image-wrapper img,
+        .slide[data-slide="5"] img {
             width: 100%;
             height: auto;
-            max-height: 68vh;
+            max-height: 70vh;
             object-fit: contain;
             object-position: top center;
+            display: block;
         }
         
         @media (max-width: 640px) {
-            .slide[data-slide="5"] .image-wrapper img {
-                max-height: 60vh;
+            .slide[data-slide="5"] .image-wrapper img,
+            .slide[data-slide="5"] img {
+                max-height: 55vh;
             }
             .slide[data-slide="5"] .headline,
             .slide[data-slide="5"] h1 {
                 font-size: clamp(34px, 8vw, 48px);
                 line-height: 1.05;
-            }
-            .slide[data-slide="5"] .subline,
-            .slide[data-slide="5"] .subline-inline {
-                font-size: clamp(15px, 3.9vw, 18px);
-                line-height: 1.55;
             }
         }
         
@@ -740,7 +734,7 @@
             {
                 id: 5,
                 headline: 'מסך אחד. כל הלידים. בזמן אמת.',
-                subline: 'חם / פושר / קר — מתעדכן תוך כדי האירוע',
+                subline: '',
                 highlight: 'בזמן אמת',
                 gradient: 'linear-gradient(135deg, #E8F0F5, #E0E8F0)',
                 hasImage: true,
