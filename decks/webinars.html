@@ -524,8 +524,21 @@
                 max-width: 60rem;
             }
             
+            .image-wrapper:not(.portrait) {
+                max-height: min(52dvh, 420px);
+            }
+            
             .image-wrapper:not(.portrait) img {
-                max-height: none;
+                max-height: min(52dvh, 420px);
+                height: auto;
+            }
+            
+            .slide.has-portrait .image-wrapper.portrait {
+                max-height: min(70dvh, 720px);
+            }
+            
+            .image-wrapper.portrait img {
+                max-height: min(70dvh, 720px);
                 height: auto;
             }
         }
