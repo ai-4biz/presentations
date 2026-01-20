@@ -667,17 +667,52 @@
             .slide.has-portrait .image-wrapper.portrait {
                 margin-top: 0;
             }
-            .image-wrapper.portrait img {
-                max-height: 48vh;
-            }
-            .image-wrapper:not(.portrait) img {
-                max-height: 50vh;
-            }
-            .image-wrapper img {
-                max-height: 45vh;
-            }
             .subline-inline {
                 margin-top: 0.75rem;
+            }
+        }
+        
+        /* Mobile: Make nav dots always clickable */
+        @media (max-width: 640px) {
+            .nav-dot {
+                pointer-events: auto !important;
+                z-index: 9999 !important;
+                touch-action: manipulation;
+                -webkit-tap-highlight-color: rgba(47, 58, 143, 0.3);
+            }
+            
+            /* All slide images: contain, no cropping, sharp */
+            .slide img,
+            .image-wrapper img,
+            .frame img,
+            .screenshot img,
+            .mockup img {
+                width: 100% !important;
+                height: auto !important;
+                max-height: 52vh !important;
+                object-fit: contain !important;
+                object-position: center !important;
+                image-rendering: -webkit-optimize-contrast;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+            }
+            
+            /* If any wrappers are clipping images */
+            .image-wrapper,
+            .frame,
+            .screenshot,
+            .mockup {
+                overflow: visible !important;
+            }
+            
+            .image-wrapper.portrait img {
+                max-height: 52vh !important;
+                object-fit: contain !important;
+            }
+            
+            .image-wrapper:not(.portrait) img {
+                max-height: 52vh !important;
+                object-fit: contain !important;
             }
         }
     </style>
