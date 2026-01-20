@@ -933,6 +933,34 @@
             });
         }
         
+        // Touch handler guard to prevent double-trigger
+        let lastTouchTs = 0;
+        
+        function safeGoToSlide(index) {
+            const now = Date.now();
+            if (now - lastTouchTs < 300) return; // Prevent rapid double-taps
+            lastTouchTs = now;
+            goToSlide(index);
+        }
+        
+        function bindNavTouch(el, fn) {
+            if (!el) return;
+            
+            el.addEventListener('click', (e) => {
+                // Ignore synthetic click right after touch
+                if (Date.now() - lastTouchTs < 600) return;
+                e.preventDefault();
+                fn();
+            });
+            
+            el.addEventListener('touchend', (e) => {
+                lastTouchTs = Date.now();
+                e.preventDefault();
+                e.stopPropagation();
+                fn();
+            }, { passive: false });
+        }
+        
         function renderNavDots() {
             const container = document.getElementById('nav-dots');
             container.innerHTML = '';
@@ -941,7 +969,7 @@
                 const dot = document.createElement('button');
                 dot.className = `nav-dot ${index === currentSlide ? 'active' : ''}`;
                 dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
-                dot.onclick = () => goToSlide(index);
+                bindNavTouch(dot, () => safeGoToSlide(index));
                 container.appendChild(dot);
             });
         }
