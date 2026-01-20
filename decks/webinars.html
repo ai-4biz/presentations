@@ -283,16 +283,22 @@
             overflow: hidden;
             margin-top: 1.5rem;
             box-shadow: 0 12px 32px -8px rgba(47, 58, 143, 0.2);
+            width: 100%;
+            max-width: 100%;
+            height: auto;
         }
         
         .slide.has-portrait .image-wrapper {
             margin-top: 0;
         }
         
-        .image-wrapper img {
+        .image-wrapper img,
+        .portrait-frame img,
+        .slide img {
             width: 100%;
-            height: auto;
+            height: 100%;
             object-fit: contain;
+            object-position: center;
             display: block;
             border-radius: 10px;
         }
@@ -300,6 +306,22 @@
         /* Landscape images (default) */
         .image-wrapper:not(.portrait) {
             margin-top: 1.5rem;
+            max-height: min(52dvh, 420px);
+        }
+        
+        .image-wrapper:not(.portrait) img {
+            height: auto;
+            max-height: min(52dvh, 420px);
+        }
+        
+        /* Portrait images */
+        .slide.has-portrait .image-wrapper.portrait {
+            max-height: min(70dvh, 720px);
+        }
+        
+        .image-wrapper.portrait img {
+            height: auto;
+            max-height: min(70dvh, 720px);
         }
         
         .image-wrapper:not(.portrait) img {
