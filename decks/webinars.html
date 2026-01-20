@@ -178,7 +178,7 @@
         /* Inline subline for image slides - visible explanatory text */
         .subline-inline {
             font-size: 1.2rem;
-            color: #475569;
+            color: #475569 !important;
             font-weight: 500;
             line-height: 1.65;
             white-space: pre-line;
@@ -186,16 +186,26 @@
             margin-top: 0.75rem;
             font-family: 'Assistant', 'Heebo', sans-serif;
             display: block !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            max-width: 42ch;
+            position: relative !important;
+            z-index: 10;
         }
         
         .slide.has-portrait .subline-inline {
             text-align: right;
             margin-top: 0.5rem;
+            max-width: 100%;
         }
         
         /* Ensure subline-inline is always visible even with image-wrapper */
-        .slide-content:has(.image-wrapper) .subline-inline {
+        .slide-content:has(.image-wrapper) .subline-inline,
+        .slide.has-portrait .subline-inline,
+        .text-block .subline-inline {
             display: block !important;
+            opacity: 1 !important;
+            visibility: visible !important;
         }
         
         .image-placeholder {
