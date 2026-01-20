@@ -332,34 +332,51 @@
             max-height: min(70vh, 800px);
         }
         
-        /* Slide 5 - force image visibility */
+        /* Slide 5 = WOW image slide */
         .slide[data-slide="5"] .slide-content {
-            padding-bottom: clamp(18px, 3vh, 40px);
+            padding-top: clamp(64px, 7vh, 96px);
+            padding-bottom: clamp(16px, 3vh, 36px);
+        }
+        
+        .slide[data-slide="5"] .headline,
+        .slide[data-slide="5"] h1 {
+            margin-bottom: 10px;
+        }
+        
+        .slide[data-slide="5"] .subline,
+        .slide[data-slide="5"] .subline-inline {
+            margin-bottom: 18px;
+            max-width: 52ch;
         }
         
         .slide[data-slide="5"] .image-wrapper {
-            width: 100% !important;
-            height: auto !important;
-            overflow: visible !important;
-            margin-top: 18px;
+            width: 100%;
+            display: block;
+            overflow: visible;
         }
         
         .slide[data-slide="5"] .image-wrapper img {
-            width: 100% !important;
-            height: auto !important;
-            max-height: min(46dvh, 420px) !important;
-            object-fit: contain !important;
-            object-position: center !important;
-            display: block !important;
+            width: 100%;
+            height: auto;
+            max-height: min(62dvh, 560px);
+            object-fit: contain;
+            object-position: center;
+            display: block;
+            border-radius: inherit;
         }
         
         @media (max-width: 640px) {
             .slide[data-slide="5"] .image-wrapper img {
-                max-height: 36dvh !important;
+                max-height: 54dvh;
+            }
+            .slide[data-slide="5"] .headline,
+            .slide[data-slide="5"] h1 {
+                font-size: clamp(34px, 8vw, 48px);
+                line-height: 1.05;
             }
             .slide[data-slide="5"] .subline,
             .slide[data-slide="5"] .subline-inline {
-                font-size: clamp(15px, 3.8vw, 18px);
+                font-size: clamp(15px, 3.9vw, 18px);
                 line-height: 1.55;
             }
         }
@@ -719,9 +736,9 @@
             },
             {
                 id: 5,
-                headline: 'לא מחכים לסוף. רואים חמים מול העיניים',
-                subline: 'במהלך האירוע רואים בזמן אמת מי חם / פושר / קר',
-                highlight: 'רואים חמים',
+                headline: 'מסך אחד. כל הלידים. בזמן אמת.',
+                subline: 'חם / פושר / קר — מתעדכן תוך כדי האירוע',
+                highlight: 'בזמן אמת',
                 gradient: 'linear-gradient(135deg, #E8F0F5, #E0E8F0)',
                 hasImage: true,
                 imagePlaceholder: 'טבלת לידים עם דירוג',
