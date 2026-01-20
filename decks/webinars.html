@@ -773,6 +773,7 @@
                 const isPortrait = slide.imageSrc && portraitImages.includes(slide.imageSrc);
                 const slideDiv = document.createElement('div');
                 slideDiv.className = `slide ${isPortrait ? 'has-portrait' : ''} ${index === currentSlide ? 'active' : ''}`;
+                slideDiv.setAttribute('data-slide', (index + 1).toString());
                 slideDiv.style.background = slide.gradient;
                 const imageWrapperClass = isPortrait ? 'image-wrapper portrait' : 'image-wrapper';
                 
