@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iHoogi - Microsoft Startup</title>
+    <title>iHoogi - Microsoft Startup Program</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;700;800&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -454,20 +454,30 @@
             line-height: 1.5;
         }
         
-        .contact-block {
+        .contact-info {
             margin-top: 2rem;
             padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
             border-radius: 1rem;
+            border: 1px solid rgba(0, 180, 166, 0.2);
             text-align: left;
-            font-size: 1rem;
-            line-height: 1.8;
-            color: #475569;
+            max-width: 32rem;
+            margin-left: auto;
+            margin-right: auto;
         }
         
-        .contact-block strong {
+        .contact-info p {
+            margin: 0.5rem 0;
+            font-size: 1rem;
             color: #0f172a;
+            font-weight: 500;
+        }
+        
+        .contact-info .contact-name {
             font-weight: 700;
+            font-size: 1.125rem;
+            margin-bottom: 0.75rem;
         }
         
         .nav-dots {
@@ -733,6 +743,41 @@
                 object-fit: contain !important;
             }
         }
+        
+        /* Bullet list styling */
+        .bullets {
+            text-align: left;
+            max-width: 42rem;
+            margin: 1.5rem auto 0;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .bullets li {
+            font-size: 1.25rem;
+            color: #475569;
+            font-weight: 500;
+            line-height: 1.8;
+            margin: 0.75rem 0;
+            padding-left: 1.75rem;
+            position: relative;
+        }
+        
+        .bullets li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #00B4A6;
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+        
+        @media (max-width: 640px) {
+            .bullets li {
+                font-size: clamp(15px, 3.8vw, 18px);
+            }
+        }
     </style>
 </head>
 <body>
@@ -755,14 +800,19 @@
             {
                 id: 1,
                 headline: 'Lead collection is easy. Prioritization is the bottleneck.',
-                subline: 'After events & webinars, most teams don't know who to call first.',
+                subline: 'After events & webinars, most teams don\'t know who to call first.',
                 gradient: 'linear-gradient(135deg, #EEF1FA, #E8F7F5)',
                 hasImage: false,
             },
             {
                 id: 2,
-                headline: 'CRMs store leads. They don't create sales clarity.',
-                subline: '• No decision context from the lead\n• No real-time Hot / Warm / Cold routing\n• Follow-up turns into guesswork',
+                headline: 'CRMs store leads. They don\'t create sales clarity.',
+                subline: '',
+                bullets: [
+                    'No decision context from the lead',
+                    'No real-time Hot / Warm / Cold routing',
+                    'Follow-up turns into guesswork'
+                ],
                 gradient: 'linear-gradient(135deg, #F3EFFF, #EEF1FA)',
                 hasImage: false,
             },
@@ -778,16 +828,19 @@
             {
                 id: 4,
                 headline: 'Hot leads arrive instantly — while the event is still warm.',
-                subline: '• Sent to mobile and/or email\n• Includes contact details + key answers\n• Immediate callback — no searching, no digging',
+                subline: '',
+                bullets: [
+                    'Sent to mobile and/or email',
+                    'Includes contact details + key answers',
+                    'Immediate callback — no searching, no digging'
+                ],
                 gradient: 'linear-gradient(135deg, #FFF5E8, #FFE8D6)',
-                hasImage: true,
-                imagePlaceholder: 'Mobile notification received',
-                imageSrc: '../images/get-leads.png',
+                hasImage: false,
             },
             {
                 id: 5,
                 headline: 'One screen. Every lead. Real time.',
-                subline: '',
+                subline: 'Hot / Warm / Cold updates during the event.',
                 gradient: 'linear-gradient(135deg, #E8F0F5, #E0E8F0)',
                 hasImage: true,
                 imagePlaceholder: 'Leads table with scoring',
@@ -796,7 +849,12 @@
             {
                 id: 6,
                 headline: 'Participants receive a smart reply — not a generic thank-you.',
-                subline: '• Reply references their actual answers\n• Feels personal and professional\n• Warms the participant before the sales call',
+                subline: '',
+                bullets: [
+                    'Reply references their actual answers',
+                    'Feels personal and professional',
+                    'Warms the participant before the sales call'
+                ],
                 gradient: 'linear-gradient(135deg, #F3EFFF, #E8F0F5)',
                 hasImage: true,
                 imagePlaceholder: 'Example of automated reply',
@@ -805,19 +863,28 @@
             {
                 id: 7,
                 headline: 'Not another form. Not another CRM.',
-                subline: '• AI helps you decide what to ask\n• Answer-level scoring (not only lead-level)\n• Built for speed-to-lead',
+                subline: '',
+                bullets: [
+                    'AI helps you decide what to ask',
+                    'Answer-level scoring (not only lead-level)',
+                    'Built for speed-to-lead'
+                ],
                 gradient: 'linear-gradient(135deg, #E8F7F5, #D4F1ED)',
                 hasImage: false,
             },
             {
                 id: 8,
                 headline: 'Looking to scale this with Microsoft',
-                subline: '• Strong fit for SMB & B2B workflows\n• Clear AI + cloud scale path\n• Multi-industry expansion (events, agencies, services)',
+                subline: '',
+                bullets: [
+                    'Strong fit for SMB & B2B workflows',
+                    'Clear AI + cloud scale path',
+                    'Multi-industry expansion (events, agencies, services)'
+                ],
+                closingLine: 'I\'m looking for support to grow adoption and visibility — step by step.',
                 cta: 'Try iHoogi Free',
-                ctaSubline: '',
                 gradient: 'linear-gradient(135deg, #EEF1FA, #E8F7F5)',
                 hasImage: false,
-                contactInfo: true,
             },
         ];
         
@@ -864,6 +931,7 @@
                         <div class="text-block">
                             <h1 class="headline">${renderHeadline(slide)}</h1>
                             ${slide.subline ? `<p class="subline-inline">${slide.subline}</p>` : ''}
+                            ${slide.bullets ? `<ul class="bullets">${slide.bullets.map(b => `<li>${b}</li>`).join('')}</ul>` : ''}
                         </div>
                     `;
                 } else {
@@ -879,6 +947,11 @@
                         } else {
                             content += `<p class="subline">${slide.subline}</p>`;
                         }
+                    }
+                    
+                    // Add bullets if present
+                    if (slide.bullets && !slide.cta) {
+                        content += `<ul class="bullets">${slide.bullets.map(b => `<li>${b}</li>`).join('')}</ul>`;
                     }
                     
                     if (slide.hasImage && !slide.cta) {
@@ -907,17 +980,14 @@
                 if (slide.cta) {
                     content += `
                         <div class="cta-container">
+                            ${slide.bullets ? `<ul class="bullets">${slide.bullets.map(b => `<li>${b}</li>`).join('')}</ul>` : ''}
+                            ${slide.closingLine ? `<p class="subline" style="margin-top:1.5rem; font-size:1rem; color:#64748b;">${slide.closingLine}</p>` : ''}
                             <a href="https://ihoogi.com" target="_blank" rel="noopener" class="cta-button">${slide.cta}</a>
-                            ${slide.ctaSubline ? `<p class="cta-subline">${slide.ctaSubline}</p>` : ''}
-                            ${slide.subline ? `<p class="subline" style="margin-top:0.5rem;">${slide.subline}</p>` : ''}
-                            ${slide.contactInfo ? `
-                                <p class="subline" style="margin-top:1.5rem; font-size:0.95rem; color:#64748b;">I'm looking for support to grow adoption and visibility — step by step.</p>
-                                <div class="contact-block">
-                                    <strong>Rona Arbisman</strong><br>
-                                    intripoffice@gmail.com<br>
-                                    +972-52-828-1802
-                                </div>
-                            ` : ''}
+                            <div class="contact-info">
+                                <p class="contact-name">Rona Arbisman</p>
+                                <p>intripoffice@gmail.com</p>
+                                <p>+972-52-828-1802</p>
+                            </div>
                         </div>
                     `;
                 }
@@ -1003,7 +1073,7 @@
             }
         });
         
-        // Swipe support for mobile
+        // Swipe support for mobile (LTR: swipe left = next, swipe right = prev)
         let touchStartX = 0;
         let touchStartY = 0;
         let touchEndX = 0;
@@ -1027,11 +1097,11 @@
             
             // Check if horizontal swipe is more significant than vertical
             if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > minSwipeDistance) {
-                if (deltaX > 0) {
-                    // Swipe right (LTR: next)
+                if (deltaX < 0) {
+                    // Swipe left (LTR: next)
                     nextSlide();
                 } else {
-                    // Swipe left (LTR: previous)
+                    // Swipe right (LTR: previous)
                     prevSlide();
                 }
             }
