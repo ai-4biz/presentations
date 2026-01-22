@@ -611,10 +611,14 @@
             .image-wrapper:not(.portrait) {
                 min-height: auto;
                 max-height: none;
+                padding: 10px;
+                margin-top: 1rem;
             }
             
             .image-wrapper:not(.portrait) img {
-                max-height: 50vh;
+                max-height: 55vh;
+                width: 100%;
+                object-fit: contain;
             }
             
             .slide.has-portrait .image-wrapper.portrait {
@@ -759,9 +763,10 @@
             }
             
             .image-wrapper:not(.portrait) img {
-                max-height: 55vh !important;
+                max-height: 58vh !important;
                 object-fit: contain !important;
                 width: 100% !important;
+                height: auto !important;
             }
             
             /* Image-focused slides: ensure full visibility */
@@ -769,7 +774,21 @@
             .slide[data-slide="5"] img,
             .slide[data-slide="6"] img,
             .slide[data-slide="7"] img {
-                max-height: 60vh !important;
+                max-height: 62vh !important;
+            }
+            
+            /* Better spacing for landscape images on mobile */
+            .slide-content:has(.image-wrapper):not(:has(.portrait)) {
+                gap: 1rem !important;
+            }
+            
+            .slide-content:has(.image-wrapper):not(:has(.portrait)) .headline {
+                margin-bottom: 0.5rem !important;
+            }
+            
+            .slide-content:has(.image-wrapper):not(:has(.portrait)) .subline-inline {
+                margin-bottom: 0.75rem !important;
+                margin-top: 0.5rem !important;
             }
         }
         
