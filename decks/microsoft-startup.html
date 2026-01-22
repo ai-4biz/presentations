@@ -667,13 +667,22 @@
                 margin-top: 0.75rem;
             }
             .slide-content:has(.image-wrapper):not(:has(.portrait)) {
-                gap: 1.25rem;
+                gap: 1rem !important;
             }
             
             /* Better spacing for landscape images on mobile */
             .image-wrapper:not(.portrait) {
-                margin-top: 1rem;
-                padding: 12px;
+                margin-top: 0.75rem !important;
+                padding: 10px !important;
+            }
+            
+            .slide-content:has(.image-wrapper):not(:has(.portrait)) .headline {
+                margin-bottom: 0.5rem !important;
+            }
+            
+            .slide-content:has(.image-wrapper):not(:has(.portrait)) .subline-inline {
+                margin-bottom: 0.75rem !important;
+                margin-top: 0.5rem !important;
             }
             
             .slide-counter {
