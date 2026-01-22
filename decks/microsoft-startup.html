@@ -663,8 +663,15 @@
                 margin-top: 0.75rem;
             }
             .slide-content:has(.image-wrapper):not(:has(.portrait)) {
-                gap: 1.5rem;
+                gap: 1.25rem;
             }
+            
+            /* Better spacing for landscape images on mobile */
+            .image-wrapper:not(.portrait) {
+                margin-top: 1rem;
+                padding: 12px;
+            }
+            
             .slide-counter {
                 bottom: 4rem;
                 right: 1rem;
