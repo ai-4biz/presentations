@@ -333,22 +333,22 @@
         }
         
         /* WOW slide – image must be fully visible */
-        .slide[data-slide="5"] .slide-content {
+        .slide[data-slide="6"] .slide-content {
             padding-top: clamp(64px, 7vh, 96px);
             padding-bottom: clamp(16px, 3vh, 36px);
         }
         
-        .slide[data-slide="5"] .headline,
-        .slide[data-slide="5"] h1 {
+        .slide[data-slide="6"] .headline,
+        .slide[data-slide="6"] h1 {
             margin-bottom: 0;
         }
         
-        .slide[data-slide="5"] .subline,
-        .slide[data-slide="5"] .subline-inline {
+        .slide[data-slide="6"] .subline,
+        .slide[data-slide="6"] .subline-inline {
             display: none !important;
         }
         
-        .slide[data-slide="5"] .image-wrapper {
+        .slide[data-slide="6"] .image-wrapper {
             margin-top: 8px !important;
             padding-top: 0 !important;
             width: 100%;
@@ -356,8 +356,8 @@
             overflow: visible;
         }
         
-        .slide[data-slide="5"] .image-wrapper img,
-        .slide[data-slide="5"] img {
+        .slide[data-slide="6"] .image-wrapper img,
+        .slide[data-slide="6"] img {
             width: 100%;
             height: auto;
             max-height: 70vh;
@@ -367,12 +367,12 @@
         }
         
         @media (max-width: 640px) {
-            .slide[data-slide="5"] .image-wrapper img,
-            .slide[data-slide="5"] img {
+            .slide[data-slide="6"] .image-wrapper img,
+            .slide[data-slide="6"] img {
                 max-height: 55vh;
             }
-            .slide[data-slide="5"] .headline,
-            .slide[data-slide="5"] h1 {
+            .slide[data-slide="6"] .headline,
+            .slide[data-slide="6"] h1 {
                 font-size: clamp(34px, 8vw, 48px);
                 line-height: 1.05;
             }
@@ -792,15 +792,15 @@
         <div class="nav-dots" id="nav-dots"></div>
         
         <!-- Slide Counter -->
-        <div class="slide-counter" id="slide-counter">1 / 8</div>
+        <div class="slide-counter" id="slide-counter">1 / 10</div>
     </div>
     
     <script>
         const SLIDES = [
             {
                 id: 1,
-                headline: 'Lead collection is easy. Prioritization is the bottleneck.',
-                subline: 'After events & webinars, most teams don\'t know who to call first.',
+                headline: 'From clicks to decisions.',
+                subline: 'A goal-based decision layer between campaigns and CRM.',
                 gradient: 'linear-gradient(135deg, #EEF1FA, #E8F7F5)',
                 hasImage: false,
             },
@@ -818,8 +818,9 @@
             },
             {
                 id: 3,
-                headline: 'iHoogi turns answers into decisions.',
-                subline: 'Smart questionnaire → AI scoring → instant routing to mobile/email.',
+                headline: 'Not a generic form.',
+                subline: 'A goal-based questionnaire built around business intent.',
+                subline2: 'Each business defines what a "good lead" means.',
                 gradient: 'linear-gradient(135deg, #F0F9FF, #E0F2FE)',
                 hasImage: true,
                 imagePlaceholder: 'Questionnaire builder screen',
@@ -827,53 +828,54 @@
             },
             {
                 id: 4,
-                headline: 'Hot leads arrive instantly — while the event is still warm.',
-                subline: '',
-                bullets: [
-                    'Sent to mobile and/or email',
-                    'Includes contact details + key answers',
-                    'Immediate callback — no searching, no digging'
-                ],
+                headline: 'The system learns each business.',
+                subline: 'Website, social presence, and campaign context.',
                 gradient: 'linear-gradient(135deg, #FFF5E8, #FFE8D6)',
                 hasImage: false,
             },
             {
                 id: 5,
+                headline: 'High-intent leads are sent instantly',
+                subline: 'to mobile & email — with full answers.',
+                subline2: 'Before CRM. Before sales calls.',
+                gradient: 'linear-gradient(135deg, #E8F0F5, #E0E8F0)',
+                hasImage: true,
+                imagePlaceholder: 'Mobile notification with lead details',
+                imageSrc: '../images/get-leads.png',
+            },
+            {
+                id: 6,
                 headline: 'One screen. Every lead. Real time.',
-                subline: 'Hot / Warm / Cold updates during the event.',
+                subline: '',
                 gradient: 'linear-gradient(135deg, #E8F0F5, #E0E8F0)',
                 hasImage: true,
                 imagePlaceholder: 'Leads table with scoring',
                 imageSrc: '../images/leads-table.png',
             },
             {
-                id: 6,
-                headline: 'Participants receive a smart reply — not a generic thank-you.',
-                subline: '',
-                bullets: [
-                    'Reply references their actual answers',
-                    'Feels personal and professional',
-                    'Warms the participant before the sales call'
-                ],
-                gradient: 'linear-gradient(135deg, #F3EFFF, #E8F0F5)',
-                hasImage: true,
-                imagePlaceholder: 'Example of automated reply',
-                imageSrc: '../images/answer.png',
-            },
-            {
                 id: 7,
-                headline: 'Not another form. Not another CRM.',
-                subline: '',
-                bullets: [
-                    'AI helps you decide what to ask',
-                    'Answer-level scoring (not only lead-level)',
-                    'Built for speed-to-lead'
-                ],
-                gradient: 'linear-gradient(135deg, #E8F7F5, #D4F1ED)',
+                headline: 'Same campaign. Same budget.',
+                subline: 'Google vs Meta — compared by lead quality.',
+                subline2: 'View → Start → Submit → Decision readiness.',
+                gradient: 'linear-gradient(135deg, #F3EFFF, #E8F0F5)',
                 hasImage: false,
             },
             {
                 id: 8,
+                headline: 'Built for high-volume lead environments',
+                subline: 'Webinars · Events · Digital agencies\nAny business where lead waste is expensive.',
+                gradient: 'linear-gradient(135deg, #E8F7F5, #D4F1ED)',
+                hasImage: false,
+            },
+            {
+                id: 9,
+                headline: 'Why this fits Microsoft',
+                subline: 'A pre-CRM decision intelligence layer\nthat complements Ads, Azure, and AI-driven ecosystems.',
+                gradient: 'linear-gradient(135deg, #EEF1FA, #E8F7F5)',
+                hasImage: false,
+            },
+            {
+                id: 10,
                 headline: 'Looking to scale this with Microsoft',
                 subline: '',
                 bullets: [
@@ -931,6 +933,7 @@
                         <div class="text-block">
                             <h1 class="headline">${renderHeadline(slide)}</h1>
                             ${slide.subline ? `<p class="subline-inline">${slide.subline}</p>` : ''}
+                            ${slide.subline2 ? `<p class="subline-inline" style="font-size:1rem; color:#64748b; margin-top:0.5rem;">${slide.subline2}</p>` : ''}
                             ${slide.bullets ? `<ul class="bullets">${slide.bullets.map(b => `<li>${b}</li>`).join('')}</ul>` : ''}
                         </div>
                     `;
@@ -946,6 +949,15 @@
                             content += `<p class="subline-inline">${slide.subline}</p>`;
                         } else {
                             content += `<p class="subline">${slide.subline}</p>`;
+                        }
+                    }
+                    
+                    // Add subline2 if present
+                    if (slide.subline2 && !slide.cta) {
+                        if (slide.imageSrc) {
+                            content += `<p class="subline-inline" style="font-size:1rem; color:#64748b; margin-top:0.5rem;">${slide.subline2}</p>`;
+                        } else {
+                            content += `<p class="subline" style="font-size:1rem; color:#64748b; margin-top:0.5rem;">${slide.subline2}</p>`;
                         }
                     }
                     
