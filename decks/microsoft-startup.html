@@ -308,7 +308,7 @@
         /* Landscape images (default) */
         .image-wrapper:not(.portrait) {
             margin-top: 1.5rem;
-            min-height: 220px;
+            min-height: auto;
             max-height: none;
             overflow: visible;
         }
@@ -317,7 +317,7 @@
             display: block !important;
             width: 100%;
             height: auto !important;
-            max-height: 420px;
+            max-height: min(50vh, 500px);
             object-fit: contain;
             object-position: center;
         }
@@ -581,7 +581,7 @@
             }
             
             .image-wrapper:not(.portrait) img {
-                max-height: min(55vh, 600px);
+                max-height: min(50vh, 550px);
             }
             
             .image-wrapper.portrait img {
@@ -609,12 +609,12 @@
             }
             
             .image-wrapper:not(.portrait) {
-                min-height: 180px;
+                min-height: auto;
                 max-height: none;
             }
             
             .image-wrapper:not(.portrait) img {
-                max-height: 300px;
+                max-height: 50vh;
             }
             
             .slide.has-portrait .image-wrapper.portrait {
@@ -752,8 +752,9 @@
             }
             
             .image-wrapper:not(.portrait) img {
-                max-height: 60vh !important;
+                max-height: 55vh !important;
                 object-fit: contain !important;
+                width: 100% !important;
             }
             
             /* Image-focused slides: ensure full visibility */
@@ -761,7 +762,7 @@
             .slide[data-slide="5"] img,
             .slide[data-slide="6"] img,
             .slide[data-slide="7"] img {
-                max-height: 65vh !important;
+                max-height: 60vh !important;
             }
         }
         
