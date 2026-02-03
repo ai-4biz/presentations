@@ -366,6 +366,29 @@
             display: block;
         }
         
+        /* Opening slide: like webinars — text is the hero, logo is small */
+        .slide[data-slide="1"] .image-wrapper {
+            min-height: unset !important;
+            padding: 10px !important;
+            margin-top: 10px !important;
+            max-width: 260px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .slide[data-slide="1"] .image-wrapper img {
+            width: auto !important;
+            max-height: 84px !important;
+            margin: 0 auto;
+        }
+        @media (max-width: 640px) {
+            .slide[data-slide="1"] .image-wrapper {
+                max-width: 220px;
+            }
+            .slide[data-slide="1"] .image-wrapper img {
+                max-height: 64px !important;
+            }
+        }
+        
         @media (max-width: 640px) {
             .slide[data-slide="5"] .image-wrapper img,
             .slide[data-slide="5"] img {
@@ -807,7 +830,7 @@
             {
                 id: 1,
                 headline: 'לא כל שיחה שווה אותו טיפול',
-                subline: 'מוקדים חזקים לא עובדים קשה יותר — הם עובדים חכם יותר\n\nדירוג וניתוב לידים שמפחיתים שיחות סרק\nומקפיצים שיחות חשובות לטיפול מיידי',
+                subline: 'מוקדים שמנצחים יודעים לתעדף — לפני שמדברים.\nדירוג וניתוב לפי ערך: פחות שיחות סרק, יותר סגירות ושירות.',
                 gradient: 'linear-gradient(135deg, #EEF1FA, #E8F7F5)',
                 hasImage: true,
                 imagePlaceholder: 'לוגו iHoogi',
@@ -815,73 +838,69 @@
             },
             {
                 id: 2,
-                headline: 'הכאב האמיתי במוקד',
-                subline: 'כל הפניות נכנסות אותו דבר\nלידים חמים נתקעים בתור עם שיחות לא רלוונטיות\nנציגים "מגלים תוך כדי" במקום להגיע מוכנים\n\nהתוצאה: זמן נציג נשרף + שירות יורד + סגירות נפגעות',
+                headline: 'הבעיה במוקדים היא ערבוב',
+                subline: 'לידים חמים נתקעים עם שיחות לא רלוונטיות.\nזמן נציג נשרף — וחוויית השירות יורדת.',
                 gradient: 'linear-gradient(135deg, #F3EFFF, #EEF1FA)',
                 hasImage: false,
             },
             {
                 id: 3,
-                headline: 'מסך אחד. כל הלידים. כל ההקשר.',
-                subline: 'דירוג ותיעדוף במקום אחד — בלי חיפוש ובלי ניחושים',
-                highlight: 'מסך אחד',
+                headline: 'יש שיחות שלא תרצו שיגיעו לנציגים',
+                subline: 'וחשוב יותר: יש שיחות שחייבות להגיע עכשיו.\nהמערכת מחליטה מי מטפל — לפי ערך, לא לפי תור.',
+                highlight: 'עכשיו',
+                gradient: 'linear-gradient(135deg, #F0F9FF, #E0F2FE)',
+                hasImage: false,
+            },
+            {
+                id: 4,
+                headline: 'ניתוב חכם לפי ערך',
+                subline: 'שיחה קריטית → ישירות לנייד של הלקוח.\nשיחת מכירה חזקה → לנציג בכיר שיודע לסגור.\nכל השאר → טיפול שירות/מוקד לפי הכללים שלכם.',
+                highlight: 'ניתוב חכם',
+                gradient: 'linear-gradient(135deg, #FFF5E8, #FFE8D6)',
+                hasImage: false,
+            },
+            {
+                id: 5,
+                headline: 'מסך אחד. כל הלידים. שליטה מלאה.',
+                subline: '',
+                highlight: 'שליטה מלאה',
                 gradient: 'linear-gradient(135deg, #E8F0F5, #E0E8F0)',
                 hasImage: true,
                 imagePlaceholder: 'טבלת לידים עם דירוג',
                 imageSrc: '../images/leads-table.png',
             },
             {
-                id: 4,
-                headline: 'ניתוב חכם לפי ערך — לא לפי תור',
-                subline: 'יש שיחות שלא תרצו שיגיעו לנציגים\nויש שיחות שחייבות להגיע עכשיו:\n\n• ישירות לנייד של הלקוח (לא לפספס)\n• או לנציג מכירות בכיר שיודע לסגור\n\nכל שיחה מקבלת יעד נכון מראש',
-                highlight: 'ניתוב חכם',
-                gradient: 'linear-gradient(135deg, #F0F9FF, #E0F2FE)',
-                hasImage: false,
-            },
-            {
-                id: 5,
-                headline: 'אין דבר כזה "ליד טוב" באופן כללי',
-                subline: 'הדירוג לא לפי סטנדרט קבוע\nכל שאלון מדורג לפי הדרישה — ולפי מה שהלקוח רוצה להשיג מהליד\n\nליד טוב למכירה ≠ ליד טוב לשירות\nליד טוב ללקוח אחד ≠ ליד טוב ללקוח אחר',
-                highlight: 'לא לפי סטנדרט קבוע',
+                id: 6,
+                headline: 'המהות: לכל שאלון יש מטרה משלו',
+                subline: 'ולכן גם הדירוג וגם המענה החכם — מותאמים במיוחד\nלמטרה ולקהל היעד של אותו שאלון.\nאין דירוג "אחד לכולם".',
+                highlight: 'לכל שאלון',
                 gradient: 'linear-gradient(135deg, #E8F7F5, #D4F1ED)',
                 hasImage: true,
-                imagePlaceholder: 'ניתוח ודירוג לפי מטרה',
+                imagePlaceholder: 'ניתוח ודירוג',
                 imageSrc: '../images/analysis.png',
             },
             {
-                id: 6,
-                headline: 'הכול מתחיל משאלה נכונה',
-                subline: 'שאלון קצר שמוציא כוונה — ולא רק פרטים\nמבדיל בין "רק מתעניין" לבין "מוכן לפעולה"',
-                highlight: 'שאלה נכונה',
+                id: 7,
+                headline: 'שאלון קצר שמוציא כוונה',
+                subline: 'לא עוד "שם+טלפון".\nשאלות שמפרידות בין סקרנות לבין מוכנות לפעולה.',
+                highlight: 'כוונה',
                 gradient: 'linear-gradient(135deg, #EEF1FA, #E8F7F5)',
                 hasImage: true,
                 imagePlaceholder: 'מסך בניית שאלון',
                 imageSrc: '../images/ask.png',
             },
             {
-                id: 7,
-                headline: 'הדירוג מתרגם את התשובות להחלטה',
-                subline: 'חם / פושר / קר — כדי לדעת למי מטפלים קודם\nומי בכלל לא צריך להגיע לשיחה',
-                highlight: 'החלטה',
-                gradient: 'linear-gradient(135deg, #E8F0F5, #E0E8F0)',
-                hasImage: true,
-                imagePlaceholder: 'טבלת לידים עם דירוג',
-                imageSrc: '../images/leads-table.png',
-            },
-            {
                 id: 8,
-                headline: 'שקיפות ושפה משותפת מול הלקוח',
-                subline: 'הלקוח רואה את אותו דירוג ואת אותה תמונת מצב\nסוף לוויכוחים על "איכות לידים"',
-                highlight: 'שפה משותפת',
-                gradient: 'linear-gradient(135deg, #FFF5E8, #FFE8D6)',
-                hasImage: true,
-                imagePlaceholder: 'תצוגת לידים ושקיפות',
-                imageSrc: '../images/get-leads.png',
+                headline: 'חם / פושר / קר — כדי לתעדף נכון',
+                subline: 'הדירוג מתרגם תשובות להחלטה:\nמי מטופל עכשיו — ומי לא צריך שיחה.',
+                highlight: 'לתעדף נכון',
+                gradient: 'linear-gradient(135deg, #E8F0F5, #E0E8F0)',
+                hasImage: false,
             },
             {
                 id: 9,
                 headline: 'לא כל ליד צריך להגיע לנציג',
-                subline: 'חלק מהפניות יכולות לקבל מענה חכם או להמתין\nבלי לתפוס קו, בלי לשחוק צוות',
+                subline: 'חלק מהפניות מקבלות מענה חכם או נכנסות להמתנה\nבלי לתפוס קו ובלי לשחוק צוות.',
                 highlight: 'לא כל ליד',
                 gradient: 'linear-gradient(135deg, #FFF5E8, #FFE8D6)',
                 hasImage: true,
@@ -890,9 +909,9 @@
             },
             {
                 id: 10,
-                headline: 'גם הלקוח מקבל מענה חכם — לא הודעת תודה',
-                subline: 'מענה שמתייחס לתשובות שניתנו\nמחמם את הלקוח ומכין את השיחה\n\nהתוצאה: נציגים מגיעים מוכנים יותר — וסוגרים יותר',
-                highlight: 'מענה חכם',
+                headline: 'מענה חכם שמותאם למטרה של השאלון',
+                subline: 'לא הודעת תודה.\nמענה שמתחבר למה שהלקוח ענה — ומכין את השיחה בדיוק למה שצריך.',
+                highlight: 'מותאם למטרה',
                 gradient: 'linear-gradient(135deg, #F3EFFF, #E8F0F5)',
                 hasImage: true,
                 imagePlaceholder: 'דוגמה למענה אוטומטי',
@@ -900,18 +919,20 @@
             },
             {
                 id: 11,
-                headline: 'שירות הלקוחות יכול לעלות רמה',
-                subline: 'כשכל פנייה מגיעה לאדם הנכון — בזמן הנכון\nפחות העברות, פחות תסכול, יותר מקצועיות',
-                highlight: 'לעלות רמה',
+                headline: 'נציגים מגיעים מוכנים — וסוגרים יותר',
+                subline: 'הקשר + תשובות + דירוג מול העיניים.\nפחות "חקירה", יותר החלטה ושירות.',
+                highlight: 'מוכנים',
                 gradient: 'linear-gradient(135deg, #E8F7F5, #D4F1ED)',
-                hasImage: false,
+                hasImage: true,
+                imagePlaceholder: 'שקיפות מול הלקוח',
+                imageSrc: '../images/get-leads.png',
             },
             {
                 id: 12,
                 headline: 'בואו נעשה פיילוט על המוקד שלכם',
-                subline: 'פיילוט קצר על פניות אמיתיות\nכדי להוכיח ROI במהירות — בלי לשנות את תהליכי העבודה שלכם',
+                subline: 'נבדוק ניתוב, דירוג וזמני תגובה על פניות אמיתיות — ונציג ROI ברור.\nבלי לשנות את תהליכי העבודה שלכם.',
                 cta: 'לתיאום דמו / פיילוט',
-                ctaSubline: 'נבדוק יחד ניתוב, דירוג, וזמני תגובה — ונציג תוצאה ברורה',
+                ctaSubline: 'הדגמה קצרה על תרחיש אמיתי',
                 highlight: 'פיילוט',
                 gradient: 'linear-gradient(135deg, #EEF1FA, #E8F7F5)',
                 hasImage: false,
