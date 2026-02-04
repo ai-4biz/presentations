@@ -80,7 +80,7 @@
 
 ---
 
-## 8. Smart Lead Intelligence (חדש)
+## 8. Smart Lead Intelligence (אנגלית) (חדש)
 - **קובץ:** `decks/smart-lead-intelligence.html`
 - **לינק מקומי (file://):** 
   ```
@@ -88,6 +88,17 @@
   ```
 - **לינק יחסי:** `decks/smart-lead-intelligence.html`
 - **לינק GitHub Pages:** `https://ai-4biz.github.io/presentations/decks/smart-lead-intelligence.html`
+
+---
+
+## 9. אינטליגנציה חכמה ללידים (עברית) (חדש)
+- **קובץ:** `decks/smart-lead-intelligence-he.html`
+- **לינק מקומי (file://):** 
+  ```
+  file:///C:/dev/production/Presentation%20for%20advertising%20agencies/decks/smart-lead-intelligence-he.html
+  ```
+- **לינק יחסי:** `decks/smart-lead-intelligence-he.html`
+- **לינק GitHub Pages:** `https://ai-4biz.github.io/presentations/decks/smart-lead-intelligence-he.html`
 
 ---
 
@@ -112,6 +123,7 @@ http://localhost:3000/decks/real-estate.html
 http://localhost:3000/decks/call-centers.html
 http://localhost:3000/decks/microsoft-startup.html
 http://localhost:3000/decks/smart-lead-intelligence.html
+http://localhost:3000/decks/smart-lead-intelligence-he.html
 ```
 
 ---
@@ -128,4 +140,5 @@ file:///C:/dev/production/Presentation%20for%20advertising%20agencies/decks/real
 file:///C:/dev/production/Presentation%20for%20advertising%20agencies/decks/call-centers.html
 file:///C:/dev/production/Presentation%20for%20advertising%20agencies/decks/microsoft-startup.html
 file:///C:/dev/production/Presentation%20for%20advertising%20agencies/decks/smart-lead-intelligence.html
+file:///C:/dev/production/Presentation%20for%20advertising%20agencies/decks/smart-lead-intelligence-he.html
 ```
