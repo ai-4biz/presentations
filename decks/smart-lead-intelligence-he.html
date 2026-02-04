@@ -764,30 +764,40 @@
         @media (max-width: 860px) {
             /* keep the app-like feel, but allow scrolling INSIDE the active slide */
             html, body {
-                height: 100%;
+                height: 100vh;
+                height: 100dvh;
+                position: fixed;
+                width: 100%;
             }
             
             /* do NOT scroll the page; scroll the active slide */
             body {
                 overflow: hidden !important;
-                -webkit-overflow-scrolling: auto;
+                -webkit-overflow-scrolling: touch;
+                position: fixed;
+                width: 100%;
             }
             
             /* container stays viewport height */
             .container {
+                height: 100vh !important;
                 height: 100dvh !important;
                 overflow: hidden !important;
+                position: relative;
             }
             
             /* THIS is the key: constrain slide height to viewport so overflow-y can scroll */
             .slide {
                 position: absolute;
                 inset: 0;
-                height: 100% !important;
+                height: 100vh !important;
+                height: 100dvh !important;
                 min-height: 0 !important;
                 overflow-y: auto !important;
                 -webkit-overflow-scrolling: touch;
                 padding: 72px 1rem 24px 1rem !important;
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
             }
             
             /* remove extra internal paddings that steal space */
@@ -838,6 +848,13 @@
             },
             {
                 id: 2,
+                headline: 'היכולת לשאול – ולדרג – אחרת',
+                subline: 'שאלונים ללא הגבלה — לכל מטרה עסקית אחרת.\nולכל שאלון יש:\n• מטרה ייעודית\n• לוגיקת דירוג נפרדת\n• מענה חכם מותאם ללקוח ולנציג\n\nאותו ליד יכול להיחשב חזק בשאלון אחד\nופחות רלוונטי בשאלון אחר —\nבהתאם למה שהעסק רוצה להשיג.\n\nהדירוג אינו קבוע —\nהוא דינמי לפי הקשר, קהל ומטרה.',
+                gradient: 'linear-gradient(135deg, #F3EFFF, #EEF1FA)',
+                hasImage: false,
+            },
+            {
+                id: 3,
                 headline: 'יותר פניות.\nיותר ערוצים.\nפחות שליטה.',
                 subline: 'הבעיה היום היא לא כמות –\nאלא החלטה.',
                 gradient: 'linear-gradient(135deg, #F3EFFF, #EEF1FA)',
