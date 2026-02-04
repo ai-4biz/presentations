@@ -879,17 +879,18 @@
         const SLIDES = [
             {
                 id: 1,
-                headline: 'לא כל ליד שווה את אותו טיפול',
-                subline: 'הבעיה היום לא חוסר פניות —\nהיא חוסר החלטה.',
+                headline: 'רוב הלידים לא מתפספסים\nהם פשוט מנוהלים בלי הקשר',
+                subline: 'וכשאין הקשר —\nלא יודעים למי לפנות, איך ומתי',
                 gradient: 'linear-gradient(135deg, #EEF1FA, #E8F7F5)',
                 hasImage: true,
                 imagePlaceholder: 'לוגו iHoogi',
                 imageSrc: '../images/logo.png',
+                logoAtTop: true,
             },
             {
                 id: 2,
-                headline: 'היכולת לשאול – ולדרג – אחרת',
-                subline: 'שאלונים ללא הגבלה — לכל מטרה עסקית אחרת.\nולכל שאלון יש:\n• מטרה ייעודית\n• לוגיקת דירוג נפרדת\n• מענה חכם מותאם ללקוח ולנציג\n\nאותו ליד יכול להיחשב חזק בשאלון אחד\nופחות רלוונטי בשאלון אחר —\nבהתאם למה שהעסק רוצה להשיג.\n\nהדירוג אינו קבוע —\nהוא דינמי לפי הקשר, קהל ומטרה.',
+                headline: 'היכולת לשאול, לדרג – ולהחליט אחרת',
+                subline: 'שאלונים ללא הגבלה — כל אחד משרת מטרה עסקית אחרת.\nולכל שאלון יש לוגיקה משלו:\n\n• מטרה עסקית ברורה\n• לוגיקת דירוג ייעודית\n• מענה חכם מותאם להקשר, ללקוח ולנציג\n\nאותו ליד יכול להיחשב חזק בהקשר אחד\nופחות רלוונטי בהקשר אחר —\nבהתאם למה שהעסק רוצה להשיג באותו רגע.',
                 gradient: 'linear-gradient(135deg, #F3EFFF, #EEF1FA)',
                 hasImage: false,
             },
@@ -1110,6 +1111,16 @@
                         </div>
                     `;
                 } else {
+                    // Special handling for slide 1 with logo at top
+                    if (slide.logoAtTop && slide.hasImage && slide.imageSrc) {
+                        content += `
+                            <div style="text-align: center; margin-bottom: 2rem;">
+                                <img src="${slide.imageSrc}" alt="${slide.imagePlaceholder}" style="max-height: 84px; width: auto; display: block; margin: 0 auto 0.5rem;">
+                                <p style="font-size: 1.25rem; font-weight: 600; color: #2F3A8F; margin: 0;">iHoogi</p>
+                            </div>
+                        `;
+                    }
+                    
                     // Landscape or no image: text first (top), image second (bottom)
                     content += `
                         <h1 class="headline">${renderHeadline(slide)}</h1>
@@ -1117,14 +1128,14 @@
                     
                     // Show subline-inline for image slides, regular subline for text-only
                     if (slide.subline && !slide.cta) {
-                        if (slide.imageSrc) {
+                        if (slide.imageSrc && !slide.logoAtTop) {
                             content += `<p class="subline-inline">${slide.subline}</p>`;
                         } else {
                             content += `<p class="subline">${slide.subline}</p>`;
                         }
                     }
                     
-                    if (slide.hasImage && !slide.cta) {
+                    if (slide.hasImage && !slide.cta && !slide.logoAtTop) {
                         if (slide.imageSrc) {
                             content += `
                                 <div class="${imageWrapperClass}">
