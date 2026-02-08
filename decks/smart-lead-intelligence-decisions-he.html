@@ -633,9 +633,11 @@
             .slide[data-slide="8"] h1 {
                 margin-bottom: 0.15rem;
                 white-space: nowrap !important;
-                overflow: hidden;
+                overflow: hidden !important;
                 text-overflow: ellipsis;
-                font-size: clamp(2rem, 4vw, 3.5rem);
+                font-size: clamp(1.75rem, 3.5vw, 3rem) !important;
+                line-height: 1.1 !important;
+                word-break: keep-all !important;
             }
             
             .slide[data-slide="8"] .subline-inline {
