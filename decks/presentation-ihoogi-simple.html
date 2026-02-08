@@ -622,7 +622,7 @@
                 max-height: min(75vh, 850px);
             }
             
-            /* Slide 6: Reduce text spacing to show more image on desktop */
+            /* Slide 6: Compact text (1-2 lines), large image */
             .slide[data-slide="6"] .slide-content {
                 padding-top: clamp(40px, 5vh, 64px);
                 padding-bottom: clamp(16px, 3vh, 32px);
@@ -630,27 +630,24 @@
             
             .slide[data-slide="6"] .headline,
             .slide[data-slide="6"] h1 {
-                margin-bottom: 0.75rem;
+                margin-bottom: 0.5rem;
             }
             
             .slide[data-slide="6"] .subline-inline {
-                margin-bottom: 1rem;
+                margin-bottom: 0.75rem;
+                margin-top: 0.25rem;
+                line-height: 1.5;
+            }
+            
+            .slide[data-slide="6"] .image-wrapper {
                 margin-top: 0.5rem;
-            }
-            
-            .slide[data-slide="6"] .image-wrapper {
-                margin-top: 0.75rem;
-            }
-            
-            .slide[data-slide="6"] .image-wrapper {
-                margin-top: 1rem;
-                max-width: 90%;
+                max-width: 95%;
                 margin-left: auto;
                 margin-right: auto;
             }
             
             .slide[data-slide="6"] .image-wrapper img {
-                max-height: min(60vh, 650px);
+                max-height: min(65vh, 700px);
                 width: 100%;
                 object-fit: contain;
             }
