@@ -657,6 +657,36 @@
                 line-height: 1.3;
                 white-space: pre-line;
             }
+            
+            /* Slide 8: Compact text for landscape image */
+            .slide[data-slide="8"] .slide-content {
+                padding-top: clamp(40px, 5vh, 64px);
+                padding-bottom: clamp(16px, 3vh, 32px);
+            }
+            
+            .slide[data-slide="8"] .headline,
+            .slide[data-slide="8"] h1 {
+                margin-bottom: 0.5rem;
+            }
+            
+            .slide[data-slide="8"] .subline-inline {
+                margin-bottom: 0.5rem;
+                margin-top: 0.25rem;
+                line-height: 1.4;
+            }
+            
+            .slide[data-slide="8"] .image-wrapper {
+                margin-top: 0.5rem;
+                max-width: 95%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .slide[data-slide="8"] .image-wrapper img {
+                max-height: min(65vh, 700px);
+                width: 100%;
+                object-fit: contain;
+            }
         }
         
         @media (max-width: 640px) {
