@@ -651,6 +651,16 @@
                 width: 100%;
                 object-fit: contain;
             }
+            
+            /* Slide 7: Reduce spacing between paragraphs */
+            .slide[data-slide="7"] .subline-inline {
+                line-height: 1.4;
+                white-space: pre-line;
+            }
+            
+            .slide[data-slide="7"] .subline-inline br {
+                line-height: 0.8;
+            }
         }
         
         @media (max-width: 640px) {
