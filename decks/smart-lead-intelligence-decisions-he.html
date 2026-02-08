@@ -848,20 +848,23 @@
                 max-height: 65vh !important;
             }
             
-            /* Slide 8: Single-line text and framed image on mobile */
+            /* Slide 8: Single-line text and smaller framed image on mobile */
             .slide[data-slide="8"] .headline,
             .slide[data-slide="8"] h1 {
                 white-space: nowrap !important;
                 overflow: hidden !important;
                 text-overflow: ellipsis !important;
-                font-size: clamp(28px, 6.5vw, 42px) !important;
+                font-size: clamp(24px, 5.5vw, 36px) !important;
+                margin-bottom: 0.1rem !important;
             }
             
             .slide[data-slide="8"] .subline-inline {
                 white-space: nowrap !important;
                 overflow: hidden !important;
                 text-overflow: ellipsis !important;
-                font-size: clamp(15px, 3.8vw, 18px) !important;
+                font-size: clamp(14px, 3.5vw, 17px) !important;
+                margin-bottom: 0.25rem !important;
+                margin-top: 0.05rem !important;
             }
             
             .slide[data-slide="8"] .image-wrapper {
@@ -869,12 +872,13 @@
                 width: 100% !important;
                 border: 2px solid rgba(0, 180, 166, 0.25) !important;
                 border-radius: 20px !important;
-                padding: 18px !important;
+                padding: 12px !important;
                 box-shadow: 0 12px 32px -8px rgba(47, 58, 143, 0.2) !important;
+                margin-top: 0.25rem !important;
             }
             
             .slide[data-slide="8"] img {
-                max-height: 65vh !important;
+                max-height: 60vh !important;
                 object-fit: contain !important;
                 width: 100% !important;
             }
