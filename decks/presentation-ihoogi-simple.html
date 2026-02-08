@@ -346,10 +346,6 @@
             margin-bottom: 0;
         }
         
-        .slide[data-slide="5"] .subline,
-        .slide[data-slide="5"] .subline-inline {
-            display: none !important;
-        }
         
         .slide[data-slide="5"] .image-wrapper {
             margin-top: 8px !important;
@@ -643,8 +639,17 @@
                 margin-top: 0.75rem;
             }
             
+            .slide[data-slide="6"] .image-wrapper {
+                margin-top: 1rem;
+                max-width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
             .slide[data-slide="6"] .image-wrapper img {
-                max-height: min(50vh, 500px);
+                max-height: min(60vh, 650px);
+                width: 100%;
+                object-fit: contain;
             }
         }
         
