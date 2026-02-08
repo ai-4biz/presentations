@@ -847,12 +847,16 @@
             .slide[data-slide="8"] .headline,
             .slide[data-slide="8"] h1 {
                 white-space: nowrap !important;
-                overflow: visible !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
+                font-size: clamp(28px, 6.5vw, 42px) !important;
             }
             
             .slide[data-slide="8"] .subline-inline {
                 white-space: nowrap !important;
-                overflow: visible !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
+                font-size: clamp(15px, 3.8vw, 18px) !important;
             }
             
             .slide[data-slide="8"] .image-wrapper {
@@ -861,11 +865,13 @@
                 border: 2px solid rgba(0, 180, 166, 0.25) !important;
                 border-radius: 20px !important;
                 padding: 18px !important;
+                box-shadow: 0 12px 32px -8px rgba(47, 58, 143, 0.2) !important;
             }
             
             .slide[data-slide="8"] img {
                 max-height: 65vh !important;
                 object-fit: contain !important;
+                width: 100% !important;
             }
         }
         
