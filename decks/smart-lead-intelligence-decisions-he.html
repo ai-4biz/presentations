@@ -623,7 +623,7 @@
                 max-height: min(75vh, 850px);
             }
             
-            /* Slide 8: Full-width image, compact text */
+            /* Slide 8: Single-line text, full-width image below */
             .slide[data-slide="8"] .slide-content {
                 padding-top: clamp(40px, 5vh, 64px);
                 padding-bottom: clamp(16px, 3vh, 32px);
@@ -632,12 +632,16 @@
             .slide[data-slide="8"] .headline,
             .slide[data-slide="8"] h1 {
                 margin-bottom: 0.5rem;
+                white-space: nowrap;
+                overflow: visible;
             }
             
             .slide[data-slide="8"] .subline-inline {
                 margin-bottom: 0.75rem;
                 margin-top: 0.25rem;
                 line-height: 1.4;
+                white-space: nowrap;
+                overflow: visible;
             }
             
             .slide[data-slide="8"] .image-wrapper {
@@ -646,12 +650,16 @@
                 width: 100%;
                 margin-left: auto;
                 margin-right: auto;
+                height: auto;
+                min-height: unset;
             }
             
             .slide[data-slide="8"] .image-wrapper img {
-                max-height: min(65vh, 700px);
+                max-width: 100%;
                 width: 100%;
+                height: auto;
                 object-fit: contain;
+                display: block;
             }
         }
         
@@ -966,8 +974,8 @@
             },
             {
                 id: 8,
-                headline: 'אותה מטרה — שאלות שונות בכל ערוץ',
-                subline: 'הניסוח משתנה בין אתר, קמפיין או וובינר — אבל ההיגיון שמאחוריו נשאר אחיד.',
+                headline: 'אותה מטרה — שאלות שונות בערוצים שונים',
+                subline: 'הניסוח משתנה בין ערוצים, אבל ההיגיון נשאר אחיד.',
                 gradient: 'linear-gradient(135deg, #E8F7F5, #D4F1ED)',
                 hasImage: true,
                 imagePlaceholder: 'רב ערוצי',
