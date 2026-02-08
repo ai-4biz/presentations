@@ -839,9 +839,33 @@
             /* Image-focused slides: ensure full visibility */
             .slide[data-slide="3"] img,
             .slide[data-slide="5"] img,
-            .slide[data-slide="7"] img,
+            .slide[data-slide="7"] img {
+                max-height: 65vh !important;
+            }
+            
+            /* Slide 8: Single-line text and framed image on mobile */
+            .slide[data-slide="8"] .headline,
+            .slide[data-slide="8"] h1 {
+                white-space: nowrap !important;
+                overflow: visible !important;
+            }
+            
+            .slide[data-slide="8"] .subline-inline {
+                white-space: nowrap !important;
+                overflow: visible !important;
+            }
+            
+            .slide[data-slide="8"] .image-wrapper {
+                max-width: 100% !important;
+                width: 100% !important;
+                border: 2px solid rgba(0, 180, 166, 0.25) !important;
+                border-radius: 20px !important;
+                padding: 18px !important;
+            }
+            
             .slide[data-slide="8"] img {
                 max-height: 65vh !important;
+                object-fit: contain !important;
             }
         }
         
