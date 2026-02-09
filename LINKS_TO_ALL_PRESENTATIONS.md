@@ -113,6 +113,17 @@
 
 ---
 
+## 11. מצגת בסיסית (חדש)
+- **קובץ:** `decks/basic-presentation.html`
+- **לינק מקומי (file://):** 
+  ```
+  file:///C:/dev/production/Presentation%20for%20advertising%20agencies/decks/basic-presentation.html
+  ```
+- **לינק יחסי:** `decks/basic-presentation.html`
+- **לינק GitHub Pages:** `https://ai-4biz.github.io/presentations/decks/basic-presentation.html`
+
+---
+
 ## עמוד הבית (רשימת כל המצגות)
 - **קובץ:** `index.html`
 - **לינק מקומי (file://):** 
@@ -137,6 +148,7 @@ http://localhost:3000/decks/microsoft-startup.html
 http://localhost:3000/decks/smart-lead-intelligence.html
 http://localhost:3000/decks/smart-lead-intelligence-decisions-he.html
 http://localhost:3000/decks/presentation-ihoogi-simple.html
+http://localhost:3000/decks/basic-presentation.html
 ```
 
 ---
@@ -155,4 +167,5 @@ file:///C:/dev/production/Presentation%20for%20advertising%20agencies/decks/micr
 file:///C:/dev/production/Presentation%20for%20advertising%20agencies/decks/smart-lead-intelligence.html
 file:///C:/dev/production/Presentation%20for%20advertising%20agencies/decks/smart-lead-intelligence-decisions-he.html
 file:///C:/dev/production/Presentation%20for%20advertising%20agencies/decks/presentation-ihoogi-simple.html
+file:///C:/dev/production/Presentation%20for%20advertising%20agencies/decks/basic-presentation.html
 ```
