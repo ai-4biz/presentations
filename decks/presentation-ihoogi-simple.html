@@ -506,6 +506,119 @@
             font-size: 0.875rem;
             color: #4b5563;
             font-weight: 500;
+        }
+        
+        /* Slide 13: Custom CTA layout */
+        .slide[data-slide="13"] .slide-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem 1.5rem;
+        }
+        
+        .slide[data-slide="13"] .headline {
+            margin-bottom: 1rem;
+        }
+        
+        .slide[data-slide="13"] .subline {
+            margin-bottom: 2rem;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+        
+        .slide[data-slide="13"] .cta-container-custom {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 2rem;
+        }
+        
+        .slide[data-slide="13"] .cta-button-primary {
+            padding: 1rem 2rem;
+            background: linear-gradient(to right, #2F3A8F, #00B4A6);
+            color: white;
+            font-size: 1.125rem;
+            font-weight: 700;
+            font-family: 'Assistant', 'Heebo', sans-serif;
+            border-radius: 1rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+        }
+        
+        .slide[data-slide="13"] .cta-button-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .slide[data-slide="13"] .cta-button-secondary {
+            padding: 0.875rem 2rem;
+            background: white;
+            color: #2F3A8F;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Assistant', 'Heebo', sans-serif;
+            border-radius: 1rem;
+            border: 2px solid #2F3A8F;
+            cursor: pointer;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+        }
+        
+        .slide[data-slide="13"] .cta-button-secondary:hover {
+            transform: scale(1.05);
+            background: #F3EFFF;
+        }
+        
+        .slide[data-slide="13"] .cta-text-link {
+            font-size: 0.875rem;
+            color: #2F3A8F;
+            font-weight: 500;
+            text-decoration: underline;
+            margin-top: 0.5rem;
+        }
+        
+        .slide[data-slide="13"] .cta-text-link:hover {
+            color: #00B4A6;
+        }
+        
+        .slide[data-slide="13"] .logo-bottom {
+            margin-top: auto;
+            padding-top: 2rem;
+            text-align: center;
+        }
+        
+        .slide[data-slide="13"] .logo-bottom img {
+            max-height: 48px;
+            width: auto;
+        }
+        
+        @media (max-width: 860px) {
+            .slide[data-slide="13"] .slide-content {
+                padding: 1.5rem 1rem;
+            }
+            
+            .slide[data-slide="13"] .cta-button-primary,
+            .slide[data-slide="13"] .cta-button-secondary {
+                font-size: 0.95rem;
+                padding: 0.875rem 1.5rem;
+            }
+            
+            .slide[data-slide="13"] .subline {
+                font-size: 0.95rem;
+            }
+        }
             font-family: 'Assistant', 'Heebo', sans-serif;
             line-height: 1.5;
         }
@@ -1075,6 +1188,19 @@
             },
             {
                 id: 13,
+                headline: 'רוצים לבדוק את זה על הפניות שלכם?',
+                subline: 'הדרך המומלצת היא פיילוט בליווי אישי והתאמה לצרכים שלכם,\nואפשר גם להתחיל בהתנסות עצמאית ולראות את הכלי בפעולה.',
+                gradient: 'linear-gradient(135deg, #F3EFFF, #E8F0F5)',
+                hasImage: false,
+                ctaPrimary: 'לתיאום פיילוט בשיחה קצרה',
+                ctaPrimaryLink: 'tel:0528281802',
+                ctaSecondary: 'שליחת הודעה בוואטסאפ',
+                ctaSecondaryLink: 'https://wa.me/972528281802',
+                ctaTextLink: 'התנסות עצמאית בכלי',
+                showLogo: true,
+            },
+            {
+                id: 14,
                 headline: 'לידים מגיעים עם הקשר מלא',
                 subline: 'מה הלקוח מחפש,\nלמה הוא פנה,\nמאיפה הוא הגיע —\nהכול מול העיניים.',
                 gradient: 'linear-gradient(135deg, #E8F0F5, #E0E8F0)',
@@ -1083,7 +1209,7 @@
                 imageSrc: '../images/get-leads.png',
             },
             {
-                id: 14,
+                id: 15,
                 headline: 'מענה אישי או חכם — לפי בחירה',
                 subline: 'ניתן להגדיר מענה אישי או מענה חכם שלומד את השפה וההיגיון של העסק,\nונותן תשובה שנשמעת כאילו נשלחה ישירות ממנו.\nהמענה נשלח למייל, לנייד או לשניהם — לפי בחירה,\nכולל פרטי הלקוח והקשר הפנייה,\nויכול להכיל קישורים להמשך שיחה, הצעת מכירה או קביעת פגישה —\nכדי ליצור חיבור ישיר ומהיר עם הלקוח.',
                 gradient: 'linear-gradient(135deg, #F3EFFF, #E8F0F5)',
@@ -1092,7 +1218,7 @@
                 imageSrc: '../images/answer.png',
             },
             {
-                id: 15,
+                id: 16,
                 headline: 'לכל ליד — מענה אחר',
                 subline: 'אין שני לידים זהים —\nולכן אין מענה אחיד.',
                 gradient: 'linear-gradient(135deg, #E8F7F5, #D4F1ED)',
@@ -1101,7 +1227,7 @@
                 imageSrc: '../images/answer-leads.png',
             },
             {
-                id: 16,
+                id: 17,
                 headline: 'פחות עומס — יותר פוקוס.',
                 subline: 'פחות שחיקה — יותר שקט ניהולי.',
                 gradient: 'linear-gradient(135deg, #EEF1FA, #E8F7F5)',
@@ -1110,7 +1236,7 @@
                 imageSrc: '../images/leads-table.png',
             },
             {
-                id: 17,
+                id: 18,
                 headline: 'נכנסים לשיחה מוכנים',
                 subline: 'פחות שאלות פתיחה,\nיותר שיחה שמתקדמת —\nכי כבר יודעים את ההקשר.',
                 gradient: 'linear-gradient(135deg, #E8F7F5, #D4F1ED)',
@@ -1119,7 +1245,7 @@
                 imageSrc: '../images/get-leads.png',
             },
             {
-                id: 18,
+                id: 19,
                 headline: 'מתאים לעסקים שחיים מפניות',
                 subline: 'מי שצריך לדעת למי להגיב, מתי ואיך.',
                 gradient: 'linear-gradient(135deg, #E8F7F5, #D4F1ED)',
@@ -1128,7 +1254,7 @@
                 imageSrc: '../images/analysis.png',
             },
             {
-                id: 19,
+                id: 20,
                 headline: 'זו לא מערכת שמנהלת לידים',
                 subline: 'זו מערכת שמבינה פניות\nומחליטה מה נכון לעשות איתן.',
                 gradient: 'linear-gradient(135deg, #EEF1FA, #E8F7F5)',
@@ -1137,7 +1263,7 @@
                 imageSrc: '../images/logo.png',
             },
             {
-                id: 20,
+                id: 21,
                 headline: 'רוצים לראות את זה עובד אצלכם?',
                 subline: '',
                 gradient: 'linear-gradient(135deg, #F3EFFF, #E8F0F5)',
@@ -1146,28 +1272,28 @@
                 imageSrc: '../images/logo.png',
             },
             {
-                id: 21,
+                id: 22,
                 headline: 'מה משתנה ביום שאחרי',
                 subline: '- המשתתפים והלידים כבר לא אנונימיים\n- ברור למי לפנות ולמי לא\n- לידים חמים מגיעים ישירות למי שסוגר\n- פחות רעש, פחות ניחושים, פחות עיכובים\n\nההחלטה הנכונה מתקבלת מיד — לא בדיעבד.',
                 gradient: 'linear-gradient(135deg, #F3EFFF, #EEF1FA)',
                 hasImage: false,
             },
             {
-                id: 22,
+                id: 23,
                 headline: 'פחות בזבוז — יותר תוצאות',
                 subline: '- חיסכון מיידי בזמן של אנשי מכירות\n- חיסכון בכסף משעות מכירה לא אפקטיביות\n- פחות שחיקה והחזרות של מוכרנים\n- אותו צוות, אותו תקציב — תוצאה טובה יותר\n\nהצמיחה לא שוברת את התהליך.',
                 gradient: 'linear-gradient(135deg, #F3EFFF, #EEF1FA)',
                 hasImage: false,
             },
             {
-                id: 23,
+                id: 24,
                 headline: 'לא רק לידים — הבנה עמוקה של הקהל',
                 subline: '- ניתוח כל שאלה וכל תשובה\n- זיהוי נקודות נטישה בזמן אמת\n- השוואה חכמה בין ערוצים\n- חיבור לגוגל ומטא: מי ראה, מי ענה, מי נטש\n- זיהוי התשובה הברורה שחוזרת אצל הקהל האיכותי\n\nכך קהל יעד מפסיק להיות השערה — והופך לעובדה.',
                 gradient: 'linear-gradient(135deg, #F3EFFF, #EEF1FA)',
                 hasImage: false,
             },
             {
-                id: 24,
+                id: 25,
                 headline: 'פגישה של 15 דקות',
                 subline: 'הצגה חיה על הדוגמה שלכם.',
                 gradient: 'linear-gradient(135deg, #F3EFFF, #E8F0F5)',
@@ -1176,7 +1302,7 @@
                 imageSrc: '../images/logo.png',
             },
             {
-                id: 25,
+                id: 26,
                 headline: 'התנסות חינמית',
                 subline: 'בלי התחייבות —\nרק לראות ולהחליט.',
                 gradient: 'linear-gradient(135deg, #F3EFFF, #E8F0F5)',
@@ -1185,7 +1311,7 @@
                 imageSrc: '../images/logo.png',
             },
             {
-                id: 26,
+                id: 27,
                 headline: 'התנסות חינמית',
                 subline: 'בלי התחייבות —\nרק לראות ולהחליט.',
                 cta: 'לתיאום פגישה',
@@ -1254,17 +1380,25 @@
                     }
                     
                     // Landscape or no image: text first (top), image second (bottom)
-                    content += `
-                        <h1 class="headline">${renderHeadline(slide)}</h1>
-                    `;
-                    
-                    // Show subline-inline for image slides, regular subline for text-only
-                    if (slide.subline && !slide.cta) {
-                        if (slide.imageSrc && !slide.logoAtTop) {
-                            content += `<p class="subline-inline">${slide.subline}</p>`;
-                        } else {
-                            content += `<p class="subline">${slide.subline}</p>`;
+                    // Skip subline for slide 13 (handled in CTA section)
+                    if (slide.id !== 13) {
+                        content += `
+                            <h1 class="headline">${renderHeadline(slide)}</h1>
+                        `;
+                        
+                        // Show subline-inline for image slides, regular subline for text-only
+                        if (slide.subline && !slide.cta) {
+                            if (slide.imageSrc && !slide.logoAtTop) {
+                                content += `<p class="subline-inline">${slide.subline}</p>`;
+                            } else {
+                                content += `<p class="subline">${slide.subline}</p>`;
+                            }
                         }
+                    } else {
+                        // Slide 13: headline only here, subline in CTA section
+                        content += `
+                            <h1 class="headline">${renderHeadline(slide)}</h1>
+                        `;
                     }
                     
                     if (slide.hasImage && !slide.cta && !slide.logoAtTop) {
