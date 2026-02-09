@@ -34,6 +34,7 @@
   file:///C:/dev/production/Presentation%20for%20advertising%20agencies/decks/advertising-agencies.html
   ```
 - **לינק יחסי:** `decks/advertising-agencies.html`
+- **לינק GitHub Pages:** `https://ai-4biz.github.io/presentations/decks/advertising-agencies.html`
 
 ---
 
