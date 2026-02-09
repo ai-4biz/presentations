@@ -581,16 +581,30 @@
             background: #F3EFFF;
         }
         
-        .slide[data-slide="13"] .cta-text-link {
+        .slide[data-slide="13"] .contact-options {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
             font-size: 0.875rem;
-            color: #2F3A8F;
-            font-weight: 500;
-            text-decoration: underline;
-            margin-top: 0.5rem;
+            color: #4b5563;
         }
         
-        .slide[data-slide="13"] .cta-text-link:hover {
+        .slide[data-slide="13"] .contact-options a {
+            color: #2F3A8F;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .slide[data-slide="13"] .contact-options a:hover {
             color: #00B4A6;
+        }
+        
+        .slide[data-slide="13"] .contact-options .separator {
+            color: #9ca3af;
         }
         
         .slide[data-slide="13"] .logo-bottom {
@@ -1214,14 +1228,17 @@
             {
                 id: 13,
                 headline: 'רוצים לבדוק את זה על הפניות שלכם?',
-                subline: 'הדרך המומלצת היא פיילוט בליווי אישי והתאמה לצרכים שלכם,\nואפשר גם להתחיל בהתנסות עצמאית ולראות את הכלי בפעולה.',
+                subline: 'הדרך המומלצת היא פיילוט קצר בליווי אישי,\nשמחובר לפניות אמיתיות שלכם ומראה איך זה עובד בפועל.\nאפשר גם להתחיל בהתנסות עצמאית ולהתרשם מהמערכת.',
                 gradient: 'linear-gradient(135deg, #F3EFFF, #E8F0F5)',
                 hasImage: false,
                 ctaPrimary: 'לתיאום פיילוט בשיחה קצרה',
                 ctaPrimaryLink: 'tel:0528281802',
-                ctaSecondary: 'שליחת הודעה בוואטסאפ',
-                ctaSecondaryLink: 'https://wa.me/972528281802',
-                ctaTextLink: 'התנסות עצמאית בכלי',
+                ctaSecondary: 'לראות את המערכת בפעולה',
+                ctaSecondaryLink: 'https://ihoogi.com',
+                contactPhone: '052-828-1802',
+                contactPhoneLink: 'tel:0528281802',
+                contactWhatsApp: 'WhatsApp',
+                contactWhatsAppLink: 'https://wa.me/972528281802',
                 showLogo: true,
             },
             {
@@ -1456,7 +1473,13 @@
                         <div class="cta-container-custom">
                             <a href="${slide.ctaPrimaryLink}" class="cta-button-primary">${slide.ctaPrimary}</a>
                             <a href="${slide.ctaSecondaryLink}" target="_blank" rel="noopener" class="cta-button-secondary">${slide.ctaSecondary}</a>
-                            ${slide.ctaTextLink ? `<a href="#" class="cta-text-link">${slide.ctaTextLink}</a>` : ''}
+                            ${slide.contactPhone ? `
+                                <div class="contact-options">
+                                    <a href="${slide.contactPhoneLink}">${slide.contactPhone}</a>
+                                    <span class="separator">|</span>
+                                    <a href="${slide.contactWhatsAppLink}" target="_blank" rel="noopener">${slide.contactWhatsApp}</a>
+                                </div>
+                            ` : ''}
                         </div>
                         ${slide.showLogo ? `
                             <div class="logo-bottom">
