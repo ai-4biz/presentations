@@ -1421,7 +1421,22 @@
                     }
                 }
                 
-                if (slide.cta) {
+                // Special handling for slide 13 with custom CTA
+                if (slide.id === 13 && slide.ctaPrimary) {
+                    content += `
+                        <p class="subline">${slide.subline}</p>
+                        <div class="cta-container-custom">
+                            <a href="${slide.ctaPrimaryLink}" class="cta-button-primary">${slide.ctaPrimary}</a>
+                            <a href="${slide.ctaSecondaryLink}" target="_blank" rel="noopener" class="cta-button-secondary">${slide.ctaSecondary}</a>
+                            ${slide.ctaTextLink ? `<a href="#" class="cta-text-link">${slide.ctaTextLink}</a>` : ''}
+                        </div>
+                        ${slide.showLogo ? `
+                            <div class="logo-bottom">
+                                <img src="../images/logo.png" alt="iHoogi Logo">
+                            </div>
+                        ` : ''}
+                    `;
+                } else if (slide.cta) {
                     content += `
                         <div class="cta-container">
                             <a href="https://wa.me/972528281802" target="_blank" rel="noopener" class="cta-button">${slide.cta}</a>
