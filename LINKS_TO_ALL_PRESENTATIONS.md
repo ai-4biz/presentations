@@ -124,6 +124,17 @@
 
 ---
 
+## 12. מצגת ל-Founder (חדש)
+- **קובץ:** `decks/founder-presentation.html`
+- **לינק מקומי (file://):** 
+  ```
+  file:///C:/dev/production/Presentation%20for%20advertising%20agencies/decks/founder-presentation.html
+  ```
+- **לינק יחסי:** `decks/founder-presentation.html`
+- **לינק GitHub Pages:** `https://ai-4biz.github.io/presentations/decks/founder-presentation.html`
+
+---
+
 ## עמוד הבית (רשימת כל המצגות)
 - **קובץ:** `index.html`
 - **לינק מקומי (file://):** 
@@ -149,6 +160,7 @@ http://localhost:3000/decks/smart-lead-intelligence.html
 http://localhost:3000/decks/smart-lead-intelligence-decisions-he.html
 http://localhost:3000/decks/presentation-ihoogi-simple.html
 http://localhost:3000/decks/basic-presentation.html
+http://localhost:3000/decks/founder-presentation.html
 ```
 
 ---
@@ -168,4 +180,5 @@ file:///C:/dev/production/Presentation%20for%20advertising%20agencies/decks/smar
 file:///C:/dev/production/Presentation%20for%20advertising%20agencies/decks/smart-lead-intelligence-decisions-he.html
 file:///C:/dev/production/Presentation%20for%20advertising%20agencies/decks/presentation-ihoogi-simple.html
 file:///C:/dev/production/Presentation%20for%20advertising%20agencies/decks/basic-presentation.html
+file:///C:/dev/production/Presentation%20for%20advertising%20agencies/decks/founder-presentation.html
 ```
