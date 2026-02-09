@@ -102,14 +102,14 @@
             overflow-x: hidden;
         }
         
-        /* First slide: reduced padding to show all content */
+        /* First slide: minimal padding to show all content */
         .slide[data-slide="1"] {
-            padding: clamp(32px, 4vh, 48px) 2rem clamp(16px, 2vh, 24px) 2rem !important;
+            padding: clamp(20px, 2.5vh, 32px) 2rem clamp(8px, 1vh, 16px) 2rem !important;
         }
         
         @media (max-width: 640px) {
             .slide[data-slide="1"] {
-                padding: 48px 1rem 16px 1rem !important;
+                padding: 32px 1rem 8px 1rem !important;
             }
         }
         
@@ -149,15 +149,15 @@
         .slide[data-slide="1"] .slide-content {
             padding-top: 0 !important;
             padding-bottom: 0 !important;
-            gap: 1rem !important;
+            gap: 0.5rem !important;
             justify-content: center;
-            min-height: calc(100vh - clamp(48px, 6vh, 72px));
+            min-height: calc(100vh - clamp(32px, 4vh, 48px));
         }
         
         @media (max-width: 640px) {
             .slide[data-slide="1"] .slide-content {
-                min-height: calc(100vh - 64px);
-                gap: 0.75rem !important;
+                min-height: calc(100vh - 40px);
+                gap: 0.5rem !important;
             }
         }
         
@@ -245,6 +245,16 @@
             font-family: 'Assistant', 'Heebo', sans-serif;
         }
         
+        /* Mobile: bold and dark subline for better visibility */
+        @media (max-width: 640px) {
+            .subline {
+                color: #1e293b !important;
+                font-weight: 700 !important;
+                letter-spacing: 0.01em;
+                -webkit-text-stroke: 0.2px rgba(30, 41, 59, 0.2);
+            }
+        }
+        
         /* Image-first slides: hide subline when image is present */
         .slide-content:has(.image-wrapper) .subline {
             display: none;
@@ -266,6 +276,16 @@
             max-width: 50ch;
             position: relative !important;
             z-index: 10;
+        }
+        
+        /* Mobile: bold and dark subline-inline for better visibility */
+        @media (max-width: 640px) {
+            .subline-inline {
+                color: #1e293b !important;
+                font-weight: 700 !important;
+                letter-spacing: 0.01em;
+                -webkit-text-stroke: 0.2px rgba(30, 41, 59, 0.2);
+            }
         }
         
         .slide-content:has(.image-wrapper):not(:has(.portrait)) .subline-inline {
@@ -393,21 +413,21 @@
             display: block;
         }
         
-        /* Opening slide: logo on right, reduced spacing, text prominent */
+        /* Opening slide: logo on right, minimal spacing, text prominent */
         .slide[data-slide="1"] .slide-content {
-            padding-top: clamp(32px, 4vh, 48px) !important;
-            padding-bottom: clamp(16px, 2vh, 24px) !important;
-            gap: 1rem !important;
+            padding-top: clamp(20px, 2.5vh, 32px) !important;
+            padding-bottom: clamp(8px, 1vh, 16px) !important;
+            gap: 0.5rem !important;
         }
         
         .slide[data-slide="1"] .image-wrapper {
             position: absolute;
-            top: clamp(24px, 3vh, 32px);
-            right: clamp(16px, 2vw, 32px);
+            top: clamp(12px, 2vh, 20px);
+            right: clamp(12px, 1.5vw, 24px);
             min-height: unset !important;
-            padding: 8px !important;
+            padding: 4px !important;
             margin: 0 !important;
-            max-width: 180px;
+            max-width: 140px;
             width: auto;
             background: transparent;
             border: none;
@@ -416,31 +436,32 @@
         
         .slide[data-slide="1"] .image-wrapper img {
             width: auto !important;
-            max-height: 60px !important;
+            max-height: 45px !important;
             margin: 0;
         }
         
         .slide[data-slide="1"] .headline {
             margin-top: 0 !important;
             padding-top: 0 !important;
+            margin-bottom: 0.5rem !important;
         }
         
         @media (max-width: 640px) {
             .slide[data-slide="1"] .slide-content {
-                padding-top: 48px !important;
-                padding-bottom: 16px !important;
-                gap: 0.75rem !important;
+                padding-top: 32px !important;
+                padding-bottom: 8px !important;
+                gap: 0.5rem !important;
             }
             
             .slide[data-slide="1"] .image-wrapper {
-                top: 16px;
-                right: 12px;
-                max-width: 140px;
-                padding: 6px !important;
+                top: 10px;
+                right: 10px;
+                max-width: 100px;
+                padding: 3px !important;
             }
             
             .slide[data-slide="1"] .image-wrapper img {
-                max-height: 48px !important;
+                max-height: 36px !important;
             }
             
             /* Mobile: bold text for better visibility */
@@ -454,13 +475,13 @@
         
         @media (min-width: 768px) {
             .slide[data-slide="1"] .image-wrapper {
-                max-width: 200px;
-                top: clamp(32px, 4vh, 48px);
-                right: clamp(24px, 3vw, 48px);
+                max-width: 160px;
+                top: clamp(16px, 2.5vh, 32px);
+                right: clamp(16px, 2vw, 32px);
             }
             
             .slide[data-slide="1"] .image-wrapper img {
-                max-height: 72px !important;
+                max-height: 55px !important;
             }
         }
         
@@ -661,8 +682,8 @@
         
         @media (max-width: 640px) {
             .slide-content {
-                padding-top: 56px;
-                padding-bottom: 20px;
+                padding-top: 48px;
+                padding-bottom: 16px;
             }
             
             .headline {
@@ -680,8 +701,10 @@
             li {
                 font-size: clamp(15px, 3.8vw, 18px);
                 line-height: 1.6;
-                font-weight: 600 !important;
+                font-weight: 700 !important;
+                color: #1e293b !important;
                 letter-spacing: 0.01em;
+                -webkit-text-stroke: 0.2px rgba(30, 41, 59, 0.2);
             }
             
             .image-wrapper:not(.portrait) {
