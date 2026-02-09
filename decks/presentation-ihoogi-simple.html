@@ -1526,12 +1526,11 @@
                         </div>
                     `;
                 } else {
-                    // Special handling for slide 1 with logo at top
+                    // Special handling for slide 1 with logo at top right
                     if (slide.logoAtTop && slide.hasImage && slide.imageSrc) {
                         content += `
-                            <div style="text-align: center; margin-bottom: 2rem;">
-                                <img src="${slide.imageSrc}" alt="${slide.imagePlaceholder}" style="max-height: 84px; width: auto; display: block; margin: 0 auto 0.5rem;">
-                                <p style="font-size: 1.25rem; font-weight: 600; color: #2F3A8F; margin: 0;">iHoogi</p>
+                            <div class="image-wrapper">
+                                <img src="${slide.imageSrc}" alt="${slide.imagePlaceholder}">
                             </div>
                         `;
                     }
