@@ -102,6 +102,17 @@
 
 ---
 
+## 10. Presentation Polish (Simple Overview) (חדש)
+- **קובץ:** `decks/presentation-polish.html`
+- **לינק מקומי (file://):** 
+  ```
+  file:///C:/dev/production/Presentation%20for%20advertising%20agencies/decks/presentation-polish.html
+  ```
+- **לינק יחסי:** `decks/presentation-polish.html`
+- **לינק GitHub Pages:** `https://ai-4biz.github.io/presentations/decks/presentation-polish.html`
+
+---
+
 ## עמוד הבית (רשימת כל המצגות)
 - **קובץ:** `index.html`
 - **לינק מקומי (file://):** 
@@ -124,6 +135,7 @@ http://localhost:3000/decks/call-centers.html
 http://localhost:3000/decks/microsoft-startup.html
 http://localhost:3000/decks/smart-lead-intelligence.html
 http://localhost:3000/decks/smart-lead-intelligence-decisions-he.html
+http://localhost:3000/decks/presentation-polish.html
 ```
 
 ---
@@ -141,4 +153,5 @@ file:///C:/dev/production/Presentation%20for%20advertising%20agencies/decks/call
 file:///C:/dev/production/Presentation%20for%20advertising%20agencies/decks/microsoft-startup.html
 file:///C:/dev/production/Presentation%20for%20advertising%20agencies/decks/smart-lead-intelligence.html
 file:///C:/dev/production/Presentation%20for%20advertising%20agencies/decks/smart-lead-intelligence-decisions-he.html
+file:///C:/dev/production/Presentation%20for%20advertising%20agencies/decks/presentation-polish.html
 ```
