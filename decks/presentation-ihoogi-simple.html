@@ -420,7 +420,7 @@
             display: block;
         }
         
-        /* Opening slide: logo on right, minimal spacing, text prominent */
+        /* Opening slide: logo at top center, minimal spacing, text prominent */
         .slide[data-slide="1"] .slide-content {
             padding-top: 0 !important;
             padding-bottom: 0 !important;
@@ -429,23 +429,26 @@
         }
         
         .slide[data-slide="1"] .image-wrapper {
-            position: absolute;
-            top: clamp(8px, 1vh, 12px);
-            right: clamp(8px, 1vw, 16px);
+            position: relative;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
             min-height: unset !important;
             padding: 2px !important;
-            margin: 0 !important;
-            max-width: 100px;
+            margin: 0 auto clamp(1rem, 2vh, 2rem) auto !important;
+            max-width: 120px;
             width: auto;
             background: transparent;
             border: none;
             box-shadow: none;
+            display: block;
         }
         
         .slide[data-slide="1"] .image-wrapper img {
             width: auto !important;
-            max-height: 32px !important;
-            margin: 0;
+            max-height: 48px !important;
+            margin: 0 auto;
+            display: block;
         }
         
         .slide[data-slide="1"] .headline {
@@ -468,14 +471,16 @@
             }
             
             .slide[data-slide="1"] .image-wrapper {
-                top: 6px;
-                right: 6px;
-                max-width: 50px;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                max-width: 80px;
                 padding: 1px !important;
+                margin: 0 auto 1rem auto !important;
             }
             
             .slide[data-slide="1"] .image-wrapper img {
-                max-height: 14px !important;
+                max-height: 32px !important;
             }
             
             /* Mobile: bold text for better visibility */
@@ -490,13 +495,12 @@
         
         @media (min-width: 768px) {
             .slide[data-slide="1"] .image-wrapper {
-                max-width: 120px;
-                top: clamp(10px, 1.5vh, 16px);
-                right: clamp(10px, 1.5vw, 20px);
+                max-width: 150px;
+                margin: 0 auto clamp(1.5rem, 3vh, 2.5rem) auto !important;
             }
             
             .slide[data-slide="1"] .image-wrapper img {
-                max-height: 40px !important;
+                max-height: 60px !important;
             }
         }
         
