@@ -285,7 +285,7 @@
             .text-content.portrait {
                 order: 2;
                 align-items: flex-start;
-                text-align: right;
+            text-align: right;
             }
         }
         
@@ -313,7 +313,7 @@
         .subline {
             font-size: var(--font-size-subline-mobile);
             font-weight: 500;
-            line-height: 1.6;
+                line-height: 1.6;
             white-space: pre-line;
             color: var(--color-subline);
             max-width: 42rem;
@@ -334,8 +334,8 @@
         
         /* ===== CTA BUTTONS ===== */
         .cta-container {
-            display: flex;
-            flex-direction: column;
+                display: flex;
+                flex-direction: column;
             align-items: center;
             gap: 1rem;
             margin-top: 1rem;
@@ -403,7 +403,7 @@
         
         /* ===== NAVIGATION ===== */
         .nav-dots {
-            position: fixed;
+                position: fixed;
             bottom: 1.5rem;
             left: 50%;
             transform: translateX(-50%);
@@ -489,7 +489,7 @@
                 <div class="image-container portrait">
                     <div class="image-wrapper">
                         <img src="../images/ask.png" alt="בניית שאלון">
-                    </div>
+    </div>
                 </div>
                 <div class="text-content portrait">
                     <h1 class="headline">זה לא עוד טופס שאוסף מידע.</h1>
@@ -551,17 +551,7 @@
                 </div>
                 <div class="text-content portrait">
                     <h1 class="headline">לא כל פנייה צריכה להקפיץ את כולם</h1>
-                    <p class="subline">פניות מתקבלות מיידית למייל או לנייד —
-אבל רק למי שצריך לקבל אותן.
-
-פניות חמות יכולות להגיע ישירות
-לבעל העסק, למנהל מכירות בכיר
-או למקבל ההחלטות הרלוונטי —
-עם כל פרטי הלקוח והתשובות שכבר נתן.
-
-כך מגיעים לשיחה מוכנים,
-בלי הצפה,
-ובלי שכל פנייה תרגיש דחופה באותה מידה.</p>
+                    <p class="subline">פניות מתקבלות מיידית למייל או לנייד — אבל רק למי שצריך לקבל אותן. פניות חמות יכולות להגיע ישירות לבעל העסק, למנהל מכירות בכיר או למקבל ההחלטות הרלוונטי — עם כל פרטי הלקוח והתשובות שכבר נתן. כך מגיעים לשיחה מוכנים, בלי הצפה, ובלי שכל פנייה תרגיש דחופה באותה מידה.</p>
                 </div>
             </div>
         </div>
@@ -572,8 +562,8 @@
                 <div class="image-container portrait">
                     <div class="image-wrapper">
                         <img src="../images/answer.png" alt="מענה מותאם">
-                    </div>
-                </div>
+                        </div>
+                        </div>
                 <div class="text-content portrait">
                     <h1 class="headline">המענה מתחיל שיחה</h1>
                     <p class="subline">המענה מבוסס על תשובות הליד,
@@ -594,13 +584,13 @@
 אלא איזה קמפיין
 מביא כוונה אמיתית —
 על בסיס תשובות בפועל.</p>
-                </div>
+                                </div>
                 <div class="image-container">
                     <div class="image-wrapper landscape">
                         <img src="../images/analysis.png" alt="ניתוח ערוצים">
-                    </div>
-                </div>
-            </div>
+                                        </div>
+                                    </div>
+                                </div>
         </div>
         
         <!-- Slide 9 -->
@@ -623,7 +613,7 @@
                 <div class="text-content">
                     <h1 class="headline">פיילוט על קמפיין קיים</h1>
                 </div>
-                <div class="cta-container">
+                        <div class="cta-container">
                     <p class="subline" style="text-align: center;">בלי להחליף מערכות.
 פיילוט קצר שמראה בפועל
 איך נראה דירוג פר־מטרה
@@ -634,7 +624,7 @@
                         <a href="https://wa.me/972528281802" target="_blank" rel="noopener noreferrer">📱 WhatsApp</a>
                         <span>|</span>
                         <a href="tel:0528281802">📞 052-828-1802</a>
-                    </div>
+                        </div>
                 </div>
             </div>
         </div>
@@ -720,13 +710,13 @@
         
         // Keyboard navigation
         function setupKeyboard() {
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-                    nextSlide();
-                } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-                    prevSlide();
-                }
-            });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                prevSlide();
+            }
+        });
         }
         
         // Touch/swipe navigation
@@ -734,8 +724,8 @@
             const container = document.getElementById('container');
             
             container.addEventListener('touchstart', (e) => {
-                touchStartX = e.changedTouches[0].screenX;
-                touchStartY = e.changedTouches[0].screenY;
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
             });
             
             container.addEventListener('touchend', (e) => {
@@ -746,11 +736,11 @@
                 
                 if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
                     if (dx > 0) {
-                        prevSlide();
-                    } else {
-                        nextSlide();
-                    }
+                    prevSlide();
+                } else {
+                    nextSlide();
                 }
+            }
             });
         }
         
