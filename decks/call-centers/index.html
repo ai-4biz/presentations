@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>iHoogi | מוקדים חכמים: דירוג וניתוב לידים</title>
+  <style>
+    :root{
+      --bg: #0b1220;
+      --card: rgba(255,255,255,0.06);
+      --text: #eaf0ff;
+      --muted: rgba(234,240,255,0.78);
+      --stroke: rgba(255,255,255,0.10);
+      --radius: 18px;
+      --pad: 18px;
+      --maxw: 980px;
+      --imgRadius: 14px;
+    }
+
+    *{ box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 700px at 80% 10%, rgba(80,120,255,0.18), transparent 60%),
+                  radial-gradient(900px 600px at 10% 90%, rgba(0,255,180,0.10), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+    }
+
+    /* Scroll-snap deck */
+    .deck{
+      height: 100vh;
+      overflow-y: auto;
+      scroll-snap-type: y mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .slide{
+      min-height: 100vh;
+      scroll-snap-align: start;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 22px 14px;
+    }
+
+    .frame{
+      width: 100%;
+      max-width: var(--maxw);
+      border: 1px solid var(--stroke);
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: var(--pad);
+      backdrop-filter: blur(10px);
+    }
+
+    .meta{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      opacity: 0.9;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .badge{
+      border: 1px solid var(--stroke);
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: rgba(0,0,0,0.18);
+      white-space: nowrap;
+    }
+
+    h2{
+      margin: 8px 0 6px;
+      font-size: clamp(22px, 3.6vw, 38px);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+
+    p{
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: clamp(14px, 2.0vw, 18px);
+      line-height: 1.35;
+      max-width: 42ch; /* keeps it short */
+    }
+
+    .shot{
+      width: 100%;
+      border-radius: var(--imgRadius);
+      border: 1px solid var(--stroke);
+      overflow: hidden;
+      background: rgba(0,0,0,0.22);
+    }
+    .shot img{
+      display:block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* Make images look great on mobile */
+    @media (max-width: 520px){
+      .frame{ padding: 16px; }
+      p{ max-width: 34ch; }
+    }
+
+    /* Optional: reduce motion users */
+    @media (prefers-reduced-motion: reduce){
+      .deck{ scroll-behavior: auto; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="deck">
+
+    <!-- 1) Opening -->
+    <section class="slide" aria-label="פתיחה">
+      <div class="frame">
+        <div class="meta">
+          <span class="badge">iHoogi</span>
+          <span class="badge">מוקדים חכמים • דירוג • ניתוב</span>
+        </div>
+        <h2>לא כל שיחה שווה אותו טיפול</h2>
+        <p>דירוג וניתוב לידים שמונעים בזבוז זמן אנושי — ומעלים סגירות ושירות.</p>
+        <div class="shot">
+          <img src="./logo.png" alt="לוגו iHoogi" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 2) Everything looks the same today -->
+    <section class="slide" aria-label="בעיה: הכל נראה אותו דבר">
+      <div class="frame">
+        <div class="meta">
+          <span class="badge">המצב היום</span>
+          <span class="badge">אין הבחנה</span>
+        </div>
+        <h2>היום — כל פנייה נכנסת אותו דבר</h2>
+        <p>בלי סדר עדיפויות ברור, לידים חשובים מתעכבים ולידים חלשים שורפים זמן.</p>
+        <div class="shot">
+          <img src="./leads-table.png" alt="טבלת לידים" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 3) Not every lead should reach an agent -->
+    <section class="slide" aria-label="סינון לפני נציג">
+      <div class="frame">
+        <div class="meta">
+          <span class="badge">סינון</span>
+          <span class="badge">לפני נציג</span>
+        </div>
+        <h2>לא כל ליד צריך להגיע לנציג</h2>
+        <p>חלק מהפניות יכולות לקבל מענה חכם, או להמתין — בלי לתפוס קו.</p>
+        <div class="shot">
+          <img src="./answer-leads.png" alt="מענה וסינון לידים" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 4) No "good lead" in general -->
+    <section class="slide" aria-label="בידול: אין ליד טוב באופן כללי">
+      <div class="frame">
+        <div class="meta">
+          <span class="badge">בידול</span>
+          <span class="badge">מטרה ≠ סטנדרט</span>
+        </div>
+        <h2>אין דבר כזה "ליד טוב" באופן כללי</h2>
+        <p>ליד טוב מוגדר לפי היעד: מכירה, שירות, סגירה מהירה או המשך טיפול.</p>
+        <div class="shot">
+          <img src="./analysis.png" alt="ניתוח ודירוג" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 5) Scoring per questionnaire goal -->
+    <section class="slide" aria-label="דירוג לפי מטרה">
+      <div class="frame">
+        <div class="meta">
+          <span class="badge">הכי חשוב</span>
+          <span class="badge">כל שאלון = לוגיקה אחרת</span>
+        </div>
+        <h2>כל שאלון מדורג לפי המטרה שלו</h2>
+        <p>הדירוג נבנה לפי מה שהלקוח רוצה להשיג מהליד — לא לפי נוסחה קבועה.</p>
+        <div class="shot">
+          <img src="./analysis.png" alt="הוכחת דירוג לפי מטרה" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 6) Smart questions -->
+    <section class="slide" aria-label="שאלות חכמות">
+      <div class="frame">
+        <div class="meta">
+          <span class="badge">שאלון חכם</span>
+          <span class="badge">איסוף כוונה</span>
+        </div>
+        <h2>הכול מתחיל משאלה נכונה</h2>
+        <p>שאלון קצר שמוציא כוונה — ומאפשר דירוג אמיתי, לא ניחוש.</p>
+        <div class="shot">
+          <img src="./ask.png" alt="מסך שאלון" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 7) AI layer -->
+    <section class="slide" aria-label="AI לפני נציג">
+      <div class="frame">
+        <div class="meta">
+          <span class="badge">AI Layer</span>
+          <span class="badge">לפני טיפול אנושי</span>
+        </div>
+        <h2>AI לפני נציג</h2>
+        <p>המערכת מדרגת, מסננת ומנסחת מענה — כדי לחסוך זמן ולשפר חוויה.</p>
+        <div class="shot">
+          <img src="./answer.png" alt="מסך מענה AI" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 8) Agent is prepared -->
+    <section class="slide" aria-label="נציג מוכן לשיחה">
+      <div class="frame">
+        <div class="meta">
+          <span class="badge">מוכנות</span>
+          <span class="badge">יותר סגירות</span>
+        </div>
+        <h2>הנציג נכנס מוכן לשיחה</h2>
+        <p>הקשר, תשובות ודירוג — מול העיניים, לפני שמתחילים לדבר.</p>
+        <div class="shot">
+          <img src="./analysis.png" alt="ניתוח שמכין את הנציג" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 9) Filtering & control -->
+    <section class="slide" aria-label="סינון ושליטה">
+      <div class="frame">
+        <div class="meta">
+          <span class="badge">שליטה</span>
+          <span class="badge">חם/פושר/קר</span>
+        </div>
+        <h2>יש סינון. יש סדר. יש שליטה.</h2>
+        <p>מי מטפל, מתי, ובאיזו עדיפות — לפי הערך ולא לפי תור אקראי.</p>
+        <div class="shot">
+          <img src="./leads-table.png" alt="סינון לידים בטבלה" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 10) Less noise -->
+    <section class="slide" aria-label="פחות רעש">
+      <div class="frame">
+        <div class="meta">
+          <span class="badge">תוצאה</span>
+          <span class="badge">פוקוס</span>
+        </div>
+        <h2>פחות רעש. יותר פוקוס.</h2>
+        <p>נציגים מטפלים בעיקר במה ששווה טיפול — ופחות בשיחות סרק.</p>
+        <div class="shot">
+          <img src="./leads-table.png" alt="מיקוד בלידים הרלוונטיים" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 11) Shared visibility with the client -->
+    <section class="slide" aria-label="שקיפות מול הלקוח">
+      <div class="frame">
+        <div class="meta">
+          <span class="badge">שקיפות</span>
+          <span class="badge">אמון</span>
+        </div>
+        <h2>אתם והלקוח רואים את אותו דבר</h2>
+        <p>דירוג ברור ושפה משותפת — סוף לוויכוחים על "איכות לידים".</p>
+        <div class="shot">
+          <img src="./get-leads.png" alt="תצוגת לידים ושקיפות" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 12) Closing -->
+    <section class="slide" aria-label="סיכום">
+      <div class="frame">
+        <div class="meta">
+          <span class="badge">סיכום</span>
+          <span class="badge">פיילוט</span>
+        </div>
+        <h2>רוצים לראות את זה על הלידים שלכם?</h2>
+        <p>פיילוט קצר על נתונים אמיתיים — כדי להוכיח ROI במהירות.</p>
+        <div class="shot">
+          <img src="./logo.png" alt="לוגו iHoogi" />
+        </div>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>
