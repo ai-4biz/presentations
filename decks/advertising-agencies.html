@@ -332,6 +332,98 @@
             }
         }
         
+        /* ===== SLIDE 3 SPECIFIC STYLES ===== */
+        .slide[data-slide="3"] .slide-content.portrait {
+            gap: 1.5rem;
+            padding: 2rem 1.5rem;
+            align-items: center;
+        }
+        
+        @media (min-width: 768px) {
+            .slide[data-slide="3"] .slide-content.portrait {
+                gap: 2rem;
+                padding: 2rem 2rem;
+                align-items: flex-start;
+            }
+        }
+        
+        .slide[data-slide="3"] .headline {
+            font-size: 1.25rem;
+            line-height: 1.35;
+            margin: 0;
+            margin-bottom: 0.625rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+        
+        @media (min-width: 768px) {
+            .slide[data-slide="3"] .headline {
+                font-size: 1.5rem;
+                line-height: 1.4;
+                margin-bottom: 0.875rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .slide[data-slide="3"] .headline {
+                font-size: 1.625rem;
+                line-height: 1.45;
+            }
+        }
+        
+        .slide[data-slide="3"] .subline {
+            font-size: 0.875rem;
+            line-height: 1.6;
+            margin: 0;
+            white-space: normal;
+            padding: 0;
+        }
+        
+        @media (min-width: 768px) {
+            .slide[data-slide="3"] .subline {
+                font-size: 0.9375rem;
+                line-height: 1.65;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .slide[data-slide="3"] .subline {
+                font-size: 1rem;
+                line-height: 1.7;
+            }
+        }
+        
+        .slide[data-slide="3"] .text-content.portrait {
+            gap: 0;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            max-width: 100%;
+        }
+        
+        .slide[data-slide="3"] .text-content.portrait br {
+            line-height: 1.8;
+        }
+        
+        @media (min-width: 768px) {
+            .slide[data-slide="3"] .text-content.portrait {
+                gap: 0;
+            }
+        }
+        
+        .slide[data-slide="3"] .image-container.portrait {
+            align-self: center;
+            flex-shrink: 0;
+        }
+        
+        @media (min-width: 768px) {
+            .slide[data-slide="3"] .image-container.portrait {
+                align-self: flex-start;
+            }
+        }
+        
         /* ===== CTA BUTTONS ===== */
         .cta-container {
                 display: flex;
@@ -497,16 +589,7 @@
                 </div>
                 <div class="text-content portrait">
                     <h1 class="headline">אלה לא שאלונים קבועים — אלה שאלונים שנבנים לפי מה שרוצים להשיג.</h1>
-                    <p class="subline">מערכת חכמה מבוססת AI
-בונה את השאלון לפי המטרה והערוץ
-(ניתן לעריכה).
-
-כל מטרה מייצרת שאלות אחרות —
-והשאלות הן אלה שקובעות
-איך תיראה ההחלטה על כל פנייה.
-
-השאלון הוא לא הטופס —
-הוא מנגנון קבלת ההחלטות.</p>
+                    <p class="subline">מערכת חכמה מבוססת AI בונה את השאלון לפי המטרה והערוץ (ניתן לעריכה).<br><br>כל מטרה מייצרת שאלות אחרות — והשאלות הן אלה שקובעות איך תיראה ההחלטה על כל פנייה.<br><br>השאלון הוא לא הטופס — הוא מנגנון קבלת ההחלטות.</p>
                 </div>
             </div>
         </div>
