@@ -310,6 +310,31 @@
             }
         }
         
+        .headline-secondary {
+            font-size: var(--font-size-headline-mobile);
+            font-weight: 800;
+            line-height: 1.2;
+            white-space: pre-line;
+            color: var(--color-headline);
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+            margin-bottom: 0;
+        }
+        
+        @media (min-width: 768px) {
+            .headline-secondary {
+                font-size: var(--font-size-headline-tablet);
+                margin-top: 2.5rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .headline-secondary {
+                font-size: var(--font-size-headline-desktop);
+                margin-top: 3rem;
+            }
+        }
+        
         .subline {
             font-size: var(--font-size-subline-mobile);
             font-weight: 500;
@@ -329,6 +354,31 @@
         @media (min-width: 1024px) {
             .subline {
                 font-size: var(--font-size-subline-desktop);
+            }
+        }
+        
+        /* ===== SLIDE 1 SPECIFIC STYLES ===== */
+        .slide[data-slide="1"] .text-content {
+            gap: 0;
+        }
+        
+        .slide[data-slide="1"] .subline {
+            margin-bottom: 0;
+        }
+        
+        .slide[data-slide="1"] .headline-secondary {
+            margin-top: 1.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .slide[data-slide="1"] .headline-secondary {
+                margin-top: 2rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .slide[data-slide="1"] .headline-secondary {
+                margin-top: 2.5rem;
             }
         }
         
@@ -739,6 +789,13 @@
 ובטח לא עכשיו.
 השאלה האמיתית היא לא אם לחזור —
 אלא למי, ומתי.</p>
+                    <h2 class="headline-secondary">לא כל פנייה צריכה את אותו היחס.</h2>
+                    <p class="subline">ברוב המערכות יש כלל אחד.
+אבל בפועל —
+פנייה מפרסום, פנייה מכנס ופנייה מאתר
+לא אמורות לקבל את אותה החלטה.
+הבעיה היא לא חוסר בלידים —
+אלא חוסר בהבחנה ביניהם.</p>
                 </div>
             </div>
         </div>
