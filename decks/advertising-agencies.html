@@ -333,9 +333,24 @@
         }
         
         /* ===== SLIDE 3 SPECIFIC STYLES ===== */
+        .slide[data-slide="3"] .logo-top {
+            z-index: 1000;
+            top: 0.75rem;
+            right: 0.75rem;
+            height: 3rem;
+        }
+        
+        @media (min-width: 768px) {
+            .slide[data-slide="3"] .logo-top {
+                top: 1.5rem;
+                right: 1.5rem;
+                height: 5rem;
+            }
+        }
+        
         .slide[data-slide="3"] .slide-content.portrait {
             gap: 1.5rem;
-            padding: 2rem 1.5rem;
+            padding: 4.5rem 1.5rem 2rem 1.5rem;
             align-items: center;
         }
         
