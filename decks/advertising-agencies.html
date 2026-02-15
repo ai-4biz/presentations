@@ -458,15 +458,8 @@
             white-space: normal;
             padding: 0;
             color: #1a3a4a;
-        }
-        
-        .slide[data-slide="3"] .subline br {
-            display: block;
-            margin: 0 !important;
-            padding: 0 !important;
-            line-height: 0 !important;
-            height: 0 !important;
-            font-size: 0 !important;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
         
         @media (min-width: 768px) {
@@ -475,14 +468,7 @@
                 line-height: 1.7;
                 font-weight: 600;
                 color: var(--color-subline);
-            }
-            
-            .slide[data-slide="3"] .subline br {
-                margin: 0 !important;
-                padding: 0 !important;
-                line-height: 0 !important;
-                height: 0 !important;
-                font-size: 0 !important;
+                max-width: 100%;
             }
         }
         
@@ -491,14 +477,7 @@
                 font-size: 1.625rem;
                 line-height: 1.75;
                 font-weight: 600;
-            }
-            
-            .slide[data-slide="3"] .subline br {
-                margin: 0 !important;
-                padding: 0 !important;
-                line-height: 0 !important;
-                height: 0 !important;
-                font-size: 0 !important;
+                max-width: 100%;
             }
         }
         
@@ -547,7 +526,7 @@
         @media (min-width: 768px) {
             .slide[data-slide="3"] .image-container.portrait {
                 align-self: flex-start;
-                max-width: 24rem;
+                max-width: 18rem;
                 flex-shrink: 0;
             }
             
@@ -557,12 +536,18 @@
                 overflow: hidden;
                 display: flex;
                 flex-direction: column;
+                min-width: 0;
             }
         }
         
         @media (min-width: 1024px) {
             .slide[data-slide="3"] .image-container.portrait {
-                max-width: 32rem;
+                max-width: 22rem;
+            }
+            
+            .slide[data-slide="3"] .text-content.portrait {
+                flex: 1;
+                min-width: 0;
             }
         }
         
@@ -1156,7 +1141,7 @@
                 </div>
                 <div class="text-content portrait">
                     <h1 class="headline">אלה לא שאלונים קבועים — אלה שאלונים שנבנים לפי מה שרוצים להשיג.</h1>
-                    <p class="subline"><strong>מערכת חכמה מבוססת AI</strong> בונה את השאלון לפי המטרה והערוץ (ניתן לעריכה והתאמה בכל שלב).<br><strong>כל מטרה מייצרת שאלות אחרות</strong> — והשאלות הן אלה שקובעות איך תיראה ההחלטה על כל פנייה.<br>השאלון נראה ומרגיש כמו חלק מהמותג — מותאם לצבעים, ללוגו ולשפה של העסק.<br>והשאלות עצמן יוצרות את הדירוג — <strong>לא ניקוד בצד, לא מחשבון כללי,</strong> אלא משמעות שנבנית מתוך התשובות.<br><strong>השאלון הוא לא הטופס — הוא מנגנון קבלת ההחלטות.</strong></p>
+                    <p class="subline"><strong>מערכת חכמה מבוססת AI</strong> בונה את השאלון לפי המטרה והערוץ (ניתן לעריכה והתאמה בכל שלב). <strong>כל מטרה מייצרת שאלות אחרות</strong> — והשאלות הן אלה שקובעות איך תיראה ההחלטה על כל פנייה. השאלון נראה ומרגיש כמו חלק מהמותג — מותאם לצבעים, ללוגו ולשפה של העסק. והשאלות עצמן יוצרות את הדירוג — <strong>לא ניקוד בצד, לא מחשבון כללי,</strong> אלא משמעות שנבנית מתוך התשובות. <strong>השאלון הוא לא הטופס — הוא מנגנון קבלת ההחלטות.</strong></p>
                 </div>
             </div>
         </div>
