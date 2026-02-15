@@ -164,11 +164,11 @@
             width: 100%;
             max-width: 56rem; /* 896px */
             margin: 0 auto;
-            padding: 3rem 1.5rem;
+            padding: 1.5rem 1rem;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1.5rem;
+            gap: 1rem;
         }
         
         @media (min-width: 768px) {
@@ -274,7 +274,13 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            gap: 1rem;
+            gap: 0.75rem;
+        }
+        
+        @media (min-width: 768px) {
+            .text-content {
+                gap: 1rem;
+            }
         }
         
         .text-content.portrait {
@@ -292,15 +298,17 @@
         .headline {
             font-size: var(--font-size-headline-mobile);
             font-weight: 800;
-            line-height: 1.2;
+            line-height: 1.3;
             white-space: pre-line;
-            color: var(--color-headline);
-            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            color: #0a1f2a;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
         }
         
         @media (min-width: 768px) {
             .headline {
                 font-size: var(--font-size-headline-tablet);
+                color: var(--color-headline);
+                text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             }
         }
         
@@ -313,17 +321,19 @@
         .headline-secondary {
             font-size: var(--font-size-headline-mobile);
             font-weight: 800;
-            line-height: 1.2;
+            line-height: 1.3;
             white-space: pre-line;
-            color: var(--color-headline);
-            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-top: 2rem;
+            color: #0a1f2a;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+            margin-top: 1rem;
             margin-bottom: 0;
         }
         
         @media (min-width: 768px) {
             .headline-secondary {
                 font-size: var(--font-size-headline-tablet);
+                color: var(--color-headline);
+                text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
                 margin-top: 2.5rem;
             }
         }
@@ -338,16 +348,18 @@
         .subline {
             font-size: var(--font-size-subline-mobile);
             font-weight: 500;
-                line-height: 1.6;
+            line-height: 1.6;
             white-space: pre-line;
-            color: var(--color-subline);
+            color: #1a3a4a;
             max-width: 42rem;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
         
         @media (min-width: 768px) {
             .subline {
                 font-size: var(--font-size-subline-tablet);
+                color: var(--color-subline);
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
             }
         }
         
@@ -359,7 +371,7 @@
         
         /* ===== SLIDE 1 SPECIFIC STYLES ===== */
         .slide[data-slide="1"] .text-content {
-            gap: 0;
+            gap: 0.75rem;
         }
         
         .slide[data-slide="1"] .subline {
@@ -367,10 +379,13 @@
         }
         
         .slide[data-slide="1"] .headline-secondary {
-            margin-top: 1.5rem;
+            margin-top: 1rem;
         }
         
         @media (min-width: 768px) {
+            .slide[data-slide="1"] .text-content {
+                gap: 0;
+            }
             .slide[data-slide="1"] .headline-secondary {
                 margin-top: 2rem;
             }
@@ -384,8 +399,8 @@
         
         /* ===== SLIDE 3 SPECIFIC STYLES ===== */
         .slide[data-slide="3"] .slide-content.portrait {
-            gap: 1.5rem;
-            padding: 2rem 1.5rem;
+            gap: 1rem;
+            padding: 1.5rem 1rem;
             align-items: center;
         }
         
@@ -404,6 +419,7 @@
             margin-bottom: 0.625rem;
             font-weight: 700;
             letter-spacing: -0.01em;
+            color: #0a1f2a;
         }
         
         @media (min-width: 768px) {
@@ -411,6 +427,7 @@
                 font-size: 1.5rem;
                 line-height: 1.4;
                 margin-bottom: 0.875rem;
+                color: var(--color-headline);
             }
         }
         
@@ -427,12 +444,14 @@
             margin: 0;
             white-space: normal;
             padding: 0;
+            color: #1a3a4a;
         }
         
         @media (min-width: 768px) {
             .slide[data-slide="3"] .subline {
                 font-size: 0.9375rem;
                 line-height: 1.65;
+                color: var(--color-subline);
             }
         }
         
@@ -476,8 +495,8 @@
         
         /* ===== SLIDE 4 SPECIFIC STYLES ===== */
         .slide[data-slide="4"] .slide-content {
-            gap: 1rem;
-            padding: 2rem 1.5rem;
+            gap: 0.75rem;
+            padding: 1.5rem 1rem;
         }
         
         @media (min-width: 768px) {
@@ -490,7 +509,8 @@
         .slide[data-slide="4"] .headline {
             font-size: 1.125rem;
             line-height: 1.35;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
+            color: #0a1f2a;
         }
         
         @media (min-width: 768px) {
@@ -498,6 +518,7 @@
                 font-size: 1.5rem;
                 line-height: 1.4;
                 margin-bottom: 1rem;
+                color: var(--color-headline);
             }
         }
         
@@ -513,12 +534,14 @@
             line-height: 1.5;
             white-space: normal;
             margin-bottom: 0.5rem;
+            color: #1a3a4a;
         }
         
         @media (min-width: 768px) {
             .slide[data-slide="4"] .subline {
                 font-size: 0.9375rem;
                 line-height: 1.6;
+                color: var(--color-subline);
             }
         }
         
@@ -566,8 +589,8 @@
         
         /* ===== SLIDE 7 SPECIFIC STYLES ===== */
         .slide[data-slide="7"] .slide-content {
-            gap: 1rem;
-            padding: 2rem 1.5rem;
+            gap: 0.75rem;
+            padding: 1.5rem 1rem;
         }
         
         @media (min-width: 768px) {
@@ -580,7 +603,8 @@
         .slide[data-slide="7"] .headline {
             font-size: 1.125rem;
             line-height: 1.35;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
+            color: #0a1f2a;
         }
         
         @media (min-width: 768px) {
@@ -588,6 +612,7 @@
                 font-size: 1.5rem;
                 line-height: 1.4;
                 margin-bottom: 1rem;
+                color: var(--color-headline);
             }
         }
         
@@ -603,12 +628,14 @@
             line-height: 1.5;
             white-space: normal;
             margin-bottom: 0.5rem;
+            color: #1a3a4a;
         }
         
         @media (min-width: 768px) {
             .slide[data-slide="7"] .subline {
                 font-size: 0.9375rem;
                 line-height: 1.6;
+                color: var(--color-subline);
             }
         }
         
@@ -656,8 +683,8 @@
         
         /* ===== SLIDE 9 SPECIFIC STYLES ===== */
         .slide[data-slide="9"] .slide-content {
-            padding: 1.5rem 1.5rem;
-            gap: 1rem;
+            padding: 1.5rem 1rem;
+            gap: 0.75rem;
         }
         
         @media (min-width: 768px) {
@@ -670,7 +697,8 @@
         .slide[data-slide="9"] .headline {
             font-size: 1.5rem;
             line-height: 1.3;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
+            color: #0a1f2a;
         }
         
         @media (min-width: 768px) {
@@ -678,6 +706,7 @@
                 font-size: 2rem;
                 line-height: 1.35;
                 margin-bottom: 1rem;
+                color: var(--color-headline);
             }
         }
         
@@ -704,12 +733,14 @@
             font-size: 1rem !important;
             line-height: 1.4 !important;
             margin-bottom: 0.5rem !important;
+            color: #0a1f2a !important;
         }
         
         @media (min-width: 768px) {
             .slide[data-slide="9"] .cta-container h2 {
                 font-size: 1.125rem !important;
                 line-height: 1.45 !important;
+                color: var(--color-headline) !important;
             }
         }
         
@@ -717,12 +748,14 @@
             font-size: 0.8125rem !important;
             line-height: 1.5 !important;
             margin-bottom: 0.5rem !important;
+            color: #1a3a4a !important;
         }
         
         @media (min-width: 768px) {
             .slide[data-slide="9"] .cta-container .subline {
                 font-size: 0.9375rem !important;
                 line-height: 1.6 !important;
+                color: var(--color-subline) !important;
             }
         }
         
