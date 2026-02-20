@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iHoogi - וובינרים וכנסים</title>
+    <title>iHoogi - Microsoft Startup Program</title>
+    <!-- Updated: 2026-01-22 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;700;800&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -22,7 +23,7 @@
         
         body {
             font-family: 'Assistant', 'Heebo', sans-serif;
-            direction: rtl;
+            direction: ltr;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             overflow: hidden;
@@ -39,7 +40,7 @@
         .floating-cta {
             position: fixed;
             top: 1.5rem;
-            left: 1.5rem;
+            right: 1.5rem;
             z-index: 1000;
             padding: 0.75rem 1.5rem;
             background: linear-gradient(135deg, #2F3A8F, #00B4A6);
@@ -67,7 +68,7 @@
         .floating-cta::after {
             content: '→';
             font-size: 1rem;
-            margin-right: 0.25rem;
+            margin-left: 0.25rem;
         }
         
         .container {
@@ -150,8 +151,8 @@
         }
         
         .slide.has-portrait .text-block {
-            direction: rtl;
-            text-align: right;
+            direction: ltr;
+            text-align: left;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -161,7 +162,7 @@
         .slide.has-portrait .headline {
             font-size: 2.25rem;
             margin: 0;
-            text-align: right;
+            text-align: left;
             line-height: 1.3;
             font-weight: 800;
             color: #0f172a;
@@ -195,12 +196,12 @@
         
         /* Image-first slides: balanced spacing */
         .slide-content:has(.image-wrapper):not(:has(.portrait)) .headline {
-            margin-bottom: 1.25rem;
+            margin-bottom: 1rem;
         }
         
         .slide-content:has(.image-wrapper):not(:has(.portrait)) .subline-inline {
-            margin-bottom: 1.5rem;
-            margin-top: 1rem;
+            margin-bottom: 1.25rem;
+            margin-top: 0.75rem;
         }
         
         /* ===== LOGO AT TOP ===== */
@@ -266,7 +267,7 @@
         }
         
         .slide.has-portrait .subline-inline {
-            text-align: right;
+            text-align: left;
             margin-top: 0.75rem;
             max-width: 100%;
             line-height: 1.7;
@@ -325,7 +326,7 @@
         /* Landscape images (default) */
         .image-wrapper:not(.portrait) {
             margin-top: 1.5rem;
-            min-height: 220px;
+            min-height: auto;
             max-height: none;
             overflow: visible;
         }
@@ -334,7 +335,7 @@
             display: block !important;
             width: 100%;
             height: auto !important;
-            max-height: 420px;
+            max-height: min(50vh, 500px);
             object-fit: contain;
             object-position: center;
         }
@@ -350,22 +351,22 @@
         }
         
         /* WOW slide – image must be fully visible */
-        .slide[data-slide="5"] .slide-content {
+        .slide[data-slide="6"] .slide-content {
             padding-top: clamp(64px, 7vh, 96px);
             padding-bottom: clamp(16px, 3vh, 36px);
         }
         
-        .slide[data-slide="5"] .headline,
-        .slide[data-slide="5"] h1 {
+        .slide[data-slide="6"] .headline,
+        .slide[data-slide="6"] h1 {
             margin-bottom: 0;
         }
         
-        .slide[data-slide="5"] .subline,
-        .slide[data-slide="5"] .subline-inline {
+        .slide[data-slide="6"] .subline,
+        .slide[data-slide="6"] .subline-inline {
             display: none !important;
         }
         
-        .slide[data-slide="5"] .image-wrapper {
+        .slide[data-slide="6"] .image-wrapper {
             margin-top: 8px !important;
             padding-top: 0 !important;
             width: 100%;
@@ -373,8 +374,8 @@
             overflow: visible;
         }
         
-        .slide[data-slide="5"] .image-wrapper img,
-        .slide[data-slide="5"] img {
+        .slide[data-slide="6"] .image-wrapper img,
+        .slide[data-slide="6"] img {
             width: 100%;
             height: auto;
             max-height: 70vh;
@@ -384,12 +385,12 @@
         }
         
         @media (max-width: 640px) {
-            .slide[data-slide="5"] .image-wrapper img,
-            .slide[data-slide="5"] img {
+            .slide[data-slide="6"] .image-wrapper img,
+            .slide[data-slide="6"] img {
                 max-height: 55vh;
             }
-            .slide[data-slide="5"] .headline,
-            .slide[data-slide="5"] h1 {
+            .slide[data-slide="6"] .headline,
+            .slide[data-slide="6"] h1 {
                 font-size: clamp(34px, 8vw, 48px);
                 line-height: 1.05;
             }
@@ -454,6 +455,8 @@
             cursor: pointer;
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
             transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
         }
         
         .cta-button:hover {
@@ -467,6 +470,32 @@
             font-weight: 500;
             font-family: 'Assistant', 'Heebo', sans-serif;
             line-height: 1.5;
+        }
+        
+        .contact-info {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
+            border-radius: 1rem;
+            border: 1px solid rgba(0, 180, 166, 0.2);
+            text-align: left;
+            max-width: 32rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .contact-info p {
+            margin: 0.5rem 0;
+            font-size: 1rem;
+            color: #0f172a;
+            font-weight: 500;
+        }
+        
+        .contact-info .contact-name {
+            font-weight: 700;
+            font-size: 1.125rem;
+            margin-bottom: 0.75rem;
         }
         
         .nav-dots {
@@ -501,7 +530,7 @@
         .slide-counter {
             position: fixed;
             bottom: 5rem;
-            left: 2rem;
+            right: 2rem;
             z-index: 1000;
             font-size: 0.875rem;
             color: rgba(15, 23, 42, 0.6);
@@ -570,7 +599,7 @@
             }
             
             .image-wrapper:not(.portrait) img {
-                max-height: min(55vh, 600px);
+                max-height: min(50vh, 550px);
             }
             
             .image-wrapper.portrait img {
@@ -598,12 +627,16 @@
             }
             
             .image-wrapper:not(.portrait) {
-                min-height: 180px;
+                min-height: auto;
                 max-height: none;
+                padding: 10px;
+                margin-top: 1rem;
             }
             
             .image-wrapper:not(.portrait) img {
-                max-height: 300px;
+                max-height: 55vh;
+                width: 100%;
+                object-fit: contain;
             }
             
             .slide.has-portrait .image-wrapper.portrait {
@@ -620,7 +653,7 @@
                 font-size: 0.75rem;
                 padding: 0.625rem 1.25rem;
                 top: 0.75rem;
-                left: 0.75rem;
+                right: 0.75rem;
                 font-weight: 700;
             }
             .slide {
@@ -652,11 +685,27 @@
                 margin-top: 0.75rem;
             }
             .slide-content:has(.image-wrapper):not(:has(.portrait)) {
-                gap: 1.5rem;
+                gap: 1rem !important;
             }
+            
+            /* Better spacing for landscape images on mobile */
+            .image-wrapper:not(.portrait) {
+                margin-top: 0.75rem !important;
+                padding: 10px !important;
+            }
+            
+            .slide-content:has(.image-wrapper):not(:has(.portrait)) .headline {
+                margin-bottom: 0.5rem !important;
+            }
+            
+            .slide-content:has(.image-wrapper):not(:has(.portrait)) .subline-inline {
+                margin-bottom: 0.75rem !important;
+                margin-top: 0.5rem !important;
+            }
+            
             .slide-counter {
                 bottom: 4rem;
-                left: 1rem;
+                right: 1rem;
                 font-size: 0.75rem;
                 padding: 0.375rem 0.75rem;
                 font-weight: 600;
@@ -668,12 +717,12 @@
             .slide.has-portrait .slide-content {
                 display: flex;
                 flex-direction: column;
-                direction: rtl;
+                direction: ltr;
                 gap: 1.5rem;
             }
             .slide.has-portrait .text-block {
                 order: -1;
-                direction: rtl;
+                direction: ltr;
                 margin-bottom: 0;
                 gap: 0.5rem;
             }
@@ -741,16 +790,32 @@
             }
             
             .image-wrapper:not(.portrait) img {
-                max-height: 60vh !important;
+                max-height: 58vh !important;
                 object-fit: contain !important;
+                width: 100% !important;
+                height: auto !important;
             }
             
             /* Image-focused slides: ensure full visibility */
             .slide[data-slide="3"] img,
             .slide[data-slide="5"] img,
-            .slide[data-slide="7"] img,
-            .slide[data-slide="8"] img {
-                max-height: 65vh !important;
+            .slide[data-slide="6"] img,
+            .slide[data-slide="7"] img {
+                max-height: 62vh !important;
+            }
+            
+            /* Better spacing for landscape images on mobile */
+            .slide-content:has(.image-wrapper):not(:has(.portrait)) {
+                gap: 1rem !important;
+            }
+            
+            .slide-content:has(.image-wrapper):not(:has(.portrait)) .headline {
+                margin-bottom: 0.5rem !important;
+            }
+            
+            .slide-content:has(.image-wrapper):not(:has(.portrait)) .subline-inline {
+                margin-bottom: 0.75rem !important;
+                margin-top: 0.5rem !important;
             }
         }
         
@@ -807,11 +872,46 @@
                 object-fit: contain !important;
             }
         }
+        
+        /* Bullet list styling */
+        .bullets {
+            text-align: left;
+            max-width: 42rem;
+            margin: 1.5rem auto 0;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .bullets li {
+            font-size: 1.25rem;
+            color: #475569;
+            font-weight: 500;
+            line-height: 1.8;
+            margin: 0.75rem 0;
+            padding-left: 1.75rem;
+            position: relative;
+        }
+        
+        .bullets li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #00B4A6;
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+        
+        @media (max-width: 640px) {
+            .bullets li {
+                font-size: clamp(15px, 3.8vw, 18px);
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Floating CTA - minimal, doesn't interfere -->
-    <a href="https://ihoogi.com" target="_blank" rel="noopener" class="floating-cta">התנסות חינם</a>
+    <a href="https://ihoogi.com" target="_blank" rel="noopener" class="floating-cta">Try iHoogi Free</a>
     
     <div class="container">
         <!-- Slides -->
@@ -828,99 +928,107 @@
         const SLIDES = [
             {
                 id: 1,
-                headline: 'אחרי וובינר או כנס יש החלטה אחת קריטית',
-                subline: 'לא כל הלידים שווים\nחלקם מוכנים לקנות עכשיו\nחלקם רק סקרנים\n\nההחלטה: למי חוזרים קודם — ומתי',
+                headline: 'From clicks to decisions.',
+                subline: 'A goal-based decision layer between campaigns and sales.',
                 gradient: 'linear-gradient(135deg, #EEF1FA, #E8F7F5)',
                 hasImage: false,
             },
             {
                 id: 2,
-                headline: 'הבעיה: אין שליטה ואין נראות',
-                subline: 'אחרי וובינר או כנס\nיש רשימת משתתפים\nאבל אין סדר עדיפויות\n\nאין דרך לדעת:\nמי מוכן לקנות עכשיו\nמי צריך זמן\nמי בכלל לא רלוונטי\n\nכולם נראים אותו דבר — אבל הם לא',
+                headline: 'Most lead tools don\'t create sales clarity.',
+                subline: '',
+                bullets: [
+                    'No decision context from the lead',
+                    'No real-time Hot / Warm / Cold routing',
+                    'Follow-up turns into guesswork'
+                ],
                 gradient: 'linear-gradient(135deg, #F3EFFF, #EEF1FA)',
                 hasImage: false,
             },
             {
                 id: 3,
-                headline: 'לא צריך להיות מומחה כדי לשאול נכון',
-                subline: 'המערכת מנחה אותך לשאלות הנכונות\nשאלות שמפרידות סקרנות מכוונת קנייה\n\nמבוסס על ניסיון — לא ניחושים\nגם וובינר ראשון עובד מקצועית\n\nזה מפחית לחץ — מגדיל ביטחון\nתומך בהחלטות מכירות טובות יותר',
-                highlight: 'לשאול נכון',
+                headline: 'Goal-based questionnaires — not generic forms.',
+                subline: 'Each questionnaire is built around a specific business outcome.',
+                subline2: 'One business can run unlimited questionnaires for different campaigns/events/services.',
                 gradient: 'linear-gradient(135deg, #F0F9FF, #E0F2FE)',
-                hasImage: false,
-                imagePlaceholder: 'מסך בניית שאלון',
+                hasImage: true,
+                imagePlaceholder: 'Questionnaire builder screen',
                 imageSrc: '../images/ask.png',
             },
             {
                 id: 4,
-                headline: 'עוד לפני האירוע — מפרידים סקרנות מכוונת קנייה',
-                subline: 'שאלון לפני הרשמה / לפני כניסה לוובינר\nמסנן מי באמת רלוונטי ומי רק סקרן\n\nנותן לך כבר מראש "תמונה" של הקהל\nיודעים למי לחזור — עוד לפני שהאירוע מתחיל',
-                highlight: 'מפרידים סקרנות',
+                headline: 'Learns each business — and adapts per questionnaire goal.',
+                subline: 'Unlimited questionnaires per business. Each can have its own goal & logic.',
                 gradient: 'linear-gradient(135deg, #FFF5E8, #FFE8D6)',
                 hasImage: false,
             },
             {
                 id: 5,
-                headline: 'מסך אחד. כל הלידים. בזמן אמת.',
-                subline: '',
-                highlight: 'בזמן אמת',
+                headline: 'High-intent leads are sent instantly',
+                subline: 'to mobile & email — with full answers.',
+                subline2: 'Scoring & alerts are configured per questionnaire goal.',
                 gradient: 'linear-gradient(135deg, #E8F0F5, #E0E8F0)',
                 hasImage: true,
-                imagePlaceholder: 'טבלת לידים עם דירוג',
-                imageSrc: '../images/leads-table.png',
-            },
-            {
-                id: 6,
-                headline: 'כל תשובה נכנסת — והדירוג מתעדכן מיד',
-                subline: 'כל תשובה נרשמת ברגע שהיא נשלחת\nהמערכת מדגישה חם / פושר / קר בזמן אמת\nאפשר לפנות ללידים החמים עוד במהלך האירוע\nבלי חיפוש, בלי ניחושים',
-                highlight: 'מתעדכן מיד',
-                gradient: 'linear-gradient(135deg, #E8F0F5, #E0E8F0)',
-                hasImage: false,
-            },
-            {
-                id: 7,
-                headline: 'חמים נשלחים מיידית — יתרון תחרותי',
-                subline: 'כשהליד מסומן "חם" — נשלח לנייד ו/או למייל\nכולל פרטי קשר ותשובות רלוונטיות\nמאפשר חזרה מיידית – בלי חיפוש\n\nזו לא התראה — זו הזדמנות לפעולה\n\nמהירות תגובה = יותר סגירות',
-                highlight: 'נשלח לנייד',
-                gradient: 'linear-gradient(135deg, #E8F0F5, #E0E8F0)',
-                hasImage: true,
-                imagePlaceholder: 'הודעה שמתקבלת בנייד',
+                imagePlaceholder: 'Mobile notification with lead details',
                 imageSrc: '../images/get-leads.png',
             },
             {
-                id: 8,
-                headline: 'אחרי האירוע — יודעים למי חוזרים קודם',
-                subline: 'סדר עדיפויות ברור, בלי ניחושים\n\nחם → קשר מיידי (מוכנים לקנות עכשיו)\nפושר → פולואו־אפ מסודר (צריך זמן)\nקר → טיפול מאוחר / סינון (לא רלוונטי)\n\nיודעים WHO מוכן — יודעים מתי לחזור\nזה חוסך זמן מכירות — פוקוס על מי שמוכן',
-                highlight: 'למי חוזרים קודם',
-                gradient: 'linear-gradient(135deg, #FFF5E8, #FFE8D6)',
+                id: 6,
+                headline: 'One screen. Every lead. Real time.',
+                subline: '',
+                gradient: 'linear-gradient(135deg, #E8F0F5, #E0E8F0)',
                 hasImage: true,
-                imagePlaceholder: 'דוגמה לתשובת לקוח פתוחה',
-                imageSrc: '../images/answer-leads.png',
+                imagePlaceholder: 'Leads table with scoring',
+                imageSrc: '../images/leads-table.png',
             },
             {
-                id: 9,
-                headline: 'גם המשתתף מקבל מענה חכם – לא הודעת תודה',
-                subline: 'המענה מתייחס לתשובות שהמשתתף נתן\nנותן תחושת הקשבה ורצינות\nמחמם את המשתתף עוד לפני השיחה\n\nנשלח למייל ו/או לנייד\nכולל המשך ברור + פרטי העסק\n\nהמערכת מכינה את שני הצדדים לשיחה',
-                highlight: 'מענה חכם',
+                id: 7,
+                headline: 'Smart Auto-Reply (per questionnaire)',
+                subline: 'Sends an instant, personalized reply based on:',
+                bullets: [
+                    'The lead\'s answers',
+                    'The questionnaire goal',
+                    'The brand voice learned from the business'
+                ],
+                subline2: 'Each questionnaire can have a different reply template & tone.',
                 gradient: 'linear-gradient(135deg, #F3EFFF, #E8F0F5)',
                 hasImage: true,
-                imagePlaceholder: 'דוגמה למענה אוטומטי',
+                imagePlaceholder: 'Example of automated reply',
                 imageSrc: '../images/answer.png',
             },
             {
-                id: 10,
-                headline: 'לפני שמתקשרים — יודעים WHO מוכן למכירה',
-                subline: 'השיחה מתחילה חכם, לא מהתחלה\n\nרואים מה המשתתף חיפש ומה ענה\nיודעים איפה הוא "נתפס" בתהליך\nמתאימים את הפנייה בדיוק למה שכתב\n\nזה חוסך זמן מכירות — פוקוס על מי שמוכן\nמונע מעקבים מיותרים — שומר אנרגיית צוות',
-                highlight: 'WHO מוכן למכירה',
+                id: 8,
+                headline: 'Same campaign. Same budget.',
+                subline: 'Google vs Meta — compared by lead quality.',
+                subline2: 'Compare platforms by lead quality, per questionnaire and campaign.',
+                gradient: 'linear-gradient(135deg, #F3EFFF, #E8F0F5)',
+                hasImage: false,
+            },
+            {
+                id: 9,
+                headline: 'Built for high-volume lead environments',
+                subline: 'Webinars · Events · Digital agencies\nAny business where lead waste is expensive.',
                 gradient: 'linear-gradient(135deg, #E8F7F5, #D4F1ED)',
                 hasImage: false,
             },
             {
+                id: 10,
+                headline: 'Why this fits Microsoft',
+                subline: 'A decision intelligence layer\nthat complements Ads, Azure, and AI-driven ecosystems.',
+                gradient: 'linear-gradient(135deg, #EEF1FA, #E8F7F5)',
+                hasImage: false,
+            },
+            {
                 id: 11,
-                headline: 'תדגימו את הוובינר / הכנס הבא שלכם',
-                subline: 'זה לא כלי שיווק — זה בינה להחלטות\n\nציון חכם מבוסס על תשובות מפתח\nלא "תחושת בטן" — נתונים אמיתיים\nיודעים WHO שווה — יודעים מתי לחזור',
-                cta: 'התנסות חינם — לאירוע הבא שלך',
-                ctaSubline: 'בלי התחייבות — פשוט לראות את זה עובד\nהתנסות חינמית לאירוע אמיתי — לא דמו',
-                highlight: 'לאירוע הבא שלך',
+                headline: 'Looking to scale this with Microsoft',
+                subline: '',
+                bullets: [
+                    'Strong fit for SMB & B2B workflows',
+                    'Clear AI + cloud scale path',
+                    'Multi-industry expansion (events, agencies, services)'
+                ],
+                closingLine: 'I\'m looking for support to grow adoption and visibility — step by step.',
+                cta: 'Try iHoogi Free',
                 gradient: 'linear-gradient(135deg, #EEF1FA, #E8F7F5)',
                 hasImage: false,
             },
@@ -969,6 +1077,8 @@
                         <div class="text-block">
                             <h1 class="headline">${renderHeadline(slide)}</h1>
                             ${slide.subline ? `<p class="subline-inline">${slide.subline}</p>` : ''}
+                            ${slide.subline2 ? `<p class="subline-inline" style="font-size:1rem; color:#64748b; margin-top:0.5rem;">${slide.subline2}</p>` : ''}
+                            ${slide.bullets ? `<ul class="bullets">${slide.bullets.map(b => `<li>${b}</li>`).join('')}</ul>` : ''}
                         </div>
                     `;
                 } else {
@@ -984,6 +1094,20 @@
                         } else {
                             content += `<p class="subline">${slide.subline}</p>`;
                         }
+                    }
+                    
+                    // Add subline2 if present
+                    if (slide.subline2 && !slide.cta) {
+                        if (slide.imageSrc) {
+                            content += `<p class="subline-inline" style="font-size:1rem; color:#64748b; margin-top:0.5rem;">${slide.subline2}</p>`;
+                        } else {
+                            content += `<p class="subline" style="font-size:1rem; color:#64748b; margin-top:0.5rem;">${slide.subline2}</p>`;
+                        }
+                    }
+                    
+                    // Add bullets if present
+                    if (slide.bullets && !slide.cta) {
+                        content += `<ul class="bullets">${slide.bullets.map(b => `<li>${b}</li>`).join('')}</ul>`;
                     }
                     
                     if (slide.hasImage && !slide.cta) {
@@ -1012,9 +1136,14 @@
                 if (slide.cta) {
                     content += `
                         <div class="cta-container">
+                            ${slide.bullets ? `<ul class="bullets">${slide.bullets.map(b => `<li>${b}</li>`).join('')}</ul>` : ''}
+                            ${slide.closingLine ? `<p class="subline" style="margin-top:1.5rem; font-size:1rem; color:#64748b;">${slide.closingLine}</p>` : ''}
                             <a href="https://ihoogi.com" target="_blank" rel="noopener" class="cta-button">${slide.cta}</a>
-                            ${slide.ctaSubline ? `<p class="cta-subline">${slide.ctaSubline}</p>` : ''}
-                            ${slide.subline ? `<p class="subline" style="margin-top:0.5rem;">${slide.subline}</p>` : ''}
+                            <div class="contact-info">
+                                <p class="contact-name">Rona Arbisman</p>
+                                <p>intripoffice@gmail.com</p>
+                                <p>+972-52-828-1802</p>
+                            </div>
                         </div>
                     `;
                 }
@@ -1100,7 +1229,7 @@
             }
         });
         
-        // Swipe support for mobile
+        // Swipe support for mobile (LTR: swipe left = next, swipe right = prev)
         let touchStartX = 0;
         let touchStartY = 0;
         let touchEndX = 0;
@@ -1124,12 +1253,12 @@
             
             // Check if horizontal swipe is more significant than vertical
             if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > minSwipeDistance) {
-                if (deltaX > 0) {
-                    // Swipe right (RTL: previous)
-                    prevSlide();
-                } else {
-                    // Swipe left (RTL: next)
+                if (deltaX < 0) {
+                    // Swipe left (LTR: next)
                     nextSlide();
+                } else {
+                    // Swipe right (LTR: previous)
+                    prevSlide();
                 }
             }
         }

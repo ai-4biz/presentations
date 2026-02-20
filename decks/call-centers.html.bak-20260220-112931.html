@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iHoogi - וובינרים וכנסים</title>
+    <title>iHoogi - מוקדים ומענה טלפוני</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;700;800&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -324,17 +324,20 @@
         
         /* Landscape images (default) */
         .image-wrapper:not(.portrait) {
-            margin-top: 1.5rem;
-            min-height: 220px;
+            margin-top: 1rem;
+            min-height: 140px;
             max-height: none;
             overflow: visible;
+            max-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .image-wrapper:not(.portrait) img {
             display: block !important;
             width: 100%;
             height: auto !important;
-            max-height: 420px;
+            max-height: 280px;
             object-fit: contain;
             object-position: center;
         }
@@ -381,6 +384,29 @@
             object-fit: contain;
             object-position: top center;
             display: block;
+        }
+        
+        /* Opening slide: like webinars — text is the hero, logo is small */
+        .slide[data-slide="1"] .image-wrapper {
+            min-height: unset !important;
+            padding: 10px !important;
+            margin-top: 10px !important;
+            max-width: 260px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .slide[data-slide="1"] .image-wrapper img {
+            width: auto !important;
+            max-height: 84px !important;
+            margin: 0 auto;
+        }
+        @media (max-width: 640px) {
+            .slide[data-slide="1"] .image-wrapper {
+                max-width: 220px;
+            }
+            .slide[data-slide="1"] .image-wrapper img {
+                max-height: 64px !important;
+            }
         }
         
         @media (max-width: 640px) {
@@ -569,12 +595,16 @@
                 max-width: 60rem;
             }
             
+            .image-wrapper:not(.portrait) {
+                max-width: 75%;
+            }
+            
             .image-wrapper:not(.portrait) img {
-                max-height: min(55vh, 600px);
+                max-height: min(38vh, 320px);
             }
             
             .image-wrapper.portrait img {
-                max-height: min(70vh, 800px);
+                max-height: min(75vh, 850px);
             }
         }
         
@@ -603,15 +633,15 @@
             }
             
             .image-wrapper:not(.portrait) img {
-                max-height: 300px;
+                max-height: 50vh;
             }
             
             .slide.has-portrait .image-wrapper.portrait {
-                max-height: 48vh;
+                max-height: 55vh;
             }
             
             .image-wrapper.portrait img {
-                max-height: 48vh;
+                max-height: 55vh;
             }
         }
         
@@ -716,7 +746,7 @@
             .mockup img {
                 width: 100% !important;
                 height: auto !important;
-                max-height: 60vh !important;
+                max-height: 58vh !important;
                 object-fit: contain !important;
                 object-position: center !important;
                 image-rendering: -webkit-optimize-contrast;
@@ -736,12 +766,12 @@
             }
             
             .image-wrapper.portrait img {
-                max-height: 60vh !important;
+                max-height: 58vh !important;
                 object-fit: contain !important;
             }
             
             .image-wrapper:not(.portrait) img {
-                max-height: 60vh !important;
+                max-height: 58vh !important;
                 object-fit: contain !important;
             }
             
@@ -786,12 +816,12 @@
                 inset: 0;
                 height: 100vh !important;
                 height: 100dvh !important;
-                -webkit-transform: translateZ(0);
-                transform: translateZ(0);
                 min-height: 0 !important;
                 overflow-y: auto !important;
                 -webkit-overflow-scrolling: touch;
                 padding: 72px 1rem 24px 1rem !important;
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
             }
             
             /* remove extra internal paddings that steal space */
@@ -803,7 +833,12 @@
             
             /* optional: prevent huge images from dominating the viewport */
             .image-wrapper:not(.portrait) img {
-                max-height: 48dvh !important;
+                max-height: 52dvh !important;
+                object-fit: contain !important;
+            }
+            
+            .image-wrapper.portrait img {
+                max-height: 58dvh !important;
                 object-fit: contain !important;
             }
         }
@@ -821,106 +856,130 @@
         <div class="nav-dots" id="nav-dots"></div>
         
         <!-- Slide Counter -->
-        <div class="slide-counter" id="slide-counter">1 / 11</div>
+        <div class="slide-counter" id="slide-counter">1 / 14</div>
     </div>
     
     <script>
         const SLIDES = [
             {
                 id: 1,
-                headline: 'אחרי וובינר או כנס יש החלטה אחת קריטית',
-                subline: 'לא כל הלידים שווים\nחלקם מוכנים לקנות עכשיו\nחלקם רק סקרנים\n\nההחלטה: למי חוזרים קודם — ומתי',
+                headline: 'לא כל שיחה שווה את אותו זמן נציג',
+                subline: 'מוקדים מנצחים מתעדפים קודם — לא מטפלים בסדר אקראי.\nדירוג וניתוב לפי פוטנציאל: פחות בזבוז זמן, יותר סגירות.',
                 gradient: 'linear-gradient(135deg, #EEF1FA, #E8F7F5)',
-                hasImage: false,
+                hasImage: true,
+                imagePlaceholder: 'לוגו iHoogi',
+                imageSrc: '../images/logo.png',
             },
             {
                 id: 2,
-                headline: 'הבעיה: אין שליטה ואין נראות',
-                subline: 'אחרי וובינר או כנס\nיש רשימת משתתפים\nאבל אין סדר עדיפויות\n\nאין דרך לדעת:\nמי מוכן לקנות עכשיו\nמי צריך זמן\nמי בכלל לא רלוונטי\n\nכולם נראים אותו דבר — אבל הם לא',
+                headline: 'הבעיה האמיתית: אין סדר עדיפויות',
+                subline: 'לידים חמים מתעכבים בתור עם פניות לא רלוונטיות.\nנציגים בזבזו זמן על שיחות שלא יובילו לשום מקום.\n\nהתוצאה: פחות סגירות, שחיקה, תסכול.',
                 gradient: 'linear-gradient(135deg, #F3EFFF, #EEF1FA)',
                 hasImage: false,
             },
             {
                 id: 3,
-                headline: 'לא צריך להיות מומחה כדי לשאול נכון',
-                subline: 'המערכת מנחה אותך לשאלות הנכונות\nשאלות שמפרידות סקרנות מכוונת קנייה\n\nמבוסס על ניסיון — לא ניחושים\nגם וובינר ראשון עובד מקצועית\n\nזה מפחית לחץ — מגדיל ביטחון\nתומך בהחלטות מכירות טובות יותר',
-                highlight: 'לשאול נכון',
-                gradient: 'linear-gradient(135deg, #F0F9FF, #E0F2FE)',
-                hasImage: false,
-                imagePlaceholder: 'מסך בניית שאלון',
-                imageSrc: '../images/ask.png',
+                headline: 'היכולת שאין לאף אחד אחר',
+                subline: 'שאלונים ללא הגבלה — לכל מטרה עסקית אחרת.\nולכל שאלון:\n\n• מטרה ייעודית\n• דירוג נפרד\n• מענה חכם מותאם אישית ללקוח ולנציג\n\nאותו ליד יכול להיות חם בשאלון מכירות וקר בשאלון שירות — לפי הצורך העסקי.',
+                highlight: 'מטרה • דירוג • מענה',
+                gradient: 'linear-gradient(135deg, #E8F7F5, #D4F1ED)',
+                hasImage: true,
+                imagePlaceholder: 'ניתוח ודירוג לפי מטרה',
+                imageSrc: '../images/analysis.png',
             },
             {
                 id: 4,
-                headline: 'עוד לפני האירוע — מפרידים סקרנות מכוונת קנייה',
-                subline: 'שאלון לפני הרשמה / לפני כניסה לוובינר\nמסנן מי באמת רלוונטי ומי רק סקרן\n\nנותן לך כבר מראש "תמונה" של הקהל\nיודעים למי לחזור — עוד לפני שהאירוע מתחיל',
-                highlight: 'מפרידים סקרנות',
-                gradient: 'linear-gradient(135deg, #FFF5E8, #FFE8D6)',
+                headline: 'יש שיחות שלא יכולות לחכות',
+                subline: 'ליד חם שמתעכב בתור הופך לקר.\nלידים בעלי פוטנציאל גבוה חייבים להגיע מיידית:\n\n• ישירות למנהל / בעל העסק\n• או לנציג בכיר שיודע לסגור\n\nכל עיכוב = הפסד ישיר בהכנסות.',
+                highlight: 'עכשיו',
+                gradient: 'linear-gradient(135deg, #F0F9FF, #E0F2FE)',
                 hasImage: false,
             },
             {
-                id: 5,
-                headline: 'מסך אחד. כל הלידים. בזמן אמת.',
-                subline: '',
-                highlight: 'בזמן אמת',
+                id: 6,
+                headline: 'שליטה מלאה במסך אחד',
+                subline: 'כל הלידים, דירוג מיידי, סטטוס עדכני — בלי לחפש בין מערכות.',
+                highlight: 'שליטה מלאה',
                 gradient: 'linear-gradient(135deg, #E8F0F5, #E0E8F0)',
                 hasImage: true,
                 imagePlaceholder: 'טבלת לידים עם דירוג',
                 imageSrc: '../images/leads-table.png',
             },
             {
-                id: 6,
-                headline: 'כל תשובה נכנסת — והדירוג מתעדכן מיד',
-                subline: 'כל תשובה נרשמת ברגע שהיא נשלחת\nהמערכת מדגישה חם / פושר / קר בזמן אמת\nאפשר לפנות ללידים החמים עוד במהלך האירוע\nבלי חיפוש, בלי ניחושים',
-                highlight: 'מתעדכן מיד',
-                gradient: 'linear-gradient(135deg, #E8F0F5, #E0E8F0)',
-                hasImage: false,
-            },
-            {
                 id: 7,
-                headline: 'חמים נשלחים מיידית — יתרון תחרותי',
-                subline: 'כשהליד מסומן "חם" — נשלח לנייד ו/או למייל\nכולל פרטי קשר ותשובות רלוונטיות\nמאפשר חזרה מיידית – בלי חיפוש\n\nזו לא התראה — זו הזדמנות לפעולה\n\nמהירות תגובה = יותר סגירות',
-                highlight: 'נשלח לנייד',
-                gradient: 'linear-gradient(135deg, #E8F0F5, #E0E8F0)',
+                headline: 'דירוג לפי מטרה עסקית — לא לפי נוסחה כללית',
+                subline: 'אותו ליד יכול להיות חם למכירות וקר לשירות — תלוי במה שחשוב לכם.\n\nהדירוג והמענה מותאמים לקהל היעד ולמטרה העסקית של כל שאלון.\nלא "ניקוד אחד לכולם".',
+                highlight: 'מטרה שונה',
+                gradient: 'linear-gradient(135deg, #E8F7F5, #D4F1ED)',
                 hasImage: true,
-                imagePlaceholder: 'הודעה שמתקבלת בנייד',
-                imageSrc: '../images/get-leads.png',
+                imagePlaceholder: 'ניתוח ודירוג לפי מטרה',
+                imageSrc: '../images/analysis.png',
             },
             {
                 id: 8,
-                headline: 'אחרי האירוע — יודעים למי חוזרים קודם',
-                subline: 'סדר עדיפויות ברור, בלי ניחושים\n\nחם → קשר מיידי (מוכנים לקנות עכשיו)\nפושר → פולואו־אפ מסודר (צריך זמן)\nקר → טיפול מאוחר / סינון (לא רלוונטי)\n\nיודעים WHO מוכן — יודעים מתי לחזור\nזה חוסך זמן מכירות — פוקוס על מי שמוכן',
-                highlight: 'למי חוזרים קודם',
-                gradient: 'linear-gradient(135deg, #FFF5E8, #FFE8D6)',
+                headline: 'שאלון קצר שמזהה כוונת רכישה',
+                subline: 'לא רק "שם + טלפון".\nשאלות שמפרידות בין מתעניינים לבין מוכנים לפעולה עכשיו.',
+                highlight: 'כוונה',
+                gradient: 'linear-gradient(135deg, #EEF1FA, #E8F7F5)',
                 hasImage: true,
-                imagePlaceholder: 'דוגמה לתשובת לקוח פתוחה',
-                imageSrc: '../images/answer-leads.png',
+                imagePlaceholder: 'מסך בניית שאלון',
+                imageSrc: '../images/ask.png',
             },
             {
                 id: 9,
-                headline: 'גם המשתתף מקבל מענה חכם – לא הודעת תודה',
-                subline: 'המענה מתייחס לתשובות שהמשתתף נתן\nנותן תחושת הקשבה ורצינות\nמחמם את המשתתף עוד לפני השיחה\n\nנשלח למייל ו/או לנייד\nכולל המשך ברור + פרטי העסק\n\nהמערכת מכינה את שני הצדדים לשיחה',
-                highlight: 'מענה חכם',
+                headline: 'ליד חם הולך ישירות למי שיודע לסגור',
+                subline: 'כשליד מדורג כחם — הוא יכול להגיע בזמן אמת\nישירות לנייד או למייל של המנהל / הבעלים\nאו לנציג מכירות בכיר.\n\nעם כל הפרטים והתשובות — לפני השיחה.\nבלי להיתקע בתור של מוקד.',
+                highlight: 'מיידית',
+                gradient: 'linear-gradient(135deg, #E8F7F5, #D4F1ED)',
+                hasImage: true,
+                imagePlaceholder: 'קבלת ליד חם במייל / נייד',
+                imageSrc: '../images/get-leads.png',
+            },
+            {
+                id: 10,
+                headline: 'חם / פושר / קר — כדי לנהל נכון',
+                subline: 'הדירוג מתרגם תשובות להחלטה ניהולית ברורה:\nמי מטופל עכשיו על ידי מי — ומי יכול לקבל מענה חכם או להמתין.',
+                highlight: 'לתעדף נכון',
+                gradient: 'linear-gradient(135deg, #E8F0F5, #E0E8F0)',
+                hasImage: true,
+                imagePlaceholder: 'ניתוח ודירוג לפי מטרה',
+                imageSrc: '../images/analysis.png',
+            },
+            {
+                id: 11,
+                headline: 'לא כל ליד צריך לשרוף זמן נציג',
+                subline: 'חלק מהפניות מקבלות מענה חכם מיידי או נכנסות להמתנה\nבלי לתפוס קו, בלי לשחוק את הצוות.\n\nכך הנציגים מתמקדים במה שבאמת חשוב.',
+                highlight: 'לא כל ליד',
+                gradient: 'linear-gradient(135deg, #FFF5E8, #FFE8D6)',
+                hasImage: true,
+                imagePlaceholder: 'דוגמה לתשובת לקוח',
+                imageSrc: '../images/answer-leads.png',
+            },
+            {
+                id: 12,
+                headline: 'מענה חכם שמתאים למה שהלקוח ענה',
+                subline: 'לא "תודה שפנית אלינו".\nמענה ייעודי שמתייחס לתשובות — ומכין את הלקוח בדיוק לשיחה הבאה.\n\nכך הנציג נכנס לשיחה עם לקוח מוכן ומחומם.',
+                highlight: 'מותאם למטרה',
                 gradient: 'linear-gradient(135deg, #F3EFFF, #E8F0F5)',
                 hasImage: true,
                 imagePlaceholder: 'דוגמה למענה אוטומטי',
                 imageSrc: '../images/answer.png',
             },
             {
-                id: 10,
-                headline: 'לפני שמתקשרים — יודעים WHO מוכן למכירה',
-                subline: 'השיחה מתחילה חכם, לא מהתחלה\n\nרואים מה המשתתף חיפש ומה ענה\nיודעים איפה הוא "נתפס" בתהליך\nמתאימים את הפנייה בדיוק למה שכתב\n\nזה חוסך זמן מכירות — פוקוס על מי שמוכן\nמונע מעקבים מיותרים — שומר אנרגיית צוות',
-                highlight: 'WHO מוכן למכירה',
+                id: 13,
+                headline: 'נציגים מתחילים מוכנים — וסוגרים יותר',
+                subline: 'הקשר + תשובות + דירוג + מטרה — הכל מול העיניים לפני השיחה.\nפחות "למה פנית אלינו?", יותר התקדמות אמיתית לסגירה.',
+                highlight: 'מוכנים',
                 gradient: 'linear-gradient(135deg, #E8F7F5, #D4F1ED)',
                 hasImage: false,
             },
             {
-                id: 11,
-                headline: 'תדגימו את הוובינר / הכנס הבא שלכם',
-                subline: 'זה לא כלי שיווק — זה בינה להחלטות\n\nציון חכם מבוסס על תשובות מפתח\nלא "תחושת בטן" — נתונים אמיתיים\nיודעים WHO שווה — יודעים מתי לחזור',
-                cta: 'התנסות חינם — לאירוע הבא שלך',
-                ctaSubline: 'בלי התחייבות — פשוט לראות את זה עובד\nהתנסות חינמית לאירוע אמיתי — לא דמו',
-                highlight: 'לאירוע הבא שלך',
+                id: 14,
+                headline: 'בואו נבדוק את זה על הלידים האמיתיים שלכם',
+                subline: 'פיילוט קצר על פניות אמיתיות מהמוקד שלכם.\nנבדוק דירוג, ניתוב, זמני תגובה — ונציג ROI ממשי.\nבלי לשבש תהליכים קיימים.\n\nלתיאום פגישה / פיילוט:\nטלפון / וואטסאפ: 052-8281802',
+                cta: 'לתיאום דמו / פיילוט',
+                ctaSubline: 'הדגמה על נתונים אמיתיים שלכם',
+                highlight: 'פיילוט',
                 gradient: 'linear-gradient(135deg, #EEF1FA, #E8F7F5)',
                 hasImage: false,
             },

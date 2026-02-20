@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iHoogi - וובינרים וכנסים</title>
+    <title>iHoogi – Smart Lead Intelligence</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;700;800&family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -102,6 +102,17 @@
             overflow-x: hidden;
         }
         
+        /* First slide: minimal padding to show all content */
+        .slide[data-slide="1"] {
+            padding: clamp(20px, 2.5vh, 32px) 2rem clamp(8px, 1vh, 16px) 2rem !important;
+        }
+        
+        @media (max-width: 640px) {
+            .slide[data-slide="1"] {
+                padding: 32px 1rem 8px 1rem !important;
+            }
+        }
+        
         @supports (height: 100dvh) {
             .slide {
                 min-height: 100dvh;
@@ -132,6 +143,22 @@
             padding-bottom: clamp(24px, 5vh, 64px);
             overflow: visible;
             margin: auto;
+        }
+        
+        /* First slide: minimal padding to fit all content */
+        .slide[data-slide="1"] .slide-content {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            gap: 0.5rem !important;
+            justify-content: center;
+            min-height: calc(100vh - clamp(32px, 4vh, 48px));
+        }
+        
+        @media (max-width: 640px) {
+            .slide[data-slide="1"] .slide-content {
+                min-height: calc(100vh - 40px);
+                gap: 0.5rem !important;
+            }
         }
         
         .slide-content:has(.image-wrapper):not(:has(.portrait)) {
@@ -178,6 +205,23 @@
             overflow: visible;
         }
         
+        /* ===== LOGO AT TOP ===== */
+        .logo-top {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            height: 3.5rem;
+            width: auto;
+        }
+        
+        @media (min-width: 768px) {
+            .logo-top {
+                top: 1.5rem;
+                right: 1.5rem;
+                height: 5rem;
+            }
+        }
+        
         .headline {
             font-size: 2.5rem;
             font-weight: 800;
@@ -203,23 +247,6 @@
             margin-top: 1rem;
         }
         
-        /* ===== LOGO AT TOP ===== */
-        .logo-top {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            height: 3.5rem;
-            width: auto;
-        }
-        
-        @media (min-width: 768px) {
-            .logo-top {
-                top: 1.5rem;
-                right: 1.5rem;
-                height: 5rem;
-            }
-        }
-        
         .highlight {
             color: #00B4A6;
             font-weight: 800;
@@ -233,6 +260,16 @@
             white-space: pre-line;
             margin: 0;
             font-family: 'Assistant', 'Heebo', sans-serif;
+        }
+        
+        /* Mobile: bold and dark subline for better visibility */
+        @media (max-width: 640px) {
+            .subline {
+                color: #1e293b !important;
+                font-weight: 700 !important;
+                letter-spacing: 0.01em;
+                -webkit-text-stroke: 0.2px rgba(30, 41, 59, 0.2);
+            }
         }
         
         /* Image-first slides: hide subline when image is present */
@@ -256,6 +293,16 @@
             max-width: 50ch;
             position: relative !important;
             z-index: 10;
+        }
+        
+        /* Mobile: bold and dark subline-inline for better visibility */
+        @media (max-width: 640px) {
+            .subline-inline {
+                color: #1e293b !important;
+                font-weight: 700 !important;
+                letter-spacing: 0.01em;
+                -webkit-text-stroke: 0.2px rgba(30, 41, 59, 0.2);
+            }
         }
         
         .slide-content:has(.image-wrapper):not(:has(.portrait)) .subline-inline {
@@ -334,7 +381,7 @@
             display: block !important;
             width: 100%;
             height: auto !important;
-            max-height: 420px;
+            max-height: 500px;
             object-fit: contain;
             object-position: center;
         }
@@ -381,6 +428,78 @@
             object-fit: contain;
             object-position: top center;
             display: block;
+        }
+        
+        /* Opening slide: logo on right, minimal spacing, text prominent */
+        .slide[data-slide="1"] .slide-content {
+            padding-top: clamp(20px, 2.5vh, 32px) !important;
+            padding-bottom: clamp(8px, 1vh, 16px) !important;
+            gap: 0.5rem !important;
+        }
+        
+        .slide[data-slide="1"] .image-wrapper {
+            position: absolute;
+            top: clamp(12px, 2vh, 20px);
+            right: clamp(12px, 1.5vw, 24px);
+            min-height: unset !important;
+            padding: 4px !important;
+            margin: 0 !important;
+            max-width: 140px;
+            width: auto;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+        }
+        
+        .slide[data-slide="1"] .image-wrapper img {
+            width: auto !important;
+            max-height: 45px !important;
+            margin: 0;
+        }
+        
+        .slide[data-slide="1"] .headline {
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+            margin-bottom: 0.5rem !important;
+        }
+        
+        @media (max-width: 640px) {
+            .slide[data-slide="1"] .slide-content {
+                padding-top: 32px !important;
+                padding-bottom: 8px !important;
+                gap: 0.5rem !important;
+            }
+            
+            .slide[data-slide="1"] .image-wrapper {
+                top: 10px;
+                right: 10px;
+                max-width: 100px;
+                padding: 3px !important;
+            }
+            
+            .slide[data-slide="1"] .image-wrapper img {
+                max-height: 36px !important;
+            }
+            
+            /* Mobile: bold text for better visibility */
+            .slide[data-slide="1"] .headline {
+                font-weight: 900 !important;
+                letter-spacing: -0.01em !important;
+                -webkit-text-stroke: 0.3px rgba(15, 23, 42, 0.1);
+                text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .slide[data-slide="1"] .image-wrapper {
+                max-width: 160px;
+                top: clamp(16px, 2.5vh, 32px);
+                right: clamp(16px, 2vw, 32px);
+            }
+            
+            .slide[data-slide="1"] .image-wrapper img {
+                max-height: 55px !important;
+            }
         }
         
         @media (max-width: 640px) {
@@ -570,23 +689,27 @@
             }
             
             .image-wrapper:not(.portrait) img {
-                max-height: min(55vh, 600px);
+                max-height: min(60vh, 650px);
             }
             
             .image-wrapper.portrait img {
-                max-height: min(70vh, 800px);
+                max-height: min(75vh, 850px);
             }
         }
         
         @media (max-width: 640px) {
             .slide-content {
-                padding-top: 72px;
-                padding-bottom: 28px;
+                padding-top: 48px;
+                padding-bottom: 16px;
             }
             
             .headline {
                 font-size: clamp(28px, 6.5vw, 42px);
                 line-height: 1.1;
+                font-weight: 900 !important;
+                letter-spacing: -0.01em !important;
+                -webkit-text-stroke: 0.3px rgba(15, 23, 42, 0.1);
+                text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
             }
             
             .subline,
@@ -595,6 +718,10 @@
             li {
                 font-size: clamp(15px, 3.8vw, 18px);
                 line-height: 1.6;
+                font-weight: 700 !important;
+                color: #1e293b !important;
+                letter-spacing: 0.01em;
+                -webkit-text-stroke: 0.2px rgba(30, 41, 59, 0.2);
             }
             
             .image-wrapper:not(.portrait) {
@@ -603,15 +730,15 @@
             }
             
             .image-wrapper:not(.portrait) img {
-                max-height: 300px;
+                max-height: 50vh;
             }
             
             .slide.has-portrait .image-wrapper.portrait {
-                max-height: 48vh;
+                max-height: 55vh;
             }
             
             .image-wrapper.portrait img {
-                max-height: 48vh;
+                max-height: 55vh;
             }
         }
         
@@ -716,7 +843,7 @@
             .mockup img {
                 width: 100% !important;
                 height: auto !important;
-                max-height: 60vh !important;
+                max-height: 58vh !important;
                 object-fit: contain !important;
                 object-position: center !important;
                 image-rendering: -webkit-optimize-contrast;
@@ -736,12 +863,12 @@
             }
             
             .image-wrapper.portrait img {
-                max-height: 60vh !important;
+                max-height: 58vh !important;
                 object-fit: contain !important;
             }
             
             .image-wrapper:not(.portrait) img {
-                max-height: 60vh !important;
+                max-height: 58vh !important;
                 object-fit: contain !important;
             }
             
@@ -786,12 +913,12 @@
                 inset: 0;
                 height: 100vh !important;
                 height: 100dvh !important;
-                -webkit-transform: translateZ(0);
-                transform: translateZ(0);
                 min-height: 0 !important;
                 overflow-y: auto !important;
                 -webkit-overflow-scrolling: touch;
                 padding: 72px 1rem 24px 1rem !important;
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
             }
             
             /* remove extra internal paddings that steal space */
@@ -803,7 +930,12 @@
             
             /* optional: prevent huge images from dominating the viewport */
             .image-wrapper:not(.portrait) img {
-                max-height: 48dvh !important;
+                max-height: 52dvh !important;
+                object-fit: contain !important;
+            }
+            
+            .image-wrapper.portrait img {
+                max-height: 58dvh !important;
                 object-fit: contain !important;
             }
         }
@@ -821,106 +953,177 @@
         <div class="nav-dots" id="nav-dots"></div>
         
         <!-- Slide Counter -->
-        <div class="slide-counter" id="slide-counter">1 / 11</div>
+        <div class="slide-counter" id="slide-counter">1 / 21</div>
     </div>
     
     <script>
         const SLIDES = [
             {
                 id: 1,
-                headline: 'אחרי וובינר או כנס יש החלטה אחת קריטית',
-                subline: 'לא כל הלידים שווים\nחלקם מוכנים לקנות עכשיו\nחלקם רק סקרנים\n\nההחלטה: למי חוזרים קודם — ומתי',
+                headline: 'Not every lead deserves the same response.\nMost businesses act as if they do.',
+                subline: '',
                 gradient: 'linear-gradient(135deg, #EEF1FA, #E8F7F5)',
-                hasImage: false,
+                hasImage: true,
+                imagePlaceholder: 'iHoogi Logo',
+                imageSrc: '../images/logo.png',
             },
             {
                 id: 2,
-                headline: 'הבעיה: אין שליטה ואין נראות',
-                subline: 'אחרי וובינר או כנס\nיש רשימת משתתפים\nאבל אין סדר עדיפויות\n\nאין דרך לדעת:\nמי מוכן לקנות עכשיו\nמי צריך זמן\nמי בכלל לא רלוונטי\n\nכולם נראים אותו דבר — אבל הם לא',
+                headline: 'היכולת לשאול – ולדרג – אחרת',
+                subline: 'שאלונים ללא הגבלה — לכל מטרה עסקית אחרת.\nולכל שאלון יש:\n• מטרה ייעודית\n• לוגיקת דירוג נפרדת\n• מענה חכם מותאם ללקוח ולנציג\n\nאותו ליד יכול להיחשב חזק בשאלון אחד\nופחות רלוונטי בשאלון אחר —\nבהתאם למה שהעסק רוצה להשיג.\n\nהדירוג אינו קבוע —\nהוא דינמי לפי הקשר, קהל ומטרה.',
                 gradient: 'linear-gradient(135deg, #F3EFFF, #EEF1FA)',
                 hasImage: false,
             },
             {
                 id: 3,
-                headline: 'לא צריך להיות מומחה כדי לשאול נכון',
-                subline: 'המערכת מנחה אותך לשאלות הנכונות\nשאלות שמפרידות סקרנות מכוונת קנייה\n\nמבוסס על ניסיון — לא ניחושים\nגם וובינר ראשון עובד מקצועית\n\nזה מפחית לחץ — מגדיל ביטחון\nתומך בהחלטות מכירות טובות יותר',
-                highlight: 'לשאול נכון',
-                gradient: 'linear-gradient(135deg, #F0F9FF, #E0F2FE)',
+                headline: 'More leads.\nMore channels.\nLess control.',
+                subline: 'The problem is no longer volume.\nThe problem is decision.',
+                gradient: 'linear-gradient(135deg, #F3EFFF, #EEF1FA)',
                 hasImage: false,
-                imagePlaceholder: 'מסך בניית שאלון',
-                imageSrc: '../images/ask.png',
             },
             {
                 id: 4,
-                headline: 'עוד לפני האירוע — מפרידים סקרנות מכוונת קנייה',
-                subline: 'שאלון לפני הרשמה / לפני כניסה לוובינר\nמסנן מי באמת רלוונטי ומי רק סקרן\n\nנותן לך כבר מראש "תמונה" של הקהל\nיודעים למי לחזור — עוד לפני שהאירוע מתחיל',
-                highlight: 'מפרידים סקרנות',
-                gradient: 'linear-gradient(135deg, #FFF5E8, #FFE8D6)',
-                hasImage: false,
-            },
-            {
-                id: 5,
-                headline: 'מסך אחד. כל הלידים. בזמן אמת.',
-                subline: '',
-                highlight: 'בזמן אמת',
-                gradient: 'linear-gradient(135deg, #E8F0F5, #E0E8F0)',
-                hasImage: true,
-                imagePlaceholder: 'טבלת לידים עם דירוג',
-                imageSrc: '../images/leads-table.png',
-            },
-            {
-                id: 6,
-                headline: 'כל תשובה נכנסת — והדירוג מתעדכן מיד',
-                subline: 'כל תשובה נרשמת ברגע שהיא נשלחת\nהמערכת מדגישה חם / פושר / קר בזמן אמת\nאפשר לפנות ללידים החמים עוד במהלך האירוע\nבלי חיפוש, בלי ניחושים',
-                highlight: 'מתעדכן מיד',
-                gradient: 'linear-gradient(135deg, #E8F0F5, #E0E8F0)',
-                hasImage: false,
-            },
-            {
-                id: 7,
-                headline: 'חמים נשלחים מיידית — יתרון תחרותי',
-                subline: 'כשהליד מסומן "חם" — נשלח לנייד ו/או למייל\nכולל פרטי קשר ותשובות רלוונטיות\nמאפשר חזרה מיידית – בלי חיפוש\n\nזו לא התראה — זו הזדמנות לפעולה\n\nמהירות תגובה = יותר סגירות',
-                highlight: 'נשלח לנייד',
-                gradient: 'linear-gradient(135deg, #E8F0F5, #E0E8F0)',
-                hasImage: true,
-                imagePlaceholder: 'הודעה שמתקבלת בנייד',
-                imageSrc: '../images/get-leads.png',
-            },
-            {
-                id: 8,
-                headline: 'אחרי האירוע — יודעים למי חוזרים קודם',
-                subline: 'סדר עדיפויות ברור, בלי ניחושים\n\nחם → קשר מיידי (מוכנים לקנות עכשיו)\nפושר → פולואו־אפ מסודר (צריך זמן)\nקר → טיפול מאוחר / סינון (לא רלוונטי)\n\nיודעים WHO מוכן — יודעים מתי לחזור\nזה חוסך זמן מכירות — פוקוס על מי שמוכן',
-                highlight: 'למי חוזרים קודם',
-                gradient: 'linear-gradient(135deg, #FFF5E8, #FFE8D6)',
-                hasImage: true,
-                imagePlaceholder: 'דוגמה לתשובת לקוח פתוחה',
-                imageSrc: '../images/answer-leads.png',
-            },
-            {
-                id: 9,
-                headline: 'גם המשתתף מקבל מענה חכם – לא הודעת תודה',
-                subline: 'המענה מתייחס לתשובות שהמשתתף נתן\nנותן תחושת הקשבה ורצינות\nמחמם את המשתתף עוד לפני השיחה\n\nנשלח למייל ו/או לנייד\nכולל המשך ברור + פרטי העסק\n\nהמערכת מכינה את שני הצדדים לשיחה',
-                highlight: 'מענה חכם',
-                gradient: 'linear-gradient(135deg, #F3EFFF, #E8F0F5)',
-                hasImage: true,
-                imagePlaceholder: 'דוגמה למענה אוטומטי',
-                imageSrc: '../images/answer.png',
-            },
-            {
-                id: 10,
-                headline: 'לפני שמתקשרים — יודעים WHO מוכן למכירה',
-                subline: 'השיחה מתחילה חכם, לא מהתחלה\n\nרואים מה המשתתף חיפש ומה ענה\nיודעים איפה הוא "נתפס" בתהליך\nמתאימים את הפנייה בדיוק למה שכתב\n\nזה חוסך זמן מכירות — פוקוס על מי שמוכן\nמונע מעקבים מיותרים — שומר אנרגיית צוות',
-                highlight: 'WHO מוכן למכירה',
+                headline: 'CRM manages data.\nAutomation reacts to actions.',
+                subline: 'We decide what to do with a lead – in real time.',
                 gradient: 'linear-gradient(135deg, #E8F7F5, #D4F1ED)',
                 hasImage: false,
             },
             {
+                id: 5,
+                headline: 'Hot | Warm | Cold',
+                subline: 'This is not a report.\nIt is a decision.',
+                gradient: 'linear-gradient(135deg, #F0F9FF, #E0F2FE)',
+                hasImage: true,
+                imagePlaceholder: 'Lead Analysis',
+                imageSrc: '../images/analysis.png',
+            },
+            {
+                id: 6,
+                headline: 'Each lead is evaluated by:\n- its goal\n- its answers\n- its context',
+                subline: 'Not a generic score.\nNot a guess.',
+                gradient: 'linear-gradient(135deg, #E8F0F5, #E0E8F0)',
+                hasImage: true,
+                imagePlaceholder: 'Lead Evaluation',
+                imageSrc: '../images/analysis.png',
+            },
+            {
+                id: 7,
+                headline: 'The same person can be:\nHot in one questionnaire.\nCold in another.',
+                subline: 'By design.',
+                gradient: 'linear-gradient(135deg, #E8F7F5, #D4F1ED)',
+                hasImage: false,
+            },
+            {
+                id: 8,
+                headline: 'The system builds the questionnaire for you.',
+                subline: 'Based on:\n- your business\n- your goal\n- your channel\n\nYou can add, remove, or edit questions.\nThis is diagnosis, not a form.',
+                gradient: 'linear-gradient(135deg, #EEF1FA, #E8F7F5)',
+                hasImage: true,
+                imagePlaceholder: 'Questionnaire Builder',
+                imageSrc: '../images/ask.png',
+            },
+            {
+                id: 9,
+                headline: 'The same question\nis asked differently\non different channels.',
+                subline: 'Website.\nCampaigns.\nWebinars.\nConferences.',
+                gradient: 'linear-gradient(135deg, #E8F7F5, #D4F1ED)',
+                hasImage: true,
+                imagePlaceholder: 'Multi-Channel',
+                imageSrc: '../images/ask.png',
+            },
+            {
+                id: 10,
+                headline: 'Each lead receives a smart response.',
+                subline: 'The system learns:\n- your tone\n- your style\n- how you would respond\n\nIt looks human.\nBecause it is contextual.',
+                gradient: 'linear-gradient(135deg, #F3EFFF, #E8F0F5)',
+                hasImage: true,
+                imagePlaceholder: 'Smart Response',
+                imageSrc: '../images/answer.png',
+            },
+            {
                 id: 11,
-                headline: 'תדגימו את הוובינר / הכנס הבא שלכם',
-                subline: 'זה לא כלי שיווק — זה בינה להחלטות\n\nציון חכם מבוסס על תשובות מפתח\nלא "תחושת בטן" — נתונים אמיתיים\nיודעים WHO שווה — יודעים מתי לחזור',
-                cta: 'התנסות חינם — לאירוע הבא שלך',
-                ctaSubline: 'בלי התחייבות — פשוט לראות את זה עובד\nהתנסות חינמית לאירוע אמיתי — לא דמו',
-                highlight: 'לאירוע הבא שלך',
+                headline: 'Not a generic "thank you".',
+                subline: 'A response that moves\nthe right next action.',
+                gradient: 'linear-gradient(135deg, #E8F7F5, #D4F1ED)',
+                hasImage: true,
+                imagePlaceholder: 'Contextual Response',
+                imageSrc: '../images/answer.png',
+            },
+            {
+                id: 12,
+                headline: 'Hot leads arrive immediately.',
+                subline: 'With:\n- full lead details\n- a smart summary\n- what the lead wants\n- why they reached out\n\nYou are prepared to sell\nbefore the call starts.',
+                gradient: 'linear-gradient(135deg, #E8F0F5, #E0E8F0)',
+                hasImage: true,
+                imagePlaceholder: 'Hot Lead Notification',
+                imageSrc: '../images/get-leads.png',
+            },
+            {
+                id: 13,
+                headline: 'No waiting.\nNo queue.\nNo lost momentum.',
+                subline: '',
+                gradient: 'linear-gradient(135deg, #FFF5E8, #FFE8D6)',
+                hasImage: false,
+            },
+            {
+                id: 14,
+                headline: 'Cross-channel intelligence.',
+                subline: 'Google.\nMeta.\nCampaigns.\nLanding pages.\nWebinars.\nConferences.\n\nNot how many leads.\nWhich leads matter.',
+                gradient: 'linear-gradient(135deg, #E8F7F5, #D4F1ED)',
+                hasImage: false,
+            },
+            {
+                id: 15,
+                headline: 'During events and webinars,\nyou already know:\n- who is truly interested\n- who engaged\n- who dropped off',
+                subline: 'You leave with hot leads.\nNot blind lists.',
+                gradient: 'linear-gradient(135deg, #EEF1FA, #E8F7F5)',
+                hasImage: false,
+            },
+            {
+                id: 16,
+                headline: 'Advanced analytics.',
+                subline: 'Answer analysis.\nDrop-off points.\nAudience quality.\nGap between marketing and reality.\n\nInsights, not raw data.',
+                gradient: 'linear-gradient(135deg, #F3EFFF, #E8F0F5)',
+                hasImage: true,
+                imagePlaceholder: 'Analytics Dashboard',
+                imageSrc: '../images/analysis.png',
+            },
+            {
+                id: 17,
+                headline: 'This is not another CRM.\nAnd not another automation.',
+                subline: 'It is a decision layer\nabove your existing systems.',
+                gradient: 'linear-gradient(135deg, #E8F0F5, #E0E8F0)',
+                hasImage: true,
+                imagePlaceholder: 'Decision Layer',
+                imageSrc: '../images/leads-table.png',
+            },
+            {
+                id: 18,
+                headline: 'No replacement.\nNo disruption.',
+                subline: 'Just a link.\nSetup in minutes.',
+                gradient: 'linear-gradient(135deg, #E8F7F5, #D4F1ED)',
+                hasImage: false,
+            },
+            {
+                id: 19,
+                headline: 'Less noise.\nMore focus.\nManagement clarity.',
+                subline: '',
+                gradient: 'linear-gradient(135deg, #EEF1FA, #E8F7F5)',
+                hasImage: false,
+            },
+            {
+                id: 20,
+                headline: 'We don\'t manage leads.\nWe understand intent\nand decide how to act.',
+                subline: '',
+                gradient: 'linear-gradient(135deg, #F3EFFF, #E8F0F5)',
+                hasImage: false,
+            },
+            {
+                id: 21,
+                headline: 'Want to see it on your business?',
+                subline: '15-minute meeting.\nSee the system.\nFree trial.',
+                cta: 'Schedule a Demo',
+                ctaSubline: 'See it on your business',
                 gradient: 'linear-gradient(135deg, #EEF1FA, #E8F7F5)',
                 hasImage: false,
             },
