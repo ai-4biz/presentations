@@ -38,6 +38,12 @@
 
 ---
 
+## 3a. משרדי פרסום - Founders Final (עדכון טקסט)
+- **קובץ:** `decks/advertising-agencies-founders-final.html`
+- **לינק GitHub Pages:** `https://ai-4biz.github.io/presentations/decks/advertising-agencies-founders-final.html`
+
+---
+
 ## 4. עורכי דין
 - **קובץ:** `decks/lawyers.html`
 - **לינק מקומי (file://):** 
@@ -164,6 +170,7 @@ http://localhost:3000/index.html
 http://localhost:3000/decks/webinars.html
 http://localhost:3000/decks/digital-agencies.html
 http://localhost:3000/decks/advertising-agencies.html
+http://localhost:3000/decks/advertising-agencies-founders-final.html
 http://localhost:3000/decks/lawyers.html
 http://localhost:3000/decks/real-estate.html
 http://localhost:3000/decks/call-centers.html
