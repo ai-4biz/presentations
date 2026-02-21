@@ -44,6 +44,12 @@
 
 ---
 
+## 3b. אמזון
+- **קובץ:** `decks/amazon.html`
+- **לינק GitHub Pages:** `https://ai-4biz.github.io/presentations/decks/amazon.html`
+
+---
+
 ## 4. עורכי דין
 - **קובץ:** `decks/lawyers.html`
 - **לינק מקומי (file://):** 
@@ -171,6 +177,7 @@ http://localhost:3000/decks/webinars.html
 http://localhost:3000/decks/digital-agencies.html
 http://localhost:3000/decks/advertising-agencies.html
 http://localhost:3000/decks/advertising-agencies-founders-final.html
+http://localhost:3000/decks/amazon.html
 http://localhost:3000/decks/lawyers.html
 http://localhost:3000/decks/real-estate.html
 http://localhost:3000/decks/call-centers.html
@@ -192,6 +199,7 @@ file:///C:/dev/production/Presentation%20for%20advertising%20agencies/index.html
 file:///C:/dev/production/Presentation%20for%20advertising%20agencies/decks/webinars.html
 file:///C:/dev/production/Presentation%20for%20advertising%20agencies/decks/digital-agencies.html
 file:///C:/dev/production/Presentation%20for%20advertising%20agencies/decks/advertising-agencies.html
+file:///C:/dev/production/Presentation%20for%20advertising%20agencies/decks/amazon.html
 file:///C:/dev/production/Presentation%20for%20advertising%20agencies/decks/lawyers.html
 file:///C:/dev/production/Presentation%20for%20advertising%20agencies/decks/real-estate.html
 file:///C:/dev/production/Presentation%20for%20advertising%20agencies/decks/call-centers.html
